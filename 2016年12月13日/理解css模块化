@@ -1,1 +1,49 @@
 webpack实现了css模块化，而现在对webpack谈不上十分了解，自然无从更深入谈css模块化，先初步了解css模块化
+
+之前接触过react-native，
+react-native与css模块化有一定联系。
+
+rn的css是由js写成。
+
+demo:
+
+class Test extends Component {
+	render (
+		<View style={styles.a}>
+			<Text>DYS</Text>
+		</View>
+	)
+}
+
+var styles = StyleSheet.create({
+	a: {
+		backgroundColor: red;
+	},
+});
+
+其实现在我不怎么清楚模块化的优点，因为没有运用，现在只停留在理论而已。
+
+首先webpack定义css模块化
+
+loaders: [
+	{
+		test: /\.css$/,
+		loader: "style!css?modules"
+	}
+]
+
+
+一个css文件 test.css
+.a { ... }
+.b { ... }
+
+之后在js中import
+
+import styles from './test.css';
+
+xx.innerHTML = `<div class=${styles.a}>test</div>`
+
+便可
+
+
+初步认知
