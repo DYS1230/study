@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+</head>
+<body>
+<div id="a">a</div>
+</body>
+<script>
+	var customEvent = {
+		_listener: {},
+		addEvent: function (type, callback) {
+			if (typeof this._listener[type] == 'undefined') {
+				this._listener[type] = [];
+			}
+			if (typeof callback == 'function') {
+				this._listener[type].push(callback);
+			}
+			return this;
+		},
+		removeEvent: function (type) {
+			if (typeof type == 'string') {
+				this._listener[type] = [];
+			}
+		},
+		dispatchEvent: function (type) {
+			var listListener = this._listener[type];
+			for (var i = 0; i < listListener.length; i++) {
+				listListener[i]({type: type});
+			}
+		}
+	}
+	customEvent.addEvent('test', function () {
+		console.log(arguments);
+		console.log('success');
+	})
+	customEvent.dispatchEvent('test');
+
+	function classCustomEvent() {
+		this._listener = {};
+	}
+	classCustomEvent.prototype.addEvent = function (type, callback) {
+		if (typeof this._listener[type] == 'undefined') {
+			this._listener[type] = [];
+		}
+		if (typeof callback == 'function') {
+			this._listener[type].push(callback);
+		}
+		return this;
+	};
+	classCustomEvent.prototype.removeEvent = function (type) {
+		if (typeof type == 'string') {
+			this._listener[type] = [];
+		}
+	}
+	classCustomEvent.prototype.dispatchEvent = function (type) {
+		var listListener = this._listener[type];
+		for (var i = 0; i < listListener.length; i++) {
+			listListener[i]({type: type});
+			listListener[i].call(this);
+		}
+	}
+	var a = {};
+	a.b = new classCustomEvent();
+	console.log(a.b)
+	a.b.addEvent('testClass', function () {
+		console.log('class success');
+	})
+	a.b.dispatchEvent('testClass');
+</script>
+</html>

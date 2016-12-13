@@ -1,0 +1,54 @@
+本质上，Object.create 对传入其中的对象进行了一次浅复制。
+
+var x = {
+  name: 'a',
+  friend: [2,3]
+}
+
+var y = Object.create(x);
+
+y.name = 'b';
+y.friend.push(5);
+
+console.log(x);    //Object { name="a",  friend=[2, 3, 5] }
+
+
+Object.create原生
+
+Object.create = function (o) {
+    function F() {}
+    F.prototype = o;
+    return new F();
+};
+
+可以知道
+
+F.prototype = {
+  name: 'a',
+  friend: [2,3]
+}
+
+于是F的prototype指向的是o
+
+而且friend属性变成了一个原型属性，那所有的实例都共享这个属性，而这个属性又等于o的friend，就像 var a = {}; b = a; a和b是同一个地址
+
+之后我们来看高程的例子
+
+
+function a() {
+	this.colors = ['red', 'black'];
+}
+
+fucntion b() {
+	
+}
+
+b.prototype = new a();
+
+var instance1 = new b();
+b.colors.push('green')l
+console.log('instance1.color'); // red, black, green
+var instance2 = new b();
+console.log(instance2.colors); // red, black, green
+
+当b通过原型链继承了a后，b.prototype就变成了a的一个实例，因此他拥有了一个他自己的colors属性，就跟创建了一个b.prototype.colors属性一样，于是结果b的所有实例都会共享这一个colors属性（因为是原型链上面的）

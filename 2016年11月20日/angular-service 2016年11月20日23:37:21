@@ -1,0 +1,41 @@
+ angularjs的service数据是公用的
+
+ demo: 
+
+<!doctype html>
+<html ng-app="myApp">
+<head>
+	<script src="./../angular.js"></script>
+	<script src="./js/controller.js"></script>
+<body>
+	<div ng-controller="a" ng-click="as()">aaaa---{{ac}}</div>
+	<div ng-controller="b" ng-click="bs()">bbbb---{{bc}}</div>
+</body>
+</html>
+
+var app = angular.module('myApp', []);
+app.controller('a', ['$scope', 'mS', function ($scope, mS) {
+	$scope.ac = 'f';
+	$scope.as = function () {
+		console.log('as');
+		mS.setName('DYS');
+		mS.getName();
+	};
+}]);
+app.controller('b', ['$scope', 'mS', function ($scope, mS) {
+	$scope.bc = 'u';
+	$scope.bs = function () {
+		console.log('bs');
+		mS.getName();
+	};
+}]);
+
+app.service('mS', function () {
+	var x = '';
+	this.setName = function (name) {
+		x = name;
+	}
+	this.getName = function () {
+		console.log('x: ', x);
+	}
+});

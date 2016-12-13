@@ -1,0 +1,13 @@
+css3的scale是从中间开始方法
+
+<div style="height: 50px; width: 50px; background: yellow;">123</div>
+<div style="height: 50px; width: 50px; background: red;">123</div>
+
+
+比较两个div，并在第二个div添加 transform: scle(1);
+
+改变数字大小
+
+keyframe
+
+动画结束以后，会立即从结束状态跳回到起始状态。如果想让动画保持在结束状态，需要使用animation-fill-mode属性。

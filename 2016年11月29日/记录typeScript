@@ -1,0 +1,276 @@
+enum Color {Red = 1, Green = 9, Blue};
+
+表示的是形成一个对象
+
+Color = { '1': 'Red', '9': 'Green', '10': 'Blue', Red: 1, Green: 9, Blue: 10 }
+
+let notSure: any = 4;
+
+any 任意类型
+
+let x: number[] = [1, 2, 3];
+
+let y: [string, number];
+
+let z: any[] = [1, true, "free"];
+
+空值
+function warnUser(): void {
+	alert("This is my warning message");
+}
+
+let unusable: void = undefined;
+let unusable: void = null;
+
+也可以
+let u: undefined = undefined;
+let n: null = null;
+
+当确切知道数据类型时
+let someValue: any = "this is a string";
+let strLength: number = (<string>someValue).length;
+
+let someValue: any = "this is a string";
+let strLength: number = (someValue as string).length;
+
+接口
+interface LabelledValue {
+  label: string;
+}
+
+function printLabel(labelledObj: LabelledValue) {
+  console.log(labelledObj.label);
+}
+
+let myObj = {size: 10, label: "Size 10 Object"};
+printLabel(myObj);
+
+?:    可选属性
+interface SquareConfig {
+  color?: string;
+  width?: number;
+}
+
+readonly 只读属性
+interface Point {
+    readonly x: number;
+    readonly y: number;
+}
+
+let p1: Point = { x: 10, y: 20 };
+p1.x = 5; // error!
+
+
+interface SquareConfig {
+    color?: string;
+    width?: number;
+}
+
+function createSquare(config: SquareConfig): { color: string; area: number } {
+    // ...
+}
+
+
+let mySquare = createSquare({ colour: "red", width: 100 });
+
+注意传入createSquare的参数拼写为*colour*而不是color。 在JavaScript里，这会默默地失败。
+
+你可能会争辩这个程序已经正确地类型化了，因为width属性是兼容的，不存在color属性，而且额外的colour属性是无意义的。
+
+然而，TypeScript会认为这段代码可能存在bug。 对象字面量会被特殊对待而且会经过 额外属性检查，当将它们赋值给变量或作为参数传递的时候。 如果一个对象字面量存在任何“目标类型”不包含的属性时，你会得到一个错误。
+
+// error: 'colour' not expected in type 'SquareConfig'
+let mySquare = createSquare({ colour: "red", width: 100 });
+
+绕开这些检查非常简单。 最简便的方法是使用类型断言：
+
+let mySquare = createSquare({ width: 100, opacity: 0.5 } as SquareConfig);
+
+然而，最佳的方式是能够添加一个字符串索引签名，前提是你能够确定这个对象可能具有某些做为特殊用途使用的额外属性。 如果 SquareConfig带有上面定义的类型的color和width属性，并且还会带有任意数量的其它属性，那么我们可以这样定义它：
+
+interface SquareConfig {
+    color?: string;
+    width?: number;
+    [propName: string]: any;
+}
+
+我们稍后会讲到索引签名，但在这我们要表示的是SquareConfig可以有任意数量的属性，并且只要它们不是color和width，那么就无所谓它们的类型是什么。
+
+
+函数接口
+interface SearchFunc {
+  (source: string, subString: string): boolean;
+}
+let mySearch: SearchFunc;
+这里的 source 与 subString 不需要和 接口的名字一模一样
+mySearch = function(source: string, subString: string) {
+  let result = source.search(subString);
+  if (result == -1) {
+    return false;
+  }
+  else {
+    return true;
+  }
+}
+
+
+构造函数也可以被标记成protected。 这意味着这个类不能在包含它的类外被实例化，但是能被继承
+
+class Person {
+    protected name: string;
+    protected constructor(theName: string) { this.name = theName; }
+}
+
+// Employee can extend Person
+class Employee extends Person {
+    private department: string;
+
+    constructor(name: string, department: string) {
+        super(name);
+        this.department = department;
+    }
+
+    public getElevatorPitch() {
+        return `Hello, my name is ${this.name} and I work in ${this.department}.`;
+    }
+}
+
+let howard = new Employee("Howard", "Sales");
+let john = new Person("John"); // Error: The 'Person' constructor is protected
+
+
+静态属性
+
+静态属性
+
+到目前为止，我们只讨论了类的实例成员，
+那些仅当类被实例化的时候才会被初始化的属性。 
+我们也可以创建类的静态成员，这些属性存在于类本身上面而不是类的实例上。 
+在这个例子里，我们使用 static定义origin，因为它是所有网格都会用到的属性。 
+每个实例想要访问这个属性的时候，都要在 origin前面加上类名。 
+如同在实例属性上使用 this.前缀来访问属性一样，这里我们使用Grid.
+来访问静态属性。
+
+class Grid {
+    static origin = {x: 0, y: 0};
+    calculateDistanceFromOrigin(point: {x: number; y: number;}) {
+        let xDist = (point.x - Grid.origin.x);
+        let yDist = (point.y - Grid.origin.y);
+        return Math.sqrt(xDist * xDist + yDist * yDist) / this.scale;
+    }
+    constructor (public scale: number) { }
+}
+
+其实静态属性就是直接
+Grid.origin = { x: 0, y: 0 };
+
+
+抽象类
+
+demo:
+
+abstract class Department {
+
+    constructor(public name: string) {
+    }
+
+    printName(): void {
+        console.log('Department name: ' + this.name);
+    }
+
+    abstract printMeeting(): void; // 必须在派生类中实现
+}
+
+class AccountingDepartment extends Department {
+
+    constructor() {
+        super('Accounting and Auditing'); // constructors in derived classes must call super()
+    }
+
+    printMeeting(): void {
+        console.log('The Accounting Department meets each Monday at 10am.');
+    }
+
+    generateReports(): void {
+        console.log('Generating accounting reports...');
+    }
+}
+
+let department: Department; // ok to create a reference to an abstract type
+department = new Department(); // error: cannot create an instance of an abstract class
+department = new AccountingDepartment(); // ok to create and assign a non-abstract subclass
+department.printName();
+department.printMeeting();
+department.generateReports(); // error: method doesn't exist on declared abstract type
+
+抽象类中的抽象方法不包含具体实现并且必须在派生类中实现
+
+
+
+let myAdd: (baseValue:number, increment:number) => number =
+    function(x: number, y: number): number { return x + y; };
+
+只要参数类型是匹配的，那么就认为它是有效的函数类型，而不在乎参数名是否正确。
+
+第二部分是返回值类型。 对于返回值，我们在函数和返回值类型之前使用( =>)符号，
+使之清晰明了。 如之前提到的，返回值类型是函数类型的必要部分，
+如果函数没有返回任何值，你也必须指定返回值类型为 void而不能留空。
+
+总之此处 => 就代表返回的类型
+
+
+传多个参数
+function buildName(firstName: string, ...restOfName: string[]) {
+  return firstName + " " + restOfName.join(" ");
+}
+
+let employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");
+
+
+函数重载
+
+
+function pickCard(x: {suit: string; card: number; }[]): number;
+function pickCard(x: number): {suit: string; card: number; };
+function pickCard(x): any {
+    // Check to see if we're working with an object/array
+    // if so, they gave us the deck and we'll pick the card
+    if (typeof x == "object") {
+        let pickedCard = Math.floor(Math.random() * x.length);
+        return pickedCard;
+    }
+    // Otherwise just let them pick the card
+    else if (typeof x == "number") {
+        let pickedSuit = Math.floor(x / 13);
+        return { suit: suits[pickedSuit], card: x % 13 };
+    }
+}
+
+
+function identity<T>(arg: T): T {
+    return arg;
+}
+
+我们给identity添加了类型变量T。 T帮助我们捕获用户传入的类型（比如：number），
+之后我们就可以使用这个类型。 之后我们再次使用了 T当做返回值类型。
+现在我们可以知道参数类型与返回值类型是相同的了。
+ 这允许我们跟踪函数里使用的类型的信息。 
+
+ 此处表示arg类型与返回类型一致
+
+用法
+
+ let output = identity<string>("myString");
+ let output = identity("myString");
+
+
+多个参数
+ function loggingIdentity<T>(arg: T[]): T[] {
+    console.log(arg.length);  // Array has a .length, so no more error
+    return arg;
+}
+
+或
+function identity(arg: number | string): void {
+    console.log(1);
+}

@@ -1,0 +1,15 @@
+手机页面滑动加载
+
+难点，如何缓存页面，及变化的页面index与滑动的index不一致，不过只是简单的逻辑，关键是看到
+
+var element = angular.element('<div ng-include="...."></div>'>
+var cScope = $scope.$new(true);
+cScope的xxx属性 = $scope的xxx属性
+$compile(element)(cScope);
+最后在xxx.html(element);
+
+注意点在加载时的scope不同，
+如果单纯的$compile(....)($Scope);
+得到的页面是变化的，也就无从缓存上一个页面的数据了
+
+其他没什么，明日补充细节

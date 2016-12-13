@@ -1,0 +1,54 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+
+
+该demo是babel中的extend
+
+var __extends = (this && this.__extends) || function (d, b) 
+
+假如this存在且存在this.extend，则
+__extends = this.__extends。
+
+类似写法有 callback && callback()
+
+也有这样;
+
+var a = 5;
+
+var c = 55;
+
+var b = a && c;
+
+最后 b 为 55;
+
+for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+
+如果 p 属性是 b 自身的而不是继承的，则 d[p] = b[p];
+
+function __() { this.constructor = d;
+
+__() 的 constructor 为 d
+
+
+d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+
+
+先看b是否为null，是的话 d.prototype = Object.create(b);
+
+之后先来看 Object.create(null)
+
+Object.create(null) 创建了一个空对象，没有任何原型的对象，也就是连基本的toString属性都没，完全空的对象。
+
+继续
+
+如果不为null，
+
+则 d.prototype = (__.prototype = b.prototype, new __());
+
+这句话先执行 __.prototype = b.prototype，
+
+之后再执行 d.prototype = new __();
+

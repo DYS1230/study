@@ -1,0 +1,15 @@
+Object.assign 复制
+
+此函数返回目标对象。仅可枚举自有属性从源对象复制到目标对象，注意，仅仅是浅复制。
+
+自有属性 与继承属性 ： Javascript对象具有“自有属性”（own property），也有一些属性是从原型对象继承而来的
+
+var first = {  lastName: '123'};
+var last = { lastName: "Smith", a: {x: 1, y: 2} };
+
+var person = Object.assign(first, last);
+console.log(person);
+
+person.a.x = 20;
+console.log(person);
+console.log(last)

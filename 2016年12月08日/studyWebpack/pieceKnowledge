@@ -1,0 +1,32 @@
+path.resolve
+
+
+// 格式
+path.resolve([from ...], to)
+
+// 实例
+path.resolve('foo/bar', '/tmp/file/', '..', 'a/../subfile')
+
+$ cd foo/bar
+$ cd /tmp/file/
+$ cd ..
+$ cd a/../subfile
+$ pwd
+
+如果解析的不是绝对路径，path.resolve()会将当前工作目录加到解析结果的前面。例如：
+
+path.resolve('/foo/bar', './baz')
+// 输出结果为
+'/foo/bar/baz'
+
+path.resolve('/foo/bar', '/tmp/file/')
+// 输出结果为
+'/tmp/file'
+
+path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif')
+// 当前的工作路径是 /home/itbilu/node，则输出结果为
+'/home/itbilu/node/wwwroot/static_files/gif/image.gif'
+
+
+
+__dirname变量表示当前模块文件所在目录的完整绝对路径

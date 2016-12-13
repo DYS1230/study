@@ -1,0 +1,111 @@
+在《javascript web 富应用开发》此本书看到
+
+var Class = function () {
+	var klass = function () {
+		this.init.apply(this, arguments);
+	}
+	klass.prototype.init = function () {};
+	return klass;
+}
+var Person = new Class();
+Person.prototype.init = function () {
+
+};
+
+var person = new Person();
+
+尝试在Person.prototype.init中console一句话，发现被调用，说明person继承了Person的init。
+而在klass.prototype.init中console一句话，并注释Person.prototype，发现klass的init被调用，此处为原型链调用，
+person继承了klass的init。
+
+
+
+Class为 寄生构造函数模式
+
+此前其实一直也没见过寄生构造函数模式的调用，此次才第一次看见，故思索。
+
+首先，给个寄生构造函数模式
+demo:
+	function Person(name, age) {
+		var o = new Object();
+		o.name = name;
+		o.age = age;
+		o.sayName = function () {
+			console.log(this.name);
+		}
+		return o;
+	}
+	var friend = new Person('DYS', 21);
+	friend.sayName();
+
+寄生构造函数就和工厂模式差不多，但是在创建时用new Person，工厂模式则是直接Person。
+
+对此，疑惑new干了什么，
+之后尝试
+var x = function () {
+  	var a = 1;
+  	var b = 'string';
+  	var c = [3, 4, 5];
+  	var d = {m: 123, n: 456}
+  	var e = function () {};
+  	return a;
+}
+var y = new x();
+console.log(y)
+再分别尝试return b c d e;
+结果是 x{}  x{}  [3, 4, 5]  {m: 123, n: 456}
+网上搜索new干了
+
+    创建一个新的对象，这个对象的类型是object；
+    设置这个新的对象的内部、可访问性和[[prototype]]属性为构造函数（指prototype.construtor所指向的构造函数）中设置的
+    执行构造函数，当this关键字被提及的时候，使用新创建的对象的属性；
+    返回新创建的对象（除非构造方法中返回的是‘无原型’）。
+
+结合思考，当return为对象类型（非单指object），创建对象，为其他时，仅是变成了undefined
+return重写了构造函数放回的值，没有return时，返回的是一个空的object
+
+再考虑寄生构造函数模式的作用，在红宝书上说明了
+
+这个模式可以在特殊情况下用来为对象创建构造函数。例如创建一个具有额外方法的特殊数组。
+由于不能直接修改Array构造函数，因此可以用这个模式。
+
+function SpecialArray() {
+	var values = new Array();
+	values.push.apply(values, arguments);
+	values.toPipedString = function () {
+		return this.join('|');
+	};
+	return values;
+}
+var colors = new SpecialArray('red', 'blue', 'green');
+console.log(colors.toPipedString);
+
+但关于寄生构造函数模式，有一点，返回的对象与构造函数或者与构造函数的原型属性之间没有关系，也就是说
+构造函数返回的对象与在构造函数外部创建的对象没有什么不同。为此，不能依赖instanceof操作符。为此，
+在可以使用其他模式的情况下，不使用这种模式。
+
+demo:
+
+function a() {
+	return {};
+};
+var b = new a();
+console.log(b instanceof a);
+
+返回为false。不过这种还有个问题，避免不了工厂模式的一个问题
+
+用回上面的demo: 
+	function Person(name, age) {
+		var o = new Object();
+		o.name = name;
+		o.age = age;
+		o.sayName = function () {
+			console.log(this.name);
+		}
+		return o;
+	}
+	var friend_1 = new Person('DYS', 21);
+	var friend_2 = new Person('SYD', 12);
+	console.log(friend_1.sayName === friend_2.sayName); //false
+
+即每次都会新创建新属性新方法，而不是可以共用

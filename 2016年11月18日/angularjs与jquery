@@ -1,0 +1,1 @@
+如果angular使用了jquery，则angular.element会变成jQuery

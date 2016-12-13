@@ -1,0 +1,100 @@
+demo:
+
+var a = {
+	m: 5,
+	n: function () {
+		console.log(this.m);
+	}
+};
+
+var b = {};
+b.m = 10;
+b.n = a.n;
+b.n();	//10，说明this变化了
+
+//原生js实现extend
+//这是jquery的
+//deep为boolean值，说明是否深复制，target为要拓展的对象，后面参数为要赋予target的对象
+//extend实现复制 object上的继承属性和自身可枚举属性，也就是var .. in ..
+jQuery.extend( [deep ], target, object1 [, objectN ] );
+
+//说明boolean
+var a = {};
+var b = {x: {m: 1, n: 2}};
+$.extend(a, b);
+console.log(a.x); // Object { m=1,  n=2}
+console.log(b.x); //  Object { m=1,  n=2}
+b.x.m = 10;
+console.log(a.x); //  Object { m=10,  n=2}
+console.log(b.x); //  Object { m=10,  n=2}
+//看出a.x.m跟着变了
+
+//设为true时
+var a = {};
+var b = {x: {m: 1, n: 2}};
+$.extend(true, a, b);
+console.log(a.x); // Object { m=1,  n=2}
+console.log(b.x); //  Object { m=1,  n=2}
+b.x.m = 10;
+console.log(a.x); //  Object { m=1,  n=2}
+console.log(b.x); //  Object { m=10,  n=2}
+//a.x.m没有跟着变
+
+
+(function (global) {
+	var isObj = function (obj) {
+		return Object.prototype.toString.call(obj) == '[object Object]';
+	}
+	var isFun = function (obj) {
+		return Object.prototype.toString.call(obj) == '[object Function]';
+	}
+	var isArr = function (obj) {
+		return Object.prototype.toString.call(obj) == '[object Array]';
+	}
+	var isMeanObj = function (obj) {
+		return isObj(obj) || isFun(obj) || isArr(obj);
+	}
+	var extend = function() {
+		var i = 1;
+		var target = arguments[0];
+		var length = arguments.length;
+		if (typeof target == 'boolean') {
+			deep = target;
+			target = arguments[i];
+			i += 1;
+		}
+		if (!isMeanObj(target)) {
+			console.log('需要拓展的参数非对象');
+			return;
+		}
+		for (; i < length; i++) {
+			var source = arguments[i];
+			if (source != null) {
+				for (var name in source) {
+					var copy = source[name];
+					var src = target[name];
+					var clone;
+					if (target === copy) {
+						console.log('需要拓展的属性和需要拓展的对象相同，跳过');
+						continue;
+					}
+					if (copy === undefined) {
+						conosle.log('需要拓展的属性为undefined，跳过');
+					}
+					if (deep && (isObj(copy) || isArr(copy))) {
+						if (isArr) {
+							clone = [];
+						} else {
+							clone = {};
+						}
+						target[name] = extend(deep, clone, copy);
+					} else {
+						target[name] = copy;
+					}
+				}
+			}
+		}
+		return target;
+	}
+	global.extend = extend;
+})(window)
