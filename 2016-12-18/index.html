@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>dys</title>
+</head>
+<body>
+	<input type="file" multiple="true" id="inputFile"/>
+	<button id="button">click me</button>
+</body>
+<script>
+	var input = document.querySelector('#inputFile');
+	var button = document.querySelector('#button');
+	button.onclick = function () {
+		console.log(input);
+		console.log(input.files); //可以看到输入的文件对象，类型为类数组对象
+		var formData = new FormData();
+		for (var i = 0; i < input.files.length; i++) {
+			formData.append('file', input.files[i]); // 第一个参数相当于属性name
+		}
+		console.log(formData); //数据其实传进去了，但是控制台只能看到formData原型，看不到传入的数据
+	};
+</script>
+</html>

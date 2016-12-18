@@ -1,0 +1,34 @@
+之前虽然遇到过上传图片，但是是直接用form做的，把enctype设为multipart/form-data，就可以了
+
+用html5的formdata
+
+示例
+
+用jquery ajax
+
+var formData = new FormData();
+formData.append('file', input.files[0]);
+
+$.ajax({
+	url: './testFileUpload',
+	method: 'POST',
+	data: formData,
+	// 告诉jQuery不要去处理发送的数据，如果不设置，试了在Nodejs输出post的内容，为乱码
+	contentType : false,
+ 	// 告诉jQuery不要去设置Content-Type请求头，如果不设置，jquery报错，Illegal invocation，
+ 	// 因为传的data为对象而不是值，所以报了错
+	processData : false,
+	success: function (data) {
+		console.log(data);
+	}
+});
+
+
+用fetch
+
+fetch('./testFileUpload', {
+	method: 'POST',
+	body: formData,
+}).then(function (data) {
+	console.log(data);
+});
