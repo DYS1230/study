@@ -13,6 +13,14 @@
 
 待补充（webpack的一些个人摸索的知识）
 
+devtool 生成source map
+
+source map就是一个信息文件，里面储存着位置信息。也就是说，转换后的代码的每一个位置，所对应的转换前的位置。用于debug。webpack把代码打包了，如果不用devtool，那console信息和显示错误信息时会直接显示打包后的文件而不是原本自己写的文件。
+
+entry 定义接口文件，也就是想要打包那个文件，就定义在此。key信息为一字符串，改信息会放入chunk里。
+output 定义生成的文件。
+external 定义全局变量，需要在Html内引用先。比如react，需要在html里添加<script src="react.js"></script>先，之后在js里require('react') 或 import React from 'react' 时，webpack就不会把react顺便打包，生成一个包含react的output，打包文件。
+
 
 再说react，这个其实没什么说的，之前接触过rn，还写了个2048，虽说现在再让我写似乎还是挺困难，因为基本忘了，但是对于react的思想还是保留在脑里面了，所以相当于重新接触一遍，不过这次是开始深入接触，后期主要需要考虑
 react-router和redux，对路由自己同样没有什么接触，redux更是从零开始，这是后期的攻克点。
