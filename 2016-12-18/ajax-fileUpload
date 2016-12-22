@@ -30,5 +30,7 @@ fetch('./testFileUpload', {
 	method: 'POST',
 	body: formData,
 }).then(function (data) {
+	return data.text()
+}).then(function (data) {
 	console.log(data);
 });
