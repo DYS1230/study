@@ -100,12 +100,12 @@ module.exports = {
 			},
 		//	{ test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
 			{
-				test: /\.css$/,
+				test: /\.less$/,
 				//loader: ExtractTextPlugin.extract('css?modules'),
 				// query: {
 				// 	modules: true
 				// }
-				loader: ExtractTextPlugin.extract("style", "css?modules")
+				loader: ExtractTextPlugin.extract("style", "css?modules!less")
 			}
 		]
 	},

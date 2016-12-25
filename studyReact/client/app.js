@@ -113,7 +113,7 @@ import React from 'react';
 import {render} from 'react-dom';
 
 
-import styles from './about.css'
+import styles from './about.less'
 
 console.log(styles);
 
