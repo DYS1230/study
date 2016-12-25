@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>dys</title>
+	<link rel="stylesheet" type="text/css" href="./public/css/app.css">
 
-	<title>hello</title>
 </head>
-<body id="container">
-1211311111
-<img src="favicon.ico" /> <!-- 资源在public文件夹里面 -->
+<body>
+<div id="container"></div>
 </body>
-<script>
-	console.log(121212);
- 
-</script>
+<script src="./public/libs/react/react.js"></script>
+<script src="./public/libs/react/react-dom.js"></script>
+<!-- 要跟webpack的output里面的publicPath一致，当publicPath未定义时则直接类似common.js这样就行 -->
+<script src="./public/js/common.js"></script>
+<script src="./public/js/app.js"></script>
 </html>

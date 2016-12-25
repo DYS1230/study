@@ -1,0 +1,6 @@
+.test {
+  background: red;
+}
+.test .a {
+  color: red;
+}

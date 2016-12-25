@@ -77,16 +77,17 @@ console.log(clientPath);
 module.exports = {
 	devtool: 'source-map',
 	entry: {
-		hello: path.join(__dirname, '/client/hello.js'),
+		app: path.join(__dirname, '/client/app.js'),
 	},
 	output: {
 		path: path.join(__dirname, '/public/js'),
 		filename: '[name].js',
-		publicPath: '/public/js'
+		publicPath: 'http://localhost:8080/public/js'
 	},
 	externals: {
 		react: 'window.React',
 		'react-dom': 'window.ReactDOM',
+		'react-router': 'window.ReactRouter'
 	},
 	module:{
 		loaders: [
@@ -97,15 +98,20 @@ module.exports = {
 					presets: ['es2015', 'react', 'stage-0']
 				}
 			},
+		//	{ test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract('css')
+				//loader: ExtractTextPlugin.extract('css?modules'),
+				// query: {
+				// 	modules: true
+				// }
+				loader: ExtractTextPlugin.extract("style", "css?modules")
 			}
 		]
 	},
 	plugins: [
 		commonsPlugin,
-		new ExtractTextPlugin('style/[name].css'),
+		new ExtractTextPlugin('../css/[name].css', {publicPath: 'http://localhost:8080/public/css'}),
 		new webpack.HotModuleReplacementPlugin()
 
 	],
@@ -114,11 +120,12 @@ module.exports = {
 		hot: true,
 		inline: true,
 		process: true,
-	        //其实很简单的，只要配置这个参数就可以了
 		proxy: {
-			'/api/*': {
+			'/api': {
 				target: 'http://localhost:3001',
-				secure: false
+				secure: false,
+				pathRewrite: {'^/api' : ''}, //访问/api时相当于访问http://localhost:3001，没此句则相当于访问http://localhost:3001/api
+				changeOrigin: true
 			}
 		}
 	},
