@@ -18,6 +18,10 @@
 			formData.append('file', input.files[i]); // 第一个参数相当于属性name
 		}
 		console.log(formData); //数据其实传进去了，但是控制台只能看到formData原型，看不到传入的数据
+		
+		// 后期更新 2016年12月26日
+		// 其实可以得到数据，用 formData.get('file')
+
 	};
 </script>
 </html>
