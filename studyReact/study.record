@@ -34,3 +34,18 @@ react-router和redux，对路由自己同样没有什么接触，redux更是从�
 app.use(express.static(__dirname + '/public'));
 
 这是托管静态文件，也就是上文那个xx.html 里面的静态资源若是放在public（本来创这个文件夹就是为了放静态资源，基本就是在这文件夹了），例如script，那写src时直接写那个js文件相对于public的路径，例如在 public/js/a.js 直接写 src="./js/a.js"
+
+
+2016年12月26日23:45:19
+
+确实受到了英语的拖累
+
+一直被webpack的插件卡住，而且没主动去看插件的github，没去翻他的issue，导致卡壳严重。
+
+extract-text-webpack-plugin 看到想使用query写法，发现原来是webpack2版本才可以实现，卡住
+
+之后想怎么热加载时提取出的css文件同样更新，发现是不可能的，其用在生产环境，而不是开发环境。
+
+经过一系列卡壳，对webpack的认知慢慢提升，虽然提升很慢。
+
+后面开始可以尝试初步开发博客。

@@ -12,9 +12,11 @@ webpackJsonp([0,1],[
 	
 	var _reactDom = __webpack_require__(2);
 	
-	var _about = __webpack_require__(3);
+	var _reactRouter = __webpack_require__(3);
 	
-	var _about2 = _interopRequireDefault(_about);
+	var _About = __webpack_require__(4);
+	
+	var _About2 = _interopRequireDefault(_About);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22,81 +24,148 @@ webpackJsonp([0,1],[
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // import React from 'react';
-	// import {render} from 'react-dom';
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	// import { Router, Route, IndexRoute, Link, hashHistory, browserHistory } from 'react-router'
+	var a = 101;
 	
-	// import styles from './about.css';
+	console.log(a);
 	
-	// //import About from './About.js'
+	var Container = function (_React$Component) {
+		_inherits(Container, _React$Component);
 	
-	// let a = 101;
+		function Container(props) {
+			_classCallCheck(this, Container);
 	
-	// console.log(a);
+			return _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).call(this, props));
+			// this.state = {
+			// 	data: ''
+			// };
+		}
 	
-	// class Container extends React.Component {
-	// 	constructor(props) {
-	// 		super(props);
-	// 		// this.state = {
-	// 		// 	data: ''
-	// 		// };
-	// 	}
-	// 	componentWillMount() {
-	// 		console.log('componentWillMount');
-	// 	}
-	// 	componentDidMount() {
-	// 		console.log('componentDidMount');
-	// 		// this.fetchData();
-	// 	}
-	// 	fetchData() {
-	// 		var url = "/api/test";
-	// 		fetch(url)
-	// 			.then( response => response.text() )
-	// 			.then((responseData) => {
-	// 				console.log(responseData);
-	// 				this.setState({
-	// 					data: responseData
-	// 				});
-	// 			});
-	// 	}
-	// 	render () {
-	// 		return (
-	// 			<div className="content">
-	// 				<header>
-	// 					<div>no change content</div>
-	// 					<h1>title</h1>
-	// 					<nav>nav</nav>
-	// 					<div>img</div>
-	// 				</header>
-	// 				<div>
-	// 					<article>
-	// 						change content
-	// 						<Link to="/">home</Link>
-	// 						<Link to="/about">about</Link>
-	// 						<Link to="/test">test</Link>
-	// 						{this.props.children}
-	// 					</article>
-	// 					<aside>aside</aside>
-	// 				</div>
-	// 				<footer>
-	// 					<div>no change content</div>
-	// 				</footer>
-	// 			</div>
-	// 		);
-	// 	}
-	// }
+		_createClass(Container, [{
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				console.log('componentWillMount');
+			}
+		}, {
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				console.log('componentDidMount');
+				// this.fetchData();
+			}
+		}, {
+			key: 'fetchData',
+			value: function fetchData() {
+				var _this2 = this;
 	
-	// class Home extends React.Component {
-	// 	constructor(props) {
-	// 		super(props);
-	// 	}
-	// 	render() {
-	// 		return (
-	// 			<h1>The Home content</h1>
-	// 		)
-	// 	}
-	// }
+				var url = "/api/test";
+				fetch(url).then(function (response) {
+					return response.text();
+				}).then(function (responseData) {
+					console.log(responseData);
+					_this2.setState({
+						data: responseData
+					});
+				});
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					{ className: 'content' },
+					_react2.default.createElement(
+						'header',
+						null,
+						_react2.default.createElement(
+							'div',
+							null,
+							'no change content'
+						),
+						_react2.default.createElement(
+							'h1',
+							null,
+							'title'
+						),
+						_react2.default.createElement(
+							'nav',
+							null,
+							'nav'
+						),
+						_react2.default.createElement(
+							'div',
+							null,
+							'img'
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(
+							'article',
+							null,
+							'change content',
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: '/' },
+								'home'
+							),
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: '/about' },
+								'about'
+							),
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: '/test' },
+								'test'
+							),
+							this.props.children
+						),
+						_react2.default.createElement(
+							'aside',
+							null,
+							'aside'
+						)
+					),
+					_react2.default.createElement(
+						'footer',
+						null,
+						_react2.default.createElement(
+							'div',
+							null,
+							'no change content'
+						)
+					)
+				);
+			}
+		}]);
+	
+		return Container;
+	}(_react2.default.Component);
+	
+	var Home = function (_React$Component2) {
+		_inherits(Home, _React$Component2);
+	
+		function Home(props) {
+			_classCallCheck(this, Home);
+	
+			return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+		}
+	
+		_createClass(Home, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'h1',
+					null,
+					'The Home content'
+				);
+			}
+		}]);
+	
+		return Home;
+	}(_react2.default.Component);
 	
 	// class About extends React.Component {
 	// 	constructor(props) {
@@ -109,55 +178,58 @@ webpackJsonp([0,1],[
 	// 	}
 	// }
 	
-	// class Test extends React.Component {
-	// 	constructor(props) {
-	// 		super(props);
-	// 	}
-	// 	render() {
-	// 		return (
-	// 			<h1>The Test content</h1>
-	// 		)
-	// 	}
-	// }
+	var Test = function (_React$Component3) {
+		_inherits(Test, _React$Component3);
 	
+		function Test(props) {
+			_classCallCheck(this, Test);
 	
-	// render((
-	// 	<Router history={browserHistory}>
-	// 		<Route path="/" component={Container}>
-	// 			<IndexRoute component={Home}/>
-	// 			<Route path="/about" component={About}/>
-	// 			<Route path="/test" component={Test}/>
-	// 		</Route>
-	// 	</Router>
-	// ), document.querySelector('#container'));
-	
-	
-	console.log(_about2.default);
-	
-	var Container = function (_React$Component) {
-		_inherits(Container, _React$Component);
-	
-		function Container() {
-			_classCallCheck(this, Container);
-	
-			return _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).apply(this, arguments));
+			return _possibleConstructorReturn(this, (Test.__proto__ || Object.getPrototypeOf(Test)).call(this, props));
 		}
 	
-		_createClass(Container, [{
+		_createClass(Test, [{
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
-					'div',
-					{ className: _about2.default.test },
-					'test'
+					'h1',
+					null,
+					'The Test content'
 				);
 			}
 		}]);
 	
-		return Container;
+		return Test;
 	}(_react2.default.Component);
 	
-	(0, _reactDom.render)(_react2.default.createElement(Container, null), document.querySelector('#container'));
+	(0, _reactDom.render)(_react2.default.createElement(
+		_reactRouter.Router,
+		{ history: _reactRouter.browserHistory },
+		_react2.default.createElement(
+			_reactRouter.Route,
+			{ path: '/', component: Container },
+			_react2.default.createElement(_reactRouter.IndexRoute, { component: Home }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/about', component: _About2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/test', component: Test })
+		)
+	), document.querySelector('#container'));
+	
+	/*import React from 'react';
+	import {render} from 'react-dom';
+
+
+	import styles from './about.css'
+
+	console.log(styles);
+
+	class Container extends React.Component {
+		render() {
+			return (
+				<div className={styles.test}>test</div>
+			)
+		}
+	}
+
+	render(<Container />, document.querySelector('#container'));*/
 
 /***/ },
 /* 1 */
@@ -175,8 +247,69 @@ webpackJsonp([0,1],[
 /* 3 */
 /***/ function(module, exports) {
 
+	module.exports = window.ReactRouter;
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _about = __webpack_require__(5);
+	
+	var _about2 = _interopRequireDefault(_about);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	console.log(_about2.default);
+	
+	var About = function (_React$Component) {
+		_inherits(About, _React$Component);
+	
+		function About(props) {
+			_classCallCheck(this, About);
+	
+			return _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this, props));
+		}
+	
+		_createClass(About, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'h1',
+					{ className: _about2.default.test },
+					'The About content'
+				);
+			}
+		}]);
+	
+		return About;
+	}(_react2.default.Component);
+	
+	exports.default = About;
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
 	// removed by extract-text-webpack-plugin
-	module.exports = {"search_container":"_1ilP1cxKK4AaoA3jt8ej_0","search_box":"_2P7ibviGbZKUWpnZI_XXgx","search_button":"_2oMRroF57AZXcABqwsflcM","test":"_27bglo9rPJ2_pUQ6lcTCls","a":"_27lGfnKDZzdwGmd1vyCp2S"};
+	module.exports = {"search_container":"_1yXcHCc2vIsU2T4Ouu6ZvV","search_box":"_2YThysAhckloedhzId08Dl","search_button":"jB4yaaxByCJu5Z7wic4R6","test":"_1c46rorvCjy7Ll2IbWD3de"};
 
 /***/ }
 ]);

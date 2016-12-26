@@ -98,19 +98,26 @@ module.exports = {
 					presets: ['es2015', 'react', 'stage-0']
 				}
 			},
-		//	{ test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
 			{
 				test: /\.css$/,
-				loader: 'style-loader!css-loader?modules&sourceMap',
-				//ExtractTextPlugin is only for production
-				//loader: ExtractTextPlugin.extract("style", "css?modules&sourceMap!less")
+			//	loader: ExtractTextPlugin.extract('style', "css!less")
+/*				query: {
+					modules: true
+				}*/
+				loaders: [
+					{
+						loader: ExtractTextPlugin.extract('css'),
+						query: {
+							modules: true,
+						}
+					}
+				]
 			}
 		]
 	},
 	plugins: [
 		commonsPlugin,
-		//ExtractTextPlugin is only for production
-		//new ExtractTextPlugin('../css/[name].css', {publicPath: 'http://localhost:8080/public/css'}),
+		new ExtractTextPlugin('../css/[name].css', {publicPath: 'http://localhost:8080/public/css'}),
 		new webpack.HotModuleReplacementPlugin()
 
 	],
