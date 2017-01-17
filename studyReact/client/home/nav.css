@@ -1,0 +1,51 @@
+.navbar {
+	height: 50px;
+}
+
+.navbarTitle {
+	float: left;
+	line-height: 50px;
+	margin-left: 20px;
+}
+
+.navbarList {
+	float: right;
+	margin-right: 20px;
+}
+
+.navbarItem {
+	display: inline-block;
+	margin: 0 20px
+}
+
+.navbarItem a {
+	display: block;
+	line-height: 50px;
+	padding: 0 10px;
+	font-size: 18px;
+	color: #84572f;
+}
+
+.navbarItem a:hover {
+	color: red;
+}
+
+.navbarItem .active {
+	color: red;
+}
+
+.navbarItem .bottomBorder {
+	width: 100%;
+	background: red;
+	height: 1px;
+	opacity: 0;
+	transition: opacity .3s;
+}
+
+.navbarItem:hover .bottomBorder {
+	opacity: 1;
+}
+
+.fontNormal {
+	font-size: 24px;
+}

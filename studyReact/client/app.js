@@ -5,11 +5,15 @@ import { Router, Route, IndexRoute, Link, hashHistory, browserHistory } from 're
 
 import About from './About.js'
 
+import Container from './home/container';
+
+//import Home from './home/home';
+
 let a = 101;
 
 console.log(a);
 
-class Container extends React.Component {
+/*class Container extends React.Component {
 	constructor(props) {
 		super(props);
 		// this.state = {
@@ -59,7 +63,7 @@ class Container extends React.Component {
 			</div>
 		);
 	}
-}
+}*/
 
 class Home extends React.Component {
 	constructor(props) {

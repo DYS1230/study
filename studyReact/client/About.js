@@ -1,10 +1,9 @@
 import React from 'react';
 
-
 import styles from './about.css'
 
 
-console.log(styles);
+//console.log(styles);
 
 export default class About extends React.Component {
 	constructor(props) {
