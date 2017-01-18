@@ -7,74 +7,22 @@ import About from './About.js'
 
 import Container from './home/container';
 
-//import Home from './home/home';
+import Home from './home/home';
 
 let a = 101;
 
 console.log(a);
 
-/*class Container extends React.Component {
-	constructor(props) {
-		super(props);
-		// this.state = {
-		// 	data: ''
-		// };
-	}
-	componentWillMount() {
-		console.log('componentWillMount');
-	}
-	componentDidMount() {
-		console.log('componentDidMount');
-		// this.fetchData();
-	}
-	fetchData() {
-		var url = "/api/test";
-		fetch(url)
-			.then( response => response.text() )
-			.then((responseData) => {
-				console.log(responseData);
-				this.setState({
-					data: responseData
-				});
-			});
-	}
-	render () {
-		return (
-			<div className="content">
-				<header>
-					<div>no change content</div>
-					<h1>title</h1>
-					<nav>nav</nav>
-					<div>img</div>
-				</header>
-				<div>
-					<article>
-						change content
-						<Link to="/">home</Link>
-						<Link to="/about">about</Link>
-						<Link to="/test">test</Link>
-						{this.props.children}
-					</article>
-					<aside>aside</aside>
-				</div>
-				<footer>
-					<div>no change content</div>
-				</footer>
-			</div>
-		);
-	}
-}*/
-
-class Home extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-	render() {
-		return (
-			<h1>The Home content</h1>
-		)
-	}
-}
+// class Home extends React.Component {
+// 	constructor(props) {
+// 		super(props);
+// 	}
+// 	render() {
+// 		return (
+// 			<h1>The Home content</h1>
+// 		)
+// 	}
+// }
 
 // class About extends React.Component {
 // 	constructor(props) {

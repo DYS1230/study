@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 
-import Nav from './nav'
+import Nav from './nav.js';
 
-import styles from './container.css'
+import styles from './container.css';
 
 export default  class Container extends React.Component {
-	constructor(props, context) {
-		super(props, context);
+	constructor(props) {
+		super(props);
 		// this.state = {
 		// 	data: ''
 		// };
@@ -35,18 +35,12 @@ export default  class Container extends React.Component {
 		return (
 			<div className={styles.content}>
 				<Nav />
-				<div>
-					<article>
-						change content
-						<Link to="/">home</Link>
-						<Link to="/about">about</Link>
-						<Link to="/test">test</Link>
-						{this.props.children}
-					</article>
-					<aside>aside</aside>
-				</div>
-				<footer>
-					<div>no change content</div>
+				<section>
+					{this.props.children}
+				</section>
+				<footer className={styles.footerContainer}>
+					<p>author: DYS</p>
+					<p>Hello, Welcome</p>
 				</footer>
 			</div>
 		);

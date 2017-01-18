@@ -12,9 +12,9 @@ app.use(require('body-parser').urlencoded({ extended: true }));
 //require('./route/route.js')(app);
 
 
-app.get('/', function (req, res) {
-	res.sendFile(path.resolve(__dirname, 'client/hello.html'));
-});
+// app.get('/', function (req, res) {
+// 	res.sendFile(path.resolve(__dirname, 'client/hello.html'));
+// });
 
 app.get('/test', function (req, res) {
 	res.send('hello dys test')
@@ -32,7 +32,7 @@ app.get('/api/test', function (req, res) {
 
 // 为了适应react-router
 app.get('*', function (request, response){
-  response.sendFile(path.resolve(__dirname, 'client', 'hello.html'))
+	response.sendFile(path.resolve(__dirname, 'public', 'a.html'))
 });
 
 app.listen(app.get('port'), function () {

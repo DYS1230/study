@@ -3,18 +3,41 @@ body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, fo
 	padding: 0;
 }
 
+html {
+	min-height: 100%;
+}
+
 body {
 	height: 100%;
-	width: 100%; 
+	width: 100%;
+	background: #F0F0F2;
 }
 
 a {
 	text-decoration: none;
 }
 
-.content {
-	border: 1px solid black;
+section {
 	padding: 0;
 	margin: 0 auto;
-	width: 500px;	
+	width: 960px;	
+}
+
+.content {
+	// padding: 0;
+	// margin: 0 auto;
+	// width: 960px;	
+}
+
+footer {
+	background: white;
+	position: absolute;
+	bottom: 0px;
+	height: 100px;
+	width: 100%;
+	padding: 30px;
+	margin-top: 30px;
+}
+footer p {
+	margin-bottom: 10px;
 }

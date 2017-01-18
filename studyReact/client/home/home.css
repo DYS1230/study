@@ -1,0 +1,12 @@
+.homePage::after {
+	clear: both;
+	content: '';
+	display: block;
+}
+
+.articleContainer {
+	float: left;
+	width: 70%;
+	background: white;
+}
+

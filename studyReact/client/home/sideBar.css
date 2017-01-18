@@ -1,0 +1,19 @@
+.sideBar {
+	float: right;
+	width: 25%;
+}
+
+.sideBar .sideUnit {
+	background: white;
+	margin-bottom: 10px;
+}
+
+.sideBar .sideUnit .sideUnitHeader {
+	color: #333;
+	line-height: 38px;
+}
+
+.sideUnitHeader strong {
+	margin-right: 20px;
+	font-size: 18px;
+}

@@ -82,7 +82,7 @@ module.exports = {
 	output: {
 		path: path.join(__dirname, '/public/js'),
 		filename: '[name].js',
-		publicPath: 'http://localhost:8080/public/js'
+	//	publicPath: 'http://localhost:8080/public/js'
 	},
 	externals: {
 		react: 'window.React',

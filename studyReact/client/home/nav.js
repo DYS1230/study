@@ -1,10 +1,10 @@
 import React from 'react';
-import {render} from 'react-dom';
 
 import {Router, Link, IndexLink} from 'react-router';
 
 import styles from './nav.css';
 
+import img from './../img/2.jpg'
 
 export default class Nav extends React.Component {
 	constructor(props, context) {
@@ -62,6 +62,8 @@ export default class Nav extends React.Component {
 						{node}
 					</ul>
 				</nav>
+				{/*<img src={require('./../img/2.png')} style={{ height: 200, width: 960, objectFit: 'cover'}}/>*/}
+				<img src={img}/>
 			</header>
 		)
 	}
