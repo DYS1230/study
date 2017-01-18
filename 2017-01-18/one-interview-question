@@ -1,0 +1,57 @@
+题目要求，知乎看到的
+
+写一个mul函数，要求如下
+
+console.log(mul(2)(4));  //8
+console.log(mul(2)(4)(6));  //48
+
+
+答案：
+
+function mul(x) {
+	function res(y) {
+		if (arguments.length > 0) {
+			return mul(x * y);
+		} else {
+			return x;
+		}
+	}
+	return res;
+}
+
+function mul(x) {
+	function res(y) {
+		return mul(x * y);
+	}
+	res.valueOf = function () {
+		return x;
+	}
+	return res;
+}
+
+es6写法
+
+function mul(x) {
+	const res = (y) => mul(x * y);
+	res.valueOf = () => x;
+	return res;
+}
+
+
+考察递归
+
+看第一个，mul函数中返回一个函数，最后答案有些不符合，需要 mul(2)(4)(6)() 这样才行
+
+看第二个，将函数的valueOf重新定义，当console.log(res)会隐式调用函数的valueOf，符合要求
+
+可以试下，不过FF显示的和chrome不一样
+
+function a() {
+
+}
+
+a.valueOf = function () {
+	return 'HELLO';
+}
+
+console.log(a);  //HELLO
