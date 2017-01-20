@@ -232,7 +232,7 @@ webpackJsonp([0,1],[
 	
 	var _nav2 = _interopRequireDefault(_nav);
 	
-	var _ = __webpack_require__(9);
+	var _ = __webpack_require__(10);
 	
 	var _2 = _interopRequireDefault(_);
 	
@@ -324,8 +324,7 @@ webpackJsonp([0,1],[
 							node
 						)
 					),
-					_react2.default.createElement('img', { src: _2.default, className: _nav2.default.navImg }),
-					_react2.default.createElement('div', { className: _nav2.default.test })
+					_react2.default.createElement('img', { src: _2.default, className: _nav2.default.navImg })
 				);
 			}
 		}]);
@@ -350,7 +349,7 @@ webpackJsonp([0,1],[
 	var content = __webpack_require__(7);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(10)(content, {});
+	var update = __webpack_require__(9)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -375,13 +374,12 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "header {\n\tpadding: 0;\n\tmargin: 0 auto;\n\twidth: 90%;\n\tmax-width: 960px;\n\tmargin-bottom: 30px;\n}\n\n._1hlFm_2CbCPNUiwgV-4GhY {\n\theight: 50px;\n\tmargin-bottom: 10px;\n}\n\n._27My_SKo4GkKg7ZKPrQxLr {\n\twidth: 100%;\n\theight: 250px;\n}\n\n._29R2L0zYlEcBwBs9K2kHJH {\n\twidth: 100%;\n\theight: 250px;\n\tbackground: url(" + __webpack_require__(9) + ");\n}\n\n._36lZSTTTITWgw-NmXQSCF {\n\tfloat: left;\n\tline-height: 50px;\n\tmargin-left: 20px;\n}\n\n._3lYpNH1_qmIV22Z7WJJqy4 {\n\tfloat: right;\n\tmargin-right: 20px;\n}\n\n._12DRWmdOhvwFA-FqXRKWSO {\n\tdisplay: inline-block;\n\tmargin: 0 20px\n}\n\n._12DRWmdOhvwFA-FqXRKWSO a {\n\tdisplay: block;\n\tline-height: 50px;\n\tpadding: 0 10px;\n\tfont-size: 18px;\n\tcolor: #84572f;\n}\n\n._12DRWmdOhvwFA-FqXRKWSO a:hover {\n\tcolor: red;\n}\n\n._12DRWmdOhvwFA-FqXRKWSO ._1NRQPKuMXOTfNtlYzR02r {\n\tcolor: red;\n}\n\n._12DRWmdOhvwFA-FqXRKWSO ._zdTdh0QSur6SmnDE9YRX {\n\twidth: 100%;\n\tbackground: red;\n\theight: 1px;\n\topacity: 0;\n\ttransition: opacity .3s;\n}\n\n._12DRWmdOhvwFA-FqXRKWSO:hover ._zdTdh0QSur6SmnDE9YRX {\n\topacity: 1;\n}\n\n._8eDAWEp6CTx5Thnec49bZ {\n\tfont-size: 24px;\n}", ""]);
+	exports.push([module.id, "header {\n\tpadding: 0;\n\tmargin: 0 auto;\n\twidth: 90%;\n\tmax-width: 960px;\n\tmargin-bottom: 30px;\n}\n\n._1hlFm_2CbCPNUiwgV-4GhY {\n\theight: 50px;\n\tmargin-bottom: 10px;\n}\n\n._27My_SKo4GkKg7ZKPrQxLr {\n\twidth: 100%;\n\theight: 250px;\n}\n\n._36lZSTTTITWgw-NmXQSCF {\n\tfloat: left;\n\tline-height: 50px;\n\tmargin-left: 20px;\n}\n\n._3lYpNH1_qmIV22Z7WJJqy4 {\n\tfloat: right;\n\tmargin-right: 20px;\n}\n\n._12DRWmdOhvwFA-FqXRKWSO {\n\tdisplay: inline-block;\n\tmargin: 0 20px\n}\n\n._12DRWmdOhvwFA-FqXRKWSO a {\n\tdisplay: block;\n\tline-height: 50px;\n\tpadding: 0 10px;\n\tfont-size: 18px;\n\tcolor: #84572f;\n}\n\n._12DRWmdOhvwFA-FqXRKWSO a:hover {\n\tcolor: red;\n}\n\n._12DRWmdOhvwFA-FqXRKWSO ._1NRQPKuMXOTfNtlYzR02r {\n\tcolor: red;\n}\n\n._12DRWmdOhvwFA-FqXRKWSO ._zdTdh0QSur6SmnDE9YRX {\n\twidth: 100%;\n\tbackground: red;\n\theight: 1px;\n\topacity: 0;\n\ttransition: opacity .3s;\n}\n\n._12DRWmdOhvwFA-FqXRKWSO:hover ._zdTdh0QSur6SmnDE9YRX {\n\topacity: 1;\n}\n\n._8eDAWEp6CTx5Thnec49bZ {\n\tfont-size: 24px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
 		"navbar": "_1hlFm_2CbCPNUiwgV-4GhY",
 		"navImg": "_27My_SKo4GkKg7ZKPrQxLr",
-		"test": "_29R2L0zYlEcBwBs9K2kHJH",
 		"navbarTitle": "_36lZSTTTITWgw-NmXQSCF",
 		"navbarList": "_3lYpNH1_qmIV22Z7WJJqy4",
 		"navbarItem": "_12DRWmdOhvwFA-FqXRKWSO",
@@ -447,12 +445,6 @@ webpackJsonp([0,1],[
 
 /***/ },
 /* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "img/b99c7c49.png";
-
-/***/ },
-/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -704,6 +696,12 @@ webpackJsonp([0,1],[
 
 
 /***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "img/b99c7c49.png";
+
+/***/ },
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -713,7 +711,7 @@ webpackJsonp([0,1],[
 	var content = __webpack_require__(12);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(10)(content, {});
+	var update = __webpack_require__(9)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -826,7 +824,7 @@ webpackJsonp([0,1],[
 	var content = __webpack_require__(16);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(10)(content, {});
+	var update = __webpack_require__(9)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -1016,7 +1014,7 @@ webpackJsonp([0,1],[
 	var content = __webpack_require__(19);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(10)(content, {});
+	var update = __webpack_require__(9)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {

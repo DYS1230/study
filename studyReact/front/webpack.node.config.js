@@ -21,7 +21,7 @@ module.exports = {
 	output: {
 		path: path.join(__dirname, '/public'),
 		filename: '[name].js',
-		//publicPath: './front/public/'
+		publicPath: './front/public/'
 	},
 	externals: {
 		'react': 'window.React',

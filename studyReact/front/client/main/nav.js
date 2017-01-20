@@ -65,7 +65,6 @@ export default class Nav extends React.Component {
 				</nav>
 				{/*<img src={require('./../img/2.png')} style={{ height: 200, width: 200, objectFit: 'cover'}}/>*/}
 				<img src={img} className={styles.navImg} />
-				<div className={styles.test}></div>
 			</header>
 		)
 	}

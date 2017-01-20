@@ -5,8 +5,8 @@ var app = express();
 var path = require('path');
 app.set('port', process.env.PORT || 3001);
 
-//app.use(express.static(path.join(__dirname, '..')));
-app.use(express.static(path.join(__dirname, '../front/public')));
+app.use(express.static(path.join(__dirname, '..')));
+//app.use(express.static(path.join(__dirname, '../front/public')));
 app.use(require('body-parser').urlencoded({ extended: true }));
 
 //require('./route/route.js')(app);
@@ -36,7 +36,7 @@ app.get('/a', function (request, response){
 // 为了适应react-router
 app.get('*', function (request, response){
 	console.log('??');
-	response.sendFile(path.resolve(__dirname, '../front/public', 'a.html'))
+	response.sendFile(path.resolve(__dirname, '../front/public', 'b.html'))
 });
 
 app.listen(app.get('port'), function () {
