@@ -1,0 +1,71 @@
+header {
+	padding: 0;
+	margin: 0 auto;
+	width: 90%;
+	max-width: 960px;
+	margin-bottom: 30px;
+}
+
+.navbar {
+	height: 50px;
+	margin-bottom: 10px;
+}
+
+.navImg {
+	width: 100%;
+	height: 250px;
+}
+
+.test {
+	width: 100%;
+	height: 250px;
+	background: url(./../img/7.png);
+}
+
+.navbarTitle {
+	float: left;
+	line-height: 50px;
+	margin-left: 20px;
+}
+
+.navbarList {
+	float: right;
+	margin-right: 20px;
+}
+
+.navbarItem {
+	display: inline-block;
+	margin: 0 20px
+}
+
+.navbarItem a {
+	display: block;
+	line-height: 50px;
+	padding: 0 10px;
+	font-size: 18px;
+	color: #84572f;
+}
+
+.navbarItem a:hover {
+	color: red;
+}
+
+.navbarItem .active {
+	color: red;
+}
+
+.navbarItem .bottomBorder {
+	width: 100%;
+	background: red;
+	height: 1px;
+	opacity: 0;
+	transition: opacity .3s;
+}
+
+.navbarItem:hover .bottomBorder {
+	opacity: 1;
+}
+
+.fontNormal {
+	font-size: 24px;
+}

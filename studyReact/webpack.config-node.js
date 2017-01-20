@@ -82,7 +82,7 @@ module.exports = {
 	output: {
 		path: path.join(__dirname, '/public/js'),
 		filename: '[name].js',
-	//	publicPath: 'http://localhost:8080/public/js'
+	//	publicPath: '/public/js'
 	},
 	externals: {
 		react: 'window.React',
@@ -98,14 +98,13 @@ module.exports = {
 					presets: ['es2015', 'react', 'stage-0']
 				}
 			},
-		//	{ test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
 			{
 				test: /\.css$/,
 				loader: 'style-loader!css-loader?modules&sourceMap',
 				//ExtractTextPlugin is only for production
 				//loader: ExtractTextPlugin.extract("style", "css?modules&sourceMap!less")
 			},
-			{ test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192&name=./../img/[name][hash:8].[ext]'}
+			{ test: /\.(png|jpg|gif|ico)$/, loader: 'url-loader?limit=8192&name=./../img/[name][hash:8].[ext]'}
 		]
 	},
 	plugins: [

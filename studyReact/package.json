@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --hot --process"
+    "devf": "webpack-dev-server --config ./front/webpack.dev.config.js --content-base ./front",
+    "node": "webpack --watch --config ./front/webpack.node.config.js & nodemon ./server/index.js"
   },
   "author": "",
   "license": "ISC",

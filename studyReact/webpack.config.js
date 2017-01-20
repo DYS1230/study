@@ -105,7 +105,7 @@ module.exports = {
 				//ExtractTextPlugin is only for production
 				//loader: ExtractTextPlugin.extract("style", "css?modules&sourceMap!less")
 			},
-			{ test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192&name=./../img/[name][hash:8].[ext]'}
+			{ test: /\.(png|jpg|gif|ico)$/, loader: 'url-loader?limit=8192&name=[name][hash:8].[ext]'}
 		]
 	},
 	plugins: [

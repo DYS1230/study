@@ -49,3 +49,7 @@ extract-text-webpack-plugin 看到想使用query写法，发现原来是webpack2
 经过一系列卡壳，对webpack的认知慢慢提升，虽然提升很慢。
 
 后面开始可以尝试初步开发博客。
+
+2017年01月20日20:17:12
+
+极度操蛋，现在不知原因，把代码结构整理了一番，发现图片用css的url的路径全部失效，把css-loader的sourcemap去掉后就可以了，卡这3小时

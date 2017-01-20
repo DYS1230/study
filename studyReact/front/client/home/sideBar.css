@@ -1,0 +1,56 @@
+.sideBar {
+	float: right;
+	width: 25%;
+}
+
+.sideBar .sideUnit {
+	background-color: white;
+	background: url('../img/6.gif');	
+	margin-bottom: 10px;
+}
+
+.sideBar .sideUnit .sideUnitHeader {
+	line-height: 38px;
+	color: #333;
+}
+
+.sideUnitHeader .mushroomIco {
+	background: url('../img/mushroom.ico');
+}
+
+.sideUnitHeader .pigIco {
+	background: url('../img/pig.ico');
+}
+
+.sideUnitHeader .greenIco {
+	background: url('../img/green.ico');
+}
+
+.sideUnitHeader .ico {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	margin: 0 10px; 
+	vertical-align: sub;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.sideUnitHeader strong {
+	margin-right: 12px;
+	font-size: 18px;
+}
+
+.sideUnitHeader span {
+	font-size: 12px;
+}
+
+.sideBar .sideUnit .sideUnitContent {
+	padding: 0 14px 14px;
+	color: #333;
+}
+
+.sideUnitContent p {
+	margin-bottom: 6px;
+}
