@@ -1,0 +1,23 @@
+props.children 指的是标签的子元素，而不是render后的元素
+
+例子：
+
+<Nav>
+	<div>Test DIV</div>
+</Nav>
+
+
+class Nav extends React.Componenet {
+	componentDidMount() {
+		console.log(this.props.children);
+	}
+	render() {
+		return (
+			<span>Test SPAN</span>
+		)
+	}
+}
+
+props.children 为div 而不是 span。
+
+感觉和angularjs的指令差不多，transclude保留原本存在的内容
