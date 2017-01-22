@@ -67,5 +67,22 @@ extract-text-webpack-plugin 看到想使用query写法，发现原来是webpack2
 
  改成 ../end/public/libs/react/react.js 才行
 
+解决：应该是 /front
+
 
  还有，待思考，怎么匹配 /control_back  及 /control_back下的所有路径
+
+解决：
+
+写成正则
+app.get(/^\/control_back(\/.*)?/, function (req, res){
+	console.log('get controlback');
+	res.sendFile(path.resolve(__dirname, '../end/public', 'main.html'))
+});
+
+或者
+var router = express.Router();
+router.route('/*').get(function (req, res) {
+	res.sendFile(path.resolve(__dirname, '../end/public', 'main.html'));
+});
+app.use("/control_back", router);

@@ -19,7 +19,7 @@ app.use(require('body-parser').urlencoded({ extended: true }));
 app.get('/test', function (req, res) {
 	res.send('hello dys test')
 })
--
+
 app.get('/api', function (req, res) {
 	res.send('hello dys api')
 })
@@ -29,21 +29,23 @@ app.get('/api/test', function (req, res) {
 	res.send('hello dys api test')
 })
 
-app.get('/control_back', function (request, response){
-	console.log('get controlback');
-	response.sendFile(path.resolve(__dirname, '../end/public', 'main.html'))
-});
 
-
-app.get('/control_back/*', function (request, response){
-	console.log('get controlback');
-	response.sendFile(path.resolve(__dirname, '../end/public', 'main.html'))
+var router = express.Router();
+router.route('/*').get(function (req, res) {
+	res.sendFile(path.resolve(__dirname, '../end/public', 'main.html'));
 });
+app.use("/control_back", router);
+
+/*app.get(/^\/control_back(\/.*)?/, function (req, res){
+	console.log('get controlback');
+	res.sendFile(path.resolve(__dirname, '../end/public', 'main.html'))
+});
+*/
 
 // 为了适应react-router
-app.get('*', function (request, response){
+app.get('*', function (req, res){
 	console.log('get *');
-	response.sendFile(path.resolve(__dirname, '../front/public', 'b.html'));
+	res.sendFile(path.resolve(__dirname, '../front/public', 'b.html'));
 });
 
 app.listen(app.get('port'), function () {
