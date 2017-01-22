@@ -1,0 +1,29 @@
+被各类路径搞了好久，零散记录着先
+
+在index.html 写 <script src="./xx.js">
+
+访问 localhost:3000/a
+
+绝对路径为 localhost:3000/a/xx.js
+
+访问 localhost:3000/a/b
+
+绝对路径为 localhost:3000/a/b/xx.js
+
+应该写成 src="/xx.js"
+
+
+webpack 的 publicPath 一直困惑，后面去找编译后的代码
+
+module.exports = __webpack_require__.p + "img/ebaff49a.ico";
+
+ __webpack_require__.p 就是 publicPath 
+
+后面那串代码出自这里
+ background: url('../img/mushroom.ico');
+
+
+
+之前还困惑weback-dev-server
+其后发现代码打包在 localhost:8080/webpack-dev-server 
+一切困惑对着它就解决了
