@@ -53,3 +53,19 @@ extract-text-webpack-plugin 看到想使用query写法，发现原来是webpack2
 2017年01月20日20:17:12
 
 极度操蛋，现在不知原因，把代码结构整理了一番，发现图片用css的url的路径全部失效，把css-loader的sourcemap去掉后就可以了，卡这3小时
+
+2017年01月22日11:22:25
+
+一直在考虑到底是把前台和后台代码写在一起，还是分开，目前是分开的
+
+ 2017年01月22日13:32:51
+
+ 路由还是很有问题，现在路由为http://localhost:3001/control_back/sign_in时，
+ 如果main.html的src为 "./end/public/libs/react/react.js" 时获得的地址 
+ 是 localhost:3001/control_back/end/public/libs/react/react.js
+ 正确应该是 localhost:3001/end/public/libs/react/react.js
+
+ 改成 ../end/public/libs/react/react.js 才行
+
+
+ 还有，待思考，怎么匹配 /control_back  及 /control_back下的所有路径

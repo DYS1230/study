@@ -76,6 +76,29 @@ webpackJsonp([0,1],[
 		return About;
 	}(_react2.default.Component);
 	
+	var DYS = function (_React$Component3) {
+		_inherits(DYS, _React$Component3);
+	
+		function DYS() {
+			_classCallCheck(this, DYS);
+	
+			return _possibleConstructorReturn(this, (DYS.__proto__ || Object.getPrototypeOf(DYS)).apply(this, arguments));
+		}
+	
+		_createClass(DYS, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					'DYS'
+				);
+			}
+		}]);
+	
+		return DYS;
+	}(_react2.default.Component);
+	
 	(0, _reactDom.render)(_react2.default.createElement(
 		_reactRouter.Router,
 		{ history: _reactRouter.browserHistory },
@@ -83,9 +106,14 @@ webpackJsonp([0,1],[
 			_reactRouter.Route,
 			{ path: '/', component: _container2.default },
 			_react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/about', component: About }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/test', component: Test })
-		)
+			_react2.default.createElement(
+				_reactRouter.Route,
+				{ path: 'about', component: About },
+				_react2.default.createElement(_reactRouter.Route, { path: 'x' })
+			),
+			_react2.default.createElement(_reactRouter.Route, { path: 'test', component: Test })
+		),
+		_react2.default.createElement(_reactRouter.Route, { path: '/dys', component: DYS })
 	), document.querySelector('#container'));
 
 /***/ },
@@ -374,18 +402,18 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "header {\n\tpadding: 0;\n\tmargin: 0 auto;\n\twidth: 90%;\n\tmax-width: 960px;\n\tmargin-bottom: 30px;\n}\n\n._1hlFm_2CbCPNUiwgV-4GhY {\n\theight: 50px;\n\tmargin-bottom: 10px;\n}\n\n._27My_SKo4GkKg7ZKPrQxLr {\n\twidth: 100%;\n\theight: 250px;\n}\n\n._36lZSTTTITWgw-NmXQSCF {\n\tfloat: left;\n\tline-height: 50px;\n\tmargin-left: 20px;\n}\n\n._3lYpNH1_qmIV22Z7WJJqy4 {\n\tfloat: right;\n\tmargin-right: 20px;\n}\n\n._12DRWmdOhvwFA-FqXRKWSO {\n\tdisplay: inline-block;\n\tmargin: 0 20px\n}\n\n._12DRWmdOhvwFA-FqXRKWSO a {\n\tdisplay: block;\n\tline-height: 50px;\n\tpadding: 0 10px;\n\tfont-size: 18px;\n\tcolor: #84572f;\n}\n\n._12DRWmdOhvwFA-FqXRKWSO a:hover {\n\tcolor: red;\n}\n\n._12DRWmdOhvwFA-FqXRKWSO ._1NRQPKuMXOTfNtlYzR02r {\n\tcolor: red;\n}\n\n._12DRWmdOhvwFA-FqXRKWSO ._zdTdh0QSur6SmnDE9YRX {\n\twidth: 100%;\n\tbackground: red;\n\theight: 1px;\n\topacity: 0;\n\ttransition: opacity .3s;\n}\n\n._12DRWmdOhvwFA-FqXRKWSO:hover ._zdTdh0QSur6SmnDE9YRX {\n\topacity: 1;\n}\n\n._8eDAWEp6CTx5Thnec49bZ {\n\tfont-size: 24px;\n}", ""]);
+	exports.push([module.id, "header {\n\tpadding: 0;\n\tmargin: 0 auto;\n\twidth: 90%;\n\tmax-width: 960px;\n\tmargin-bottom: 30px;\n}\n\n._1oc_MiYVC0Nwfo6LiQ-gb2 {\n\theight: 50px;\n\tmargin-bottom: 10px;\n}\n\n.tYqOrGvjUab4EpBRhowNk {\n\twidth: 100%;\n\theight: 250px;\n}\n\n._1QYPt2xLzfGTWLvVJsjZz8 {\n\tfloat: left;\n\tline-height: 50px;\n\tmargin-left: 20px;\n}\n\n._3Zxz-F_9Iny1ltLvqmStIX {\n\tfloat: right;\n\tmargin-right: 20px;\n}\n\n._2_HbilNacDtkTUfTv4l-fv {\n\tdisplay: inline-block;\n\tmargin: 0 20px\n}\n\n._2_HbilNacDtkTUfTv4l-fv a {\n\tdisplay: block;\n\tline-height: 50px;\n\tpadding: 0 10px;\n\tfont-size: 18px;\n\tcolor: #84572f;\n}\n\n._2_HbilNacDtkTUfTv4l-fv a:hover {\n\tcolor: red;\n}\n\n._2_HbilNacDtkTUfTv4l-fv ._2TOKugeCpaDoggmVUronqq {\n\tcolor: red;\n}\n\n._2_HbilNacDtkTUfTv4l-fv .jnpP_N7WyqYFnaZMMi1xe {\n\twidth: 100%;\n\tbackground: red;\n\theight: 1px;\n\topacity: 0;\n\ttransition: opacity .3s;\n}\n\n._2_HbilNacDtkTUfTv4l-fv:hover .jnpP_N7WyqYFnaZMMi1xe {\n\topacity: 1;\n}\n\n._1HsK4z-Aa4jK1xmTtGDhJx {\n\tfont-size: 24px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
-		"navbar": "_1hlFm_2CbCPNUiwgV-4GhY",
-		"navImg": "_27My_SKo4GkKg7ZKPrQxLr",
-		"navbarTitle": "_36lZSTTTITWgw-NmXQSCF",
-		"navbarList": "_3lYpNH1_qmIV22Z7WJJqy4",
-		"navbarItem": "_12DRWmdOhvwFA-FqXRKWSO",
-		"active": "_1NRQPKuMXOTfNtlYzR02r",
-		"bottomBorder": "_zdTdh0QSur6SmnDE9YRX",
-		"fontNormal": "_8eDAWEp6CTx5Thnec49bZ"
+		"navbar": "_1oc_MiYVC0Nwfo6LiQ-gb2",
+		"navImg": "tYqOrGvjUab4EpBRhowNk",
+		"navbarTitle": "_1QYPt2xLzfGTWLvVJsjZz8",
+		"navbarList": "_3Zxz-F_9Iny1ltLvqmStIX",
+		"navbarItem": "_2_HbilNacDtkTUfTv4l-fv",
+		"active": "_2TOKugeCpaDoggmVUronqq",
+		"bottomBorder": "jnpP_N7WyqYFnaZMMi1xe",
+		"fontNormal": "_1HsK4z-Aa4jK1xmTtGDhJx"
 	};
 
 /***/ },
@@ -736,11 +764,11 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {\n\tmargin: 0;\n\tpadding: 0;\n}\n\nhtml {\n\theight: 100%;\n}\n\nbody {\n\theight: 100%;\n\twidth: 100%;\n\tposition: relative;\n\tbackground: url(" + __webpack_require__(13) + ");\n}\n\na {\n\ttext-decoration: none;\n}\n\nsection {\n\tpadding: 0;\n\tmargin: 0 auto;\n\twidth: 90%;\n\tmax-width: 960px;\n}\n\n._3r6S8yNv1OkO_uUu2phXAq {\n\t// padding: 0;\n\t// margin: 0 auto;\n\t// width: 960px;\t\n}\n\nfooter {\n\tbackground: #2E383F;\n\theight: 50px;\n\tpadding: 20px;\n\tmargin-top: 20px;\n\tcolor: white;\n}\nfooter p {\n\tmargin-bottom: 10px;\n}", ""]);
+	exports.push([module.id, "body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {\n\tmargin: 0;\n\tpadding: 0;\n}\n\nhtml {\n\theight: 100%;\n}\n\nbody {\n\theight: 100%;\n\twidth: 100%;\n\tposition: relative;\n\tbackground: url(" + __webpack_require__(13) + ");\n}\n\na {\n\ttext-decoration: none;\n}\n\nsection {\n\tpadding: 0;\n\tmargin: 0 auto;\n\twidth: 90%;\n\tmax-width: 960px;\n}\n\n._10Qh4w2DI4lpH-f4JeT0Se {\n\t// padding: 0;\n\t// margin: 0 auto;\n\t// width: 960px;\t\n}\n\nfooter {\n\tbackground: #2E383F;\n\theight: 50px;\n\tpadding: 20px;\n\tmargin-top: 20px;\n\tcolor: white;\n}\nfooter p {\n\tmargin-bottom: 10px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
-		"content": "_3r6S8yNv1OkO_uUu2phXAq"
+		"content": "_10Qh4w2DI4lpH-f4JeT0Se"
 	};
 
 /***/ },
@@ -849,12 +877,12 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "._3yVoD7QJkglobGF7fcUN_i::after {\n\tclear: both;\n\tcontent: '';\n\tdisplay: block;\n}\n\n.YiQLWqbWJLhTlxbYygmrN {\n\tfloat: left;\n\twidth: 70%;\n\tbackground: white;\n}\n\n", ""]);
+	exports.push([module.id, "._11SxWQTxdKt88bUh2kl_j7::after {\n\tclear: both;\n\tcontent: '';\n\tdisplay: block;\n}\n\n._3nKruZgWOGREMzqypIZPtE {\n\tfloat: left;\n\twidth: 70%;\n\tbackground: white;\n}\n\n", ""]);
 	
 	// exports
 	exports.locals = {
-		"homePage": "_3yVoD7QJkglobGF7fcUN_i",
-		"articleContainer": "YiQLWqbWJLhTlxbYygmrN"
+		"homePage": "_11SxWQTxdKt88bUh2kl_j7",
+		"articleContainer": "_3nKruZgWOGREMzqypIZPtE"
 	};
 
 /***/ },
@@ -1039,18 +1067,18 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "._3x1Zt0mLegJHms79VjS1Hv {\n\tfloat: right;\n\twidth: 25%;\n}\n\n._3x1Zt0mLegJHms79VjS1Hv ._3chRCRDatLSTjGXuauNBgS {\n\tbackground-color: white;\n\tbackground: url(" + __webpack_require__(20) + ");\t\n\tmargin-bottom: 10px;\n}\n\n._3x1Zt0mLegJHms79VjS1Hv ._3chRCRDatLSTjGXuauNBgS ._1L9QDR1YrL3j7rTLrQAsuv {\n\tline-height: 38px;\n\tcolor: #333;\n}\n\n._1L9QDR1YrL3j7rTLrQAsuv .AcH4kMQsfkY_BGnLRIfxM {\n\tbackground: url(" + __webpack_require__(21) + ");\n}\n\n._1L9QDR1YrL3j7rTLrQAsuv ._15IXabDXdiazH_JShTwlgf {\n\tbackground: url(" + __webpack_require__(22) + ");\n}\n\n._1L9QDR1YrL3j7rTLrQAsuv ._337eDflCnY9MgrFKWX_8u {\n\tbackground: url(" + __webpack_require__(23) + ");\n}\n\n._1L9QDR1YrL3j7rTLrQAsuv ._3D_dsGrTov1zbzECO29Jae {\n\tdisplay: inline-block;\n\twidth: 24px;\n\theight: 24px;\n\tmargin: 0 10px; \n\tvertical-align: sub;\n\tbackground-position: center;\n\tbackground-repeat: no-repeat;\n\tbackground-size: cover;\n}\n\n._1L9QDR1YrL3j7rTLrQAsuv strong {\n\tmargin-right: 12px;\n\tfont-size: 18px;\n}\n\n._1L9QDR1YrL3j7rTLrQAsuv span {\n\tfont-size: 12px;\n}\n\n._3x1Zt0mLegJHms79VjS1Hv ._3chRCRDatLSTjGXuauNBgS ._2ydvIf3mWzV6wyDaIC2Cr4 {\n\tpadding: 0 14px 14px;\n\tcolor: #333;\n}\n\n._2ydvIf3mWzV6wyDaIC2Cr4 p {\n\tmargin-bottom: 6px;\n}", ""]);
+	exports.push([module.id, "._2BDRpRlnF0slp3HxUwbffk {\n\tfloat: right;\n\twidth: 25%;\n}\n\n._2BDRpRlnF0slp3HxUwbffk ._38QVAhaoMVQd2t3F6XMD-E {\n\tbackground-color: white;\n\tbackground: url(" + __webpack_require__(20) + ");\t\n\tmargin-bottom: 10px;\n}\n\n._2BDRpRlnF0slp3HxUwbffk ._38QVAhaoMVQd2t3F6XMD-E .IHKlUDGFrYRzyweBcUs_h {\n\tline-height: 38px;\n\tcolor: #333;\n}\n\n.IHKlUDGFrYRzyweBcUs_h ._2D1Jwh0CvB3G8dY2l56bGc {\n\tbackground: url(" + __webpack_require__(21) + ");\n}\n\n.IHKlUDGFrYRzyweBcUs_h ._2CLUsa7ZjfYmKakgrx1Z7c {\n\tbackground: url(" + __webpack_require__(22) + ");\n}\n\n.IHKlUDGFrYRzyweBcUs_h ._1q3Fn0LKVwDpG-hsUVwkWn {\n\tbackground: url(" + __webpack_require__(23) + ");\n}\n\n.IHKlUDGFrYRzyweBcUs_h ._3u6ZGFfMAFlN9lKecuMtn0 {\n\tdisplay: inline-block;\n\twidth: 24px;\n\theight: 24px;\n\tmargin: 0 10px; \n\tvertical-align: sub;\n\tbackground-position: center;\n\tbackground-repeat: no-repeat;\n\tbackground-size: cover;\n}\n\n.IHKlUDGFrYRzyweBcUs_h strong {\n\tmargin-right: 12px;\n\tfont-size: 18px;\n}\n\n.IHKlUDGFrYRzyweBcUs_h span {\n\tfont-size: 12px;\n}\n\n._2BDRpRlnF0slp3HxUwbffk ._38QVAhaoMVQd2t3F6XMD-E ._1OOzVZ1CJfE5_UbfeRhCwb {\n\tpadding: 0 14px 14px;\n\tcolor: #333;\n}\n\n._1OOzVZ1CJfE5_UbfeRhCwb p {\n\tmargin-bottom: 6px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
-		"sideBar": "_3x1Zt0mLegJHms79VjS1Hv",
-		"sideUnit": "_3chRCRDatLSTjGXuauNBgS",
-		"sideUnitHeader": "_1L9QDR1YrL3j7rTLrQAsuv",
-		"mushroomIco": "AcH4kMQsfkY_BGnLRIfxM",
-		"pigIco": "_15IXabDXdiazH_JShTwlgf",
-		"greenIco": "_337eDflCnY9MgrFKWX_8u",
-		"ico": "_3D_dsGrTov1zbzECO29Jae",
-		"sideUnitContent": "_2ydvIf3mWzV6wyDaIC2Cr4"
+		"sideBar": "_2BDRpRlnF0slp3HxUwbffk",
+		"sideUnit": "_38QVAhaoMVQd2t3F6XMD-E",
+		"sideUnitHeader": "IHKlUDGFrYRzyweBcUs_h",
+		"mushroomIco": "_2D1Jwh0CvB3G8dY2l56bGc",
+		"pigIco": "_2CLUsa7ZjfYmKakgrx1Z7c",
+		"greenIco": "_1q3Fn0LKVwDpG-hsUVwkWn",
+		"ico": "_3u6ZGFfMAFlN9lKecuMtn0",
+		"sideUnitContent": "_1OOzVZ1CJfE5_UbfeRhCwb"
 	};
 
 /***/ },

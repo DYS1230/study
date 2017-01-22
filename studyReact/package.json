@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "devf": "webpack-dev-server --config ./front/webpack.dev.config.js --content-base ./front",
+    "deve": "webpack-dev-server --config ./end/webpack.dev.config.js --content-base ./end",
     "node": "webpack --watch --config ./front/webpack.node.config.js & nodemon ./server/index.js"
   },
   "author": "",
@@ -12,9 +13,12 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "classnames": "^2.2.5",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
+    "express-session": "^1.14.2",
     "jquery": "^3.1.1",
     "less-loader": "^2.2.3",
+    "mongoose": "^4.7.7",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-router": "^3.0.0"

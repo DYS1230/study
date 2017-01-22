@@ -29,12 +29,23 @@ class About extends React.Component {
 	}
 }
 
+class DYS extends React.Component {
+	render() {
+		return(
+			<div>DYS</div>
+		)
+	}
+}
+
 render((
 	<Router history={browserHistory}>
 		<Route path="/" component={Container}>
 			<IndexRoute component={Home}/>
-			<Route path="/about" component={About}/>
-			<Route path="/test" component={Test}/>
+			<Route path="about" component={About}>
+				<Route path="x" />
+			</Route>
+			<Route path="test" component={Test}/>
 		</Route>
+		<Route path="/dys" component={DYS} />
 	</Router>
 ), document.querySelector('#container'));

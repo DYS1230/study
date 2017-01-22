@@ -19,24 +19,31 @@ app.use(require('body-parser').urlencoded({ extended: true }));
 app.get('/test', function (req, res) {
 	res.send('hello dys test')
 })
-
+-
 app.get('/api', function (req, res) {
 	res.send('hello dys api')
 })
 
 app.get('/api/test', function (req, res) {
+	console.log('api test')
 	res.send('hello dys api test')
 })
 
-app.get('/a', function (request, response){
-	console.log('..');
-	response.sendFile(path.resolve(__dirname, '../front/public', 'b.html'))
+app.get('/control_back', function (request, response){
+	console.log('get controlback');
+	response.sendFile(path.resolve(__dirname, '../end/public', 'main.html'))
+});
+
+
+app.get('/control_back/*', function (request, response){
+	console.log('get controlback');
+	response.sendFile(path.resolve(__dirname, '../end/public', 'main.html'))
 });
 
 // 为了适应react-router
 app.get('*', function (request, response){
-	console.log('??');
-	response.sendFile(path.resolve(__dirname, '../front/public', 'b.html'))
+	console.log('get *');
+	response.sendFile(path.resolve(__dirname, '../front/public', 'b.html'));
 });
 
 app.listen(app.get('port'), function () {
