@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Link } from 'react-router';
 
+import styles from './container.css';
+
 export default  class Container extends React.Component {
 	constructor(props) {
 		super(props);

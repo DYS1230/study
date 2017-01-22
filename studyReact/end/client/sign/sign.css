@@ -1,0 +1,49 @@
+.success {
+	background: #5cb85c;
+}
+
+.btn {
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	padding: 8px 12px;
+	font-size: 16px;
+	color: white;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+
+.signContainer {
+	height: 100%;
+	width: 100%;
+	padding-top: 80px;
+}
+
+.signForm {
+	width: 300px;
+	padding: 30px 50px;
+	margin: 0 auto;
+	background: white;
+	text-align: center;
+}
+
+.signForm .signTitle {
+	margin-bottom: 30px;
+}
+
+.formGroup {
+	margin-bottom: 15px;
+}
+
+.inputControl {
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	padding: 8px 12px;
+	font-size:14px;
+	color: #555;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}

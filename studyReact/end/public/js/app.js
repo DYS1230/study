@@ -26,14 +26,24 @@ webpackJsonp([0,1],[
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	function requireAuth(nextState, replace) {
+		console.log(arguments);
+		if (true) {
+			replace({
+				pathname: '/control_back/sign_in',
+				state: { nextPathname: nextState.location.pathname }
+			});
+		}
+	}
+	
 	(0, _reactDom.render)(_react2.default.createElement(
 		_reactRouter.Router,
 		{ history: _reactRouter.browserHistory },
+		_react2.default.createElement(_reactRouter.Route, { path: '/control_back/sign_in', component: _signIn2.default }),
 		_react2.default.createElement(
 			_reactRouter.Route,
-			{ path: '/control_back', component: _container2.default },
-			_react2.default.createElement(_reactRouter.IndexRoute, { component: _postArticle2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: 'a', component: _signIn2.default })
+			{ path: '/control_back', component: _container2.default, onEnter: requireAuth },
+			_react2.default.createElement(_reactRouter.IndexRoute, { component: _postArticle2.default })
 		)
 	), document.querySelector('#container'));
 

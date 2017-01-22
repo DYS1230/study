@@ -11,33 +11,9 @@ body {
 	height: 100%;
 	width: 100%;
 	position: relative;
-	background: url('./../img/5.png');
+	background: #F1F1F1;
 }
 
 a {
 	text-decoration: none;
-}
-
-section {
-	padding: 0;
-	margin: 0 auto;
-	width: 90%;
-	max-width: 960px;
-}
-
-.content {
-	// padding: 0;
-	// margin: 0 auto;
-	// width: 960px;	
-}
-
-footer {
-	background: #2E383F;
-	height: 50px;
-	padding: 20px;
-	margin-top: 20px;
-	color: white;
-}
-footer p {
-	margin-bottom: 10px;
 }
