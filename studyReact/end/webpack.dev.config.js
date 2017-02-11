@@ -53,7 +53,7 @@ module.exports = {
 			'/api': {
 				target: 'http://localhost:3001',
 				secure: false,
-				pathRewrite: {'^/api' : ''}, //访问/api时相当于访问http://localhost:3001，没此句则相当于访问http://localhost:3001/api
+				//pathRewrite: {'^/api' : ''}, //访问/api时相当于访问http://localhost:3001，没此句则相当于访问http://localhost:3001/api
 				changeOrigin: true
 			}
 		}

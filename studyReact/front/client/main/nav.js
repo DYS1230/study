@@ -49,7 +49,7 @@ export default class Nav extends React.Component {
 				display = 'none';
 			}
 			return (
-				<li className={styles.navbarItem} key={index} onClick={() => _this.handleClick(event, index)}>
+				<li className={styles.navbarItem} key={index} onClick={(event, index) => _this.handleClick(event, index)}>
 					<Link to={item.link} activeClassName={styles.active} onlyActiveOnIndex>{item.text}</Link>
 					<div className={styles.bottomBorder} style={{display: display}}></div>
 				</li>

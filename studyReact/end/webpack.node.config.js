@@ -49,19 +49,5 @@ module.exports = {
 	},
 	plugins: [
 		commonsPlugin
-	],
-	devServer: {
-		historyApiFallback: true,
-		hot: true,
-		inline: true,
-		process: true,
-		proxy: {
-			'/api': {
-				target: 'http://localhost:3001',
-				secure: false,
-				pathRewrite: {'^/api' : ''}, //访问/api时相当于访问http://localhost:3001，没此句则相当于访问http://localhost:3001/api
-				changeOrigin: true
-			}
-		}
-	},
+	]
 }
