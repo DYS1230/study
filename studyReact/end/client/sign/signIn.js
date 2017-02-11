@@ -41,12 +41,12 @@ export default class SignIn extends React.Component {
 /*		
 		var xhr = new XMLHttpRequest();
 		xhr.open('POST', '/api/control_back/sign_in', true);
-		xhr.send('aaaa=2222');
 		xhr.onreadystatechange = function () {
 			if (xhr.readyState == 4 && xhr.status == 200) {
 				console.log(xhr.responseText);
 			}
 		}
+		xhr.send('bbbb=1111');
 */
 /*		
 		fetch('/api/control_back/sign_in', {
@@ -58,19 +58,17 @@ export default class SignIn extends React.Component {
 				name: this.state.name,
 				password: this.state.password
 			})
-		});*/
-/*
+		});
+*/
+
 		fetch('/api/control_back/sign_in',{
 			method:'POST',
-			headers:{
-				'Content-Type': 'application/json'
-			},
 			body:JSON.stringify({
 				name:'john',
 				pass:'xioayuan'
 			})
 		})
-*/
+
 	}
 	// handleChange(key, event) {
 	// 	console.log(event);

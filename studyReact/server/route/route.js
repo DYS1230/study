@@ -17,6 +17,10 @@ module.exports = function (app) {
 		console.log(req);
 		console.log(req.body);
 		res.send('get');
+		req.on('data', function (data) {
+			console.log(data);
+			console.log(data.toString('utf-8'));
+		})
 	});
 
 	// 管理后台页面
