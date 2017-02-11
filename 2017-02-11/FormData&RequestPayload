@@ -1,0 +1,53 @@
+在开发博客登陆中，数据处理出现了问题，node得不到原生ajax和fetch的数据，用jquery的ajax却得到了数据
+
+前端demo:
+
+$.ajax({
+	type:"POST",
+	url:"/xx",
+	data: {aaaa: 2222}
+});
+
+
+var xhr = new XMLHttpRequest();
+xhr.open('POST', '/xx', true);
+xhr.onreadystatechange = function () {
+	if (xhr.readyState == 4 && xhr.status == 200) {
+		console.log(xhr.responseText);
+	}
+}
+xhr.send('bbbb=1111');
+
+
+fetch('/xx', {
+	method: 'POST',
+	body: JSON.stringify({
+		name:'john',
+		pass:'xioayuan'
+	})
+});
+
+
+后端demo:
+
+app.use(require('body-parser').urlencoded({ extended: true }));
+app.post('/xx', function (req, res) {
+	console.log(req);
+	res.send('get');
+});
+
+
+在后台中对比了请求，发现jquery传的是Form Data，另外两种传的是Request Payload。
+
+猜想是header的关系，后去查，确定了是其的关系，将header设置"Content-type"为"application/x-www-form-urlencoded"便可，
+body-parser该中间件处理了数据。
+
+但想知道不设置成这样，数据怎么样也可以获得，后开窍，想起去年做的一堆算法题，把数据处理变成
+app.post('/xx', function (req, res) {
+	console.log(req);
+	req.on('data', function (data) {
+		console.log(data);
+	});
+	res.send('get');
+});
+当然，得到的是Buffer此类数据，就如<Buffer 62 62 62 62 3d 31 31 31 31>这样
