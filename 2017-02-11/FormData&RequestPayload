@@ -42,7 +42,7 @@ app.post('/xx', function (req, res) {
 猜想是header的关系，后去查，确定了是其的关系，将header设置"Content-type"为"application/x-www-form-urlencoded"便可，
 body-parser该中间件处理了数据。
 
-但想知道不设置成这样，数据怎么样也可以获得，后开窍，想起去年做的一堆算法题，把数据处理变成
+但想知道不设置成这样，数据怎么样也可以获得，后开窍，想起去年做的一堆算法题，把数据处理变成(按照的是fetch)
 app.post('/xx', function (req, res) {
 	console.log(req);
 	req.on('data', function (data) {
@@ -51,3 +51,17 @@ app.post('/xx', function (req, res) {
 	res.send('get');
 });
 当然，得到的是Buffer此类数据，就如<Buffer 62 62 62 62 3d 31 31 31 31>这样
+
+修改下
+app.post('/api/control_back/sign_in', function (req, res) {
+	var data = '';
+	req.on('data', function (chunk) {
+		data += chunk;
+	});
+	req.on('end', function () {
+		var y = JSON.parse(data);
+		console.log(y);
+		console.log(typeof y);
+		res.send('get');
+	})
+});
