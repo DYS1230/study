@@ -14,13 +14,20 @@ module.exports = function (app) {
 	});
 
 	app.post('/api/control_back/sign_in', function (req, res) {
-		console.log(req);
+		//console.log(req);
 		console.log(req.body);
 		res.send('get');
-		req.on('data', function (data) {
+/*		var data = '';
+		req.on('data', function (chunk) {
+			data += chunk;
+		});
+		req.on('end', function () {
 			console.log(data);
-			console.log(data.toString('utf-8'));
-		})
+			console.log(typeof data);
+			var y = JSON.parse(data);
+			console.log(y);
+			console.log(typeof y);
+		})*/
 	});
 
 	// 管理后台页面

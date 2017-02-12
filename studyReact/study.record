@@ -86,3 +86,49 @@ router.route('/*').get(function (req, res) {
 	res.sendFile(path.resolve(__dirname, '../end/public', 'main.html'));
 });
 app.use("/control_back", router);
+
+
+2017年02月12日22:01:06
+
+最近在nodejs如何获得ajax数据卡住了，因为之前用的都是用form来弄，现在直接用ajax传输数据却不知到怎么获得了。
+
+跟要设置的header有关
+
+记下自己写的demo
+
+$.ajax({ type:"POST", url:"/api/control_back/sign_in", data: {aaaa: 2222} });
+
+var xhr = new XMLHttpRequest(); 
+xhr.open('POST', '/api/control_back/sign_in', true);
+xhr.onreadystatechange = function () {
+	if (xhr.readyState == 4 && xhr.status == 200) {
+		console.log(xhr.responseText);
+	}
+}
+xhr.send('bbbb=1111');
+
+fetch('/api/control_back/sign_in', { method: 'POST', headers:{ 'Content-Type': 'application/json' }, body: JSON.stringify({ name: this.state.name, password: this.state.password }) });
+
+fetch('/api/control_back/sign_in', { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify({ password: 'aaaa' }) });
+
+fetch("/api/control_back/sign_in", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded"}, body: "firstName=Nikhil&favColor=blue&password=easytoguess"})
+
+
+默认如果没有设置headers，contentType为text/plain
+
+
+
+关于 urlencoded({ extended: true })); 的 extended为true或者false 的不同。
+懒，直接复制stack overflow的解释。true使用qs库，false使用queryString库。
+
+The reason for this message is that body-parser is about to change default value for extended from true to false.
+
+Extended protocol uses qs library to parse x-www-form-urlencoded data. The main advantage of qs is that it uses very powerful serialization/deserialization algorithm, capable of serializing any json-like data structure.
+
+But web-browsers don't normally use this protocol, because x-www-form-urlencoded was designed to serialize flat html forms. Though, it may come in handy if you're going to send rich data structures using ajax.
+
+querystring library` provides basic serialization/deserialization algorithm, the one used by all web-browsers to serialize form data. This basic algorithm is significantly simpler than extended one, but limited to flat data structures.
+
+Both algorithms work exactly the same with flat data.
+
+Now, when you know pros and cons of both algorithms, it's up to you to decide which one suits your application better.
