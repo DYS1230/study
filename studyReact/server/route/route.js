@@ -1,3 +1,8 @@
+var crypto = require('crypto');
+
+
+var User = require('../database/user/user.js');
+
 module.exports = function (app) {
 
 	app.get('/test', function (req, res) {
@@ -14,20 +19,24 @@ module.exports = function (app) {
 	});
 
 	app.post('/api/control_back/sign_in', function (req, res) {
-		//console.log(req);
-		console.log(req.body);
-		res.send('get');
-/*		var data = '';
-		req.on('data', function (chunk) {
-			data += chunk;
+
+		var md5 = crypto.createHash('md5');
+
+		var name = req.body.name;
+		var password = md5.update(req.body.password).digest('hex');
+
+		User.getData(name, function (err, user) {
+			if (err) {
+				console.log('getData err: ' + err);
+			}
+			console.log(user);
+			// when not find, return []
+			if (user.length) {
+			
+			}
 		});
-		req.on('end', function () {
-			console.log(data);
-			console.log(typeof data);
-			var y = JSON.parse(data);
-			console.log(y);
-			console.log(typeof y);
-		})*/
+
+		res.send('get');
 	});
 
 	// 管理后台页面
@@ -42,7 +51,7 @@ module.exports = function (app) {
 		});
 		app.use("/control_back", router);
 	*/
-	// 为了适应react-router
+	// 管理前台页面
 	app.get('*', function (req, res){
 		console.log('get *');
 		res.sendFile(path.resolve(__dirname, '../front/public', 'b.html'));

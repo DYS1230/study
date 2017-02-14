@@ -12,43 +12,8 @@ export default class SignIn extends React.Component {
 			password: ''
 		}
 	}
-	componentWillMount() {
-		console.log(this.state.name)
-		//this.setState({name: ''});
-	}
-	handleClick(event) {
-		event.preventDefault();
-		event.stopPropagation();
-		console.log(123);
-	//	console.log(event.stopPropagation);
-	//	console.log(event.preventDefault);
-		console.log(arguments);
-
-		console.log(this.state.password);
-		return false;
-	}
 	handleSubmit(event) {
-		event.preventDefault();
-
-
-		//目前就jquery ajax可行
-		$.ajax({
-			type:"POST",
-			url:"/api/control_back/sign_in",
-			data: {aaaa: 2222}
-		});
-
-/*		
-		var xhr = new XMLHttpRequest();
-		xhr.open('POST', '/api/control_back/sign_in', true);
-		xhr.onreadystatechange = function () {
-			if (xhr.readyState == 4 && xhr.status == 200) {
-				console.log(xhr.responseText);
-			}
-		}
-		xhr.send('bbbb=1111');
-*/
-/*		
+		event.preventDefault();		
 		fetch('/api/control_back/sign_in', {
 			method: 'POST',
 			headers:{
@@ -59,41 +24,6 @@ export default class SignIn extends React.Component {
 				password: this.state.password
 			})
 		});
-*/
-		fetch('/api/control_back/sign_in', {
-		      method: 'POST',
-		      headers: {
-		        'Accept': 'application/json',
-		        'Content-Type': 'application/json'
-		      },
-		      body: JSON.stringify({ password: 'aaaa' })
-		    });
-
-
-		fetch("/api/control_back/sign_in", {
-		  method: "POST",
-		  headers: {
-		    "Content-Type": "application/x-www-form-urlencoded"
-		  },
-		  body: "firstName=Nikhil&favColor=blue&password=easytoguess"
-		})
-
-		fetch("/api/control_back/sign_in", {
-		  method: "POST",
-		  headers: {
-		    "Content-Type": "application/x-www-form-urlencoded"
-		  },
-		  body: "a=2"
-		})
-
-
-
-		fetch('/api/control_back/sign_in',{
-			method: 'POST',
-
-			body: 'c=ggg'
-		});
-
 	}
 	// handleChange(key, event) {
 	// 	console.log(event);
@@ -125,7 +55,6 @@ export default class SignIn extends React.Component {
 							onChange={(event, password) => this.hanleChange(event, 'password')}
 							value={this.state.password} />
 					</div>
-					<div onClick={(event) => this.handleClick(event)}>123</div>
 					<div className={styles.formGroup}>
 						<input type="submit"
 							className={`${styles.success} ${styles.btn}`}
