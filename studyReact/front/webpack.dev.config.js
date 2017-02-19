@@ -12,7 +12,7 @@ const commonsPlugin = new webpack.optimize.CommonsChunkPlugin({
 module.exports = {
 	devtool: 'source-map',
 	entry: {
-		app: path.join(__dirname, '/client/app.js'),
+		app: path.join(__dirname, '/client/app/app.js'),
 	},
 	output: {
 		path: path.join(__dirname, '/public/js'),

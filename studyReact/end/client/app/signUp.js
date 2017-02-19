@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './sign.css';
+import styles from './css/sign.css';
 
 export default class signUp extends React.Component {
 	render() {

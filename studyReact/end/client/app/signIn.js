@@ -1,8 +1,8 @@
 import React from 'react';
 
-import styles from './sign.css';
+import styles from './css/sign.css';
 
-import $ from 'jquery';
+//import $ from 'jquery';
 
 export default class SignIn extends React.Component {
 	constructor(props) {
@@ -13,9 +13,11 @@ export default class SignIn extends React.Component {
 		}
 	}
 	handleSubmit(event) {
-		event.preventDefault();		
+		event.preventDefault();	
+
 		fetch('/api/control_back/sign_in', {
 			method: 'POST',
+			credentials: 'include',
 			headers:{
 				'Content-Type': 'application/json'
 			},
@@ -23,7 +25,15 @@ export default class SignIn extends React.Component {
 				name: this.state.name,
 				password: this.state.password
 			})
-		});
+		}).then( 
+			res => res.text()
+		).then(
+			data => {
+				if (data == 'success') {
+					
+				}
+			}
+		);
 	}
 	// handleChange(key, event) {
 	// 	console.log(event);
@@ -32,11 +42,15 @@ export default class SignIn extends React.Component {
 	hanleChange(event, key) {
 		this.setState({[key]: event.target.value})
 	}
+	handleClick(event) {
+		console.log(document.cookie);
+		console.log(document.session);
+	}
 	render() {
 		return (
 			<div className={styles.signContainer}>
 				<form className={styles.signForm} onSubmit={(event) => this.handleSubmit(event)}>
-					<h1 className={styles.signTitle}>登录</h1>
+					<h1 className={styles.signTitle} onClick={(event) => this.handleClick(event)}>登录</h1>
 					<div className={styles.formGroup}>
 						<input type="text" 
 							placeholder="用户名" 

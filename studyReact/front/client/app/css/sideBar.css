@@ -5,7 +5,7 @@
 
 .sideBar .sideUnit {
 	background-color: white;
-	background: url('../img/6.gif');	
+	background: url('../../images/6.gif');	
 	margin-bottom: 10px;
 }
 
@@ -15,15 +15,15 @@
 }
 
 .sideUnitHeader .mushroomIco {
-	background: url('../img/mushroom.ico');
+	background: url('../../images/mushroom.ico');
 }
 
 .sideUnitHeader .pigIco {
-	background: url('../img/pig.ico');
+	background: url('../../images/pig.ico');
 }
 
 .sideUnitHeader .greenIco {
-	background: url('../img/green.ico');
+	background: url('../../images/green.ico');
 }
 
 .sideUnitHeader .ico {

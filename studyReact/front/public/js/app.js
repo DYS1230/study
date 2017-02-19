@@ -324,7 +324,7 @@ webpackJsonp([0,1],[
 					}
 					return _react2.default.createElement(
 						'li',
-						{ className: _nav2.default.navbarItem, key: index, onClick: function onClick() {
+						{ className: _nav2.default.navbarItem, key: index, onClick: function onClick(event, index) {
 								return _this.handleClick(event, index);
 							} },
 						_react2.default.createElement(
@@ -383,8 +383,8 @@ webpackJsonp([0,1],[
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?modules!./nav.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?modules!./nav.css");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?modules!./nav.css", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?modules!./nav.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -402,18 +402,18 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "header {\n\tpadding: 0;\n\tmargin: 0 auto;\n\twidth: 90%;\n\tmax-width: 960px;\n\tmargin-bottom: 30px;\n}\n\n._1oc_MiYVC0Nwfo6LiQ-gb2 {\n\theight: 50px;\n\tmargin-bottom: 10px;\n}\n\n.tYqOrGvjUab4EpBRhowNk {\n\twidth: 100%;\n}\n\n._1QYPt2xLzfGTWLvVJsjZz8 {\n\tfloat: left;\n\tline-height: 50px;\n\tmargin-left: 20px;\n}\n\n._3Zxz-F_9Iny1ltLvqmStIX {\n\tfloat: right;\n\tmargin-right: 20px;\n}\n\n._2_HbilNacDtkTUfTv4l-fv {\n\tdisplay: inline-block;\n\tmargin: 0 20px\n}\n\n._2_HbilNacDtkTUfTv4l-fv a {\n\tdisplay: block;\n\tline-height: 50px;\n\tpadding: 0 10px;\n\tfont-size: 18px;\n\tcolor: #84572f;\n}\n\n._2_HbilNacDtkTUfTv4l-fv a:hover {\n\tcolor: red;\n}\n\n._2_HbilNacDtkTUfTv4l-fv ._2TOKugeCpaDoggmVUronqq {\n\tcolor: red;\n}\n\n._2_HbilNacDtkTUfTv4l-fv .jnpP_N7WyqYFnaZMMi1xe {\n\twidth: 100%;\n\tbackground: red;\n\theight: 1px;\n\topacity: 0;\n\ttransition: opacity .3s;\n}\n\n._2_HbilNacDtkTUfTv4l-fv:hover .jnpP_N7WyqYFnaZMMi1xe {\n\topacity: 1;\n}\n\n._1HsK4z-Aa4jK1xmTtGDhJx {\n\tfont-size: 24px;\n}", ""]);
+	exports.push([module.id, "header {\n\tpadding: 0;\n\tmargin: 0 auto;\n\twidth: 90%;\n\tmax-width: 960px;\n\tmargin-bottom: 30px;\n}\n\n._2VXEpIe0ioVyZJjSVMsJnm {\n\theight: 50px;\n\tmargin-bottom: 10px;\n}\n\n._1vVjA82-v00T5IiKWsaMcL {\n\twidth: 100%;\n}\n\n.zP6vpT8Tg-gJMUmLzOMz6 {\n\tfloat: left;\n\tline-height: 50px;\n\tmargin-left: 20px;\n}\n\n._2W3jGckKtulSX0IKw0DH17 {\n\tfloat: right;\n\tmargin-right: 20px;\n}\n\n._2bC9Pl7CTfYZaVL0C_y0T1 {\n\tdisplay: inline-block;\n\tmargin: 0 20px\n}\n\n._2bC9Pl7CTfYZaVL0C_y0T1 a {\n\tdisplay: block;\n\tline-height: 50px;\n\tpadding: 0 10px;\n\tfont-size: 18px;\n\tcolor: #84572f;\n}\n\n._2bC9Pl7CTfYZaVL0C_y0T1 a:hover {\n\tcolor: red;\n}\n\n._2bC9Pl7CTfYZaVL0C_y0T1 ._19Z2Fiw4Cfhk3M0cbxhjDX {\n\tcolor: red;\n}\n\n._2bC9Pl7CTfYZaVL0C_y0T1 ._38Dg7VT2kobcvx7e7vl1VB {\n\twidth: 100%;\n\tbackground: red;\n\theight: 1px;\n\topacity: 0;\n\ttransition: opacity .3s;\n}\n\n._2bC9Pl7CTfYZaVL0C_y0T1:hover ._38Dg7VT2kobcvx7e7vl1VB {\n\topacity: 1;\n}\n\n._1wYs8FTZEKtqR7gSFxw95U {\n\tfont-size: 24px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
-		"navbar": "_1oc_MiYVC0Nwfo6LiQ-gb2",
-		"navImg": "tYqOrGvjUab4EpBRhowNk",
-		"navbarTitle": "_1QYPt2xLzfGTWLvVJsjZz8",
-		"navbarList": "_3Zxz-F_9Iny1ltLvqmStIX",
-		"navbarItem": "_2_HbilNacDtkTUfTv4l-fv",
-		"active": "_2TOKugeCpaDoggmVUronqq",
-		"bottomBorder": "jnpP_N7WyqYFnaZMMi1xe",
-		"fontNormal": "_1HsK4z-Aa4jK1xmTtGDhJx"
+		"navbar": "_2VXEpIe0ioVyZJjSVMsJnm",
+		"navImg": "_1vVjA82-v00T5IiKWsaMcL",
+		"navbarTitle": "zP6vpT8Tg-gJMUmLzOMz6",
+		"navbarList": "_2W3jGckKtulSX0IKw0DH17",
+		"navbarItem": "_2bC9Pl7CTfYZaVL0C_y0T1",
+		"active": "_19Z2Fiw4Cfhk3M0cbxhjDX",
+		"bottomBorder": "_38Dg7VT2kobcvx7e7vl1VB",
+		"fontNormal": "_1wYs8FTZEKtqR7gSFxw95U"
 	};
 
 /***/ },
@@ -727,7 +727,7 @@ webpackJsonp([0,1],[
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "img/b99c7c49.png";
+	module.exports = __webpack_require__.p + "images/b99c7c49.png";
 
 /***/ },
 /* 11 */
@@ -745,8 +745,8 @@ webpackJsonp([0,1],[
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?modules!./container.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?modules!./container.css");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?modules!./container.css", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?modules!./container.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -764,11 +764,11 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {\n\tmargin: 0;\n\tpadding: 0;\n}\n\nhtml {\n\theight: 100%;\n}\n\nbody {\n\theight: 100%;\n\twidth: 100%;\n\tposition: relative;\n\tbackground: url(" + __webpack_require__(13) + ");\n}\n\na {\n\ttext-decoration: none;\n}\n\nsection {\n\tpadding: 0;\n\tmargin: 0 auto;\n\twidth: 90%;\n\tmax-width: 960px;\n}\n\n._10Qh4w2DI4lpH-f4JeT0Se {\n\t// padding: 0;\n\t// margin: 0 auto;\n\t// width: 960px;\t\n}\n\nfooter {\n\tbackground: #2E383F;\n\theight: 50px;\n\tpadding: 20px;\n\tmargin-top: 20px;\n\tcolor: white;\n}\nfooter p {\n\tmargin-bottom: 10px;\n}", ""]);
+	exports.push([module.id, "body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {\n\tmargin: 0;\n\tpadding: 0;\n}\n\nhtml {\n\theight: 100%;\n}\n\nbody {\n\theight: 100%;\n\twidth: 100%;\n\tposition: relative;\n\tbackground: url(" + __webpack_require__(13) + ");\n}\n\na {\n\ttext-decoration: none;\n}\n\nsection {\n\tpadding: 0;\n\tmargin: 0 auto;\n\twidth: 90%;\n\tmax-width: 960px;\n}\n\n._3KCfIqs8QhqI4PGOG2vaEM {\n\t// padding: 0;\n\t// margin: 0 auto;\n\t// width: 960px;\t\n}\n\nfooter {\n\tbackground: #2E383F;\n\theight: 50px;\n\tpadding: 20px;\n\tmargin-top: 20px;\n\tcolor: white;\n}\nfooter p {\n\tmargin-bottom: 10px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
-		"content": "_10Qh4w2DI4lpH-f4JeT0Se"
+		"content": "_3KCfIqs8QhqI4PGOG2vaEM"
 	};
 
 /***/ },
@@ -801,6 +801,8 @@ webpackJsonp([0,1],[
 	
 	var _sideBar2 = _interopRequireDefault(_sideBar);
 	
+	var _reactRouter = __webpack_require__(3);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -822,15 +824,54 @@ webpackJsonp([0,1],[
 			key: 'componentDidMount',
 			value: function componentDidMount() {}
 		}, {
+			key: 'handleClick',
+			value: function handleClick(event) {
+				//console.log(1212);
+				fetch('/bb', {
+					method: 'POST'
+				}).then(function (data) {
+					data.text().then(function (data) {
+						console.log(data);
+					});
+				});
+	
+				// fetch('/aaaa/login', {
+				// 	method: 'POST',
+				// 	headers:{
+				// 		'Content-Type': 'application/json'
+				// 	},
+				// 	body: JSON.stringify({
+				// 		login_username: 'a',
+				// 		login_password: 'a'
+				// 	})
+				// }).then( (data) => {
+				// 	console.log(data.text().then(function(data) {console.log(data); browserHistory.push('/test')}));
+				// })
+			}
+		}, {
 			key: 'render',
 			value: function render() {
+				var _this2 = this;
+	
 				return _react2.default.createElement(
 					'div',
 					{ className: _home2.default.homePage },
 					_react2.default.createElement(
 						'div',
-						{ className: _home2.default.articleContainer },
-						'Article'
+						{ className: _home2.default.articleContainer, onClick: function onClick(event) {
+								return _this2.handleClick(event);
+							} },
+						'Article',
+						_react2.default.createElement(
+							'form',
+							{ method: 'POST', action: '/bb' },
+							_react2.default.createElement(
+								'label',
+								null,
+								'name'
+							),
+							_react2.default.createElement('input', { type: 'submit', value: 'login' })
+						)
 					),
 					_react2.default.createElement(_sideBar2.default, null)
 				);
@@ -858,8 +899,8 @@ webpackJsonp([0,1],[
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?modules!./home.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?modules!./home.css");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?modules!./home.css", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?modules!./home.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -877,12 +918,12 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "._11SxWQTxdKt88bUh2kl_j7::after {\n\tclear: both;\n\tcontent: '';\n\tdisplay: block;\n}\n\n._3nKruZgWOGREMzqypIZPtE {\n\tfloat: left;\n\twidth: 70%;\n\tbackground: white;\n}\n\n", ""]);
+	exports.push([module.id, "._1AuG29KXPNKmv2VTwNSP4H::after {\n\tclear: both;\n\tcontent: '';\n\tdisplay: block;\n}\n\n._3M0xrOpF0AyHU4v0MCgYcW {\n\tfloat: left;\n\twidth: 70%;\n\tbackground: white;\n}\n\n", ""]);
 	
 	// exports
 	exports.locals = {
-		"homePage": "_11SxWQTxdKt88bUh2kl_j7",
-		"articleContainer": "_3nKruZgWOGREMzqypIZPtE"
+		"homePage": "_1AuG29KXPNKmv2VTwNSP4H",
+		"articleContainer": "_3M0xrOpF0AyHU4v0MCgYcW"
 	};
 
 /***/ },
@@ -1048,8 +1089,8 @@ webpackJsonp([0,1],[
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?modules!./sideBar.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?modules!./sideBar.css");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?modules!./sideBar.css", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?modules!./sideBar.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -1067,18 +1108,18 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "._2BDRpRlnF0slp3HxUwbffk {\n\tfloat: right;\n\twidth: 25%;\n}\n\n._2BDRpRlnF0slp3HxUwbffk ._38QVAhaoMVQd2t3F6XMD-E {\n\tbackground-color: white;\n\tbackground: url(" + __webpack_require__(20) + ");\t\n\tmargin-bottom: 10px;\n}\n\n._2BDRpRlnF0slp3HxUwbffk ._38QVAhaoMVQd2t3F6XMD-E .IHKlUDGFrYRzyweBcUs_h {\n\tline-height: 38px;\n\tcolor: #333;\n}\n\n.IHKlUDGFrYRzyweBcUs_h ._2D1Jwh0CvB3G8dY2l56bGc {\n\tbackground: url(" + __webpack_require__(21) + ");\n}\n\n.IHKlUDGFrYRzyweBcUs_h ._2CLUsa7ZjfYmKakgrx1Z7c {\n\tbackground: url(" + __webpack_require__(22) + ");\n}\n\n.IHKlUDGFrYRzyweBcUs_h ._1q3Fn0LKVwDpG-hsUVwkWn {\n\tbackground: url(" + __webpack_require__(23) + ");\n}\n\n.IHKlUDGFrYRzyweBcUs_h ._3u6ZGFfMAFlN9lKecuMtn0 {\n\tdisplay: inline-block;\n\twidth: 24px;\n\theight: 24px;\n\tmargin: 0 10px; \n\tvertical-align: sub;\n\tbackground-position: center;\n\tbackground-repeat: no-repeat;\n\tbackground-size: cover;\n}\n\n.IHKlUDGFrYRzyweBcUs_h strong {\n\tmargin-right: 12px;\n\tfont-size: 18px;\n}\n\n.IHKlUDGFrYRzyweBcUs_h span {\n\tfont-size: 12px;\n}\n\n._2BDRpRlnF0slp3HxUwbffk ._38QVAhaoMVQd2t3F6XMD-E ._1OOzVZ1CJfE5_UbfeRhCwb {\n\tpadding: 0 14px 14px;\n\tcolor: #333;\n}\n\n._1OOzVZ1CJfE5_UbfeRhCwb p {\n\tmargin-bottom: 6px;\n}", ""]);
+	exports.push([module.id, ".c_59aVeb0xQoepCUdCgUM {\n\tfloat: right;\n\twidth: 25%;\n}\n\n.c_59aVeb0xQoepCUdCgUM ._230shmlMiEopccSQoIuroM {\n\tbackground-color: white;\n\tbackground: url(" + __webpack_require__(20) + ");\t\n\tmargin-bottom: 10px;\n}\n\n.c_59aVeb0xQoepCUdCgUM ._230shmlMiEopccSQoIuroM ._2wGkp1pTj59NG_oyfL0-5a {\n\tline-height: 38px;\n\tcolor: #333;\n}\n\n._2wGkp1pTj59NG_oyfL0-5a .MVefTBpPtZ3t9FDNh8h_J {\n\tbackground: url(" + __webpack_require__(21) + ");\n}\n\n._2wGkp1pTj59NG_oyfL0-5a ._1Teo350bJeII4UowuDcppN {\n\tbackground: url(" + __webpack_require__(22) + ");\n}\n\n._2wGkp1pTj59NG_oyfL0-5a ._3g-N2_Mvx0jWByca0xv_Qi {\n\tbackground: url(" + __webpack_require__(23) + ");\n}\n\n._2wGkp1pTj59NG_oyfL0-5a ._2uh_oJwIUAaZmUWHIXCcZA {\n\tdisplay: inline-block;\n\twidth: 24px;\n\theight: 24px;\n\tmargin: 0 10px; \n\tvertical-align: sub;\n\tbackground-position: center;\n\tbackground-repeat: no-repeat;\n\tbackground-size: cover;\n}\n\n._2wGkp1pTj59NG_oyfL0-5a strong {\n\tmargin-right: 12px;\n\tfont-size: 18px;\n}\n\n._2wGkp1pTj59NG_oyfL0-5a span {\n\tfont-size: 12px;\n}\n\n.c_59aVeb0xQoepCUdCgUM ._230shmlMiEopccSQoIuroM .e05i2APLN_IoNg_g9sHqQ {\n\tpadding: 0 14px 14px;\n\tcolor: #333;\n}\n\n.e05i2APLN_IoNg_g9sHqQ p {\n\tmargin-bottom: 6px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
-		"sideBar": "_2BDRpRlnF0slp3HxUwbffk",
-		"sideUnit": "_38QVAhaoMVQd2t3F6XMD-E",
-		"sideUnitHeader": "IHKlUDGFrYRzyweBcUs_h",
-		"mushroomIco": "_2D1Jwh0CvB3G8dY2l56bGc",
-		"pigIco": "_2CLUsa7ZjfYmKakgrx1Z7c",
-		"greenIco": "_1q3Fn0LKVwDpG-hsUVwkWn",
-		"ico": "_3u6ZGFfMAFlN9lKecuMtn0",
-		"sideUnitContent": "_1OOzVZ1CJfE5_UbfeRhCwb"
+		"sideBar": "c_59aVeb0xQoepCUdCgUM",
+		"sideUnit": "_230shmlMiEopccSQoIuroM",
+		"sideUnitHeader": "_2wGkp1pTj59NG_oyfL0-5a",
+		"mushroomIco": "MVefTBpPtZ3t9FDNh8h_J",
+		"pigIco": "_1Teo350bJeII4UowuDcppN",
+		"greenIco": "_3g-N2_Mvx0jWByca0xv_Qi",
+		"ico": "_2uh_oJwIUAaZmUWHIXCcZA",
+		"sideUnitContent": "e05i2APLN_IoNg_g9sHqQ"
 	};
 
 /***/ },
@@ -1091,19 +1132,19 @@ webpackJsonp([0,1],[
 /* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "img/c19ff160.ico";
+	module.exports = __webpack_require__.p + "images/c19ff160.ico";
 
 /***/ },
 /* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "img/e1479a2e.ico";
+	module.exports = __webpack_require__.p + "images/e1479a2e.ico";
 
 /***/ },
 /* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "img/ebaff49a.ico";
+	module.exports = __webpack_require__.p + "images/ebaff49a.ico";
 
 /***/ }
 ]);

@@ -16,7 +16,7 @@ const clientPath = path.resolve(__dirname, 'client');
 module.exports = {
 	devtool: 'source-map',
 	entry: {
-		'js/app': path.join(__dirname, '/client/app.js'),
+		'js/app': path.join(__dirname, '/client/app/app.js'),
 	},
 	output: {
 		path: path.join(__dirname, '/public'),
@@ -43,25 +43,12 @@ module.exports = {
 			},
 			{
 				test: /\.(png|jpg|gif|ico)$/,
-				loader: 'url-loader?limit=8192&name=img/[hash:8].[ext]'
+				loader: 'url-loader?limit=8192&name=images/[hash:8].[ext]'
 			}
 		]
 	},
 	plugins: [
 		commonsPlugin
 	],
-	devServer: {
-		historyApiFallback: true,
-		hot: true,
-		inline: true,
-		process: true,
-		proxy: {
-			'/api': {
-				target: 'http://localhost:3001',
-				secure: false,
-				pathRewrite: {'^/api' : ''}, //访问/api时相当于访问http://localhost:3001，没此句则相当于访问http://localhost:3001/api
-				changeOrigin: true
-			}
-		}
-	},
+
 }

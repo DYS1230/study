@@ -3,11 +3,11 @@ import {render} from 'react-dom';
 
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import Container from './main/container';
+import Container from './container';
 
-import SignIn from './sign/signIn';
+import SignIn from './signIn';
 
-import PostArtical from './article/postArticle';
+import PostArtical from './postArticle';
 
 function requireAuth(nextState, replace) {
 	console.log(arguments);

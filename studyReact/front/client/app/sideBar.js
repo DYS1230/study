@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './sideBar.css';
+import styles from './css/sideBar.css';
 
 export default class SideBar extends React.Component {
 	render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './about.css'
+import styles from './css/about.css'
 
 
 //console.log(styles);

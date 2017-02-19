@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Link } from 'react-router';
 
-import Nav from './nav.js';
+import Nav from './nav';
 
-import styles from './container.css';
+import styles from './css/container.css';
 
 export default  class Container extends React.Component {
 	constructor(props) {

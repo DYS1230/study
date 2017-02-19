@@ -2,9 +2,9 @@ import React from 'react';
 
 import {Router, Link, IndexLink} from 'react-router';
 
-import styles from './nav.css';
+import styles from './css/nav.css';
 
-import img from './../img/7.png';
+import img from '../images/7.png';
 
 export default class Nav extends React.Component {
 	constructor(props, context) {

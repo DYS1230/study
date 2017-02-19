@@ -6,22 +6,27 @@
   "scripts": {
     "devf": "webpack-dev-server --config ./front/webpack.dev.config.js --content-base ./front",
     "deve": "webpack-dev-server --config ./end/webpack.dev.config.js --content-base ./end",
-    "node": "webpack --watch --config ./front/webpack.node.config.js & nodemon ./server/index.js"
+    "node": "nodemon ./server/index.js",
+    "webpack": "webpack --config ./end/webpack.node.config.js && webpack-dev-server --config ./front/webpack.node.config.js",
+    "webe": "webpack --watch --config ./end/webpack.node.config.js ",
+    "webf": "webpack --watch --config ./front/webpack.node.config.js "
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
     "classnames": "^2.2.5",
+    "connect-redis": "^3.2.0",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
-    "express-session": "^1.14.2",
+    "express-session": "^1.15.1",
     "jquery": "^3.1.1",
     "less-loader": "^2.2.3",
     "mongoose": "^4.7.7",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "react-router": "^3.0.0"
+    "react-router": "^3.0.0",
+    "redis": "^2.6.5"
   },
   "devDependencies": {
     "babel-core": "^6.20.0",

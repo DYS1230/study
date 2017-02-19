@@ -16,7 +16,7 @@ const clientPath = path.resolve(__dirname, 'client');
 module.exports = {
 	devtool: 'source-map',
 	entry: {
-		'js/app': path.join(__dirname, '/client/app.js'),
+		'js/app': path.join(__dirname, '/client/app/app.js'),
 	},
 	output: {
 		path: path.join(__dirname, '/public'),

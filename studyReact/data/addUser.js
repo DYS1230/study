@@ -1,5 +1,5 @@
-var name = 'a';
-var password = 'b';
+var name = 'c';
+var password = 'd';
 
 
 var mongoose = require('mongoose');

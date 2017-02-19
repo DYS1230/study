@@ -3,9 +3,9 @@ import {render} from 'react-dom';
 
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import Container from './main/container';
+import Container from './container';
 
-import Home from './home/home';
+import Home from './home';
 
 class Test extends React.Component {
 	constructor(props) {
