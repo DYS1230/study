@@ -15,7 +15,7 @@ export default class SignIn extends React.Component {
 	handleSubmit(event) {
 		event.preventDefault();	
 
-		fetch('/api/control_back/sign_in', {
+		fetch('/api/backstage/sign', {
 			method: 'POST',
 			credentials: 'include',
 			headers:{

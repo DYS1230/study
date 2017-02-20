@@ -1,7 +1,10 @@
-var User = require('./userSchema.js');
+var User = require('../database/userSchema.js');
 
-User.prototype.saveData = function (callback) {
-	this.save(callback);
+User.newData = function (obj, callback) {
+	var user = new User();
+	user.name = obj.name;
+	user.password = obj.password;
+	user.save(callback);
 };
 
 User.getData = function (name, callback) {

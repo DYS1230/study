@@ -1,13 +1,13 @@
-var auth = {};
-
 var isLogin = false;
+
+var auth = {};
 
 auth.authorized = function () {
 	return isLogin;
-};
+}
 
-auth.checkLogin = function () {
-	return 
+auth.setAuth = function () {
+	isLogin = true;
 }
 
 

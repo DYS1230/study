@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost:27017/test');
+mongoose.connect('mongodb://127.0.0.1/test');
 
 var connection = mongoose.connection;
 
@@ -20,6 +20,6 @@ connection.on('error', function (err) {
 
 connection.on('disconnected', function () {
 	console.log('Mongoose connect disconnected');
-})
+});
 
 module.exports = mongoose;

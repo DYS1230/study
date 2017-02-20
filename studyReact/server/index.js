@@ -38,8 +38,10 @@ app.use(bodyParser.text({ type: 'text/plain' }))
 
 
 
+var webRoute = require('./route.js'); 
 
-require('./route/route.js')(app);
+app.use('/', webRoute);
+//require('./route/route.js')(app);
 
 
 app.listen(app.get('port'), function () {

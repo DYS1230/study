@@ -9,11 +9,16 @@ import SignIn from './signIn';
 
 import PostArtical from './postArticle';
 
+
+
+
+
+
 function requireAuth(nextState, replace) {
 	console.log(arguments);
 	if (1 == 1) {
 		replace({
-			pathname: '/control_back/sign_in',
+			pathname: '/backstage/sign',
 			state: {nextPathname: nextState.location.pathname}
 		})
 	}
@@ -22,10 +27,10 @@ function requireAuth(nextState, replace) {
 
 render((
 	<Router history={browserHistory}>
-		<Route path="/control_back/sign_in" component={SignIn} />
-		<Route path="/control_back" component={Container} onEnter={requireAuth}>
+		<Route path="/backstage/sign" component={SignIn} />
+		<Route path="/backstage" component={Container} onEnter={requireAuth}>
 			<IndexRoute component={PostArtical} />
-			{/*<Route path="sign_in" component={SignIn} />*/}
+			{/*<Route path="sign" component={SignIn} />*/}
 		</Route>
 	</Router>
 ), document.querySelector('#container'));

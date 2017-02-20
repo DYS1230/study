@@ -16,11 +16,11 @@ webpackJsonp([0,1],[
 	
 	var _container2 = _interopRequireDefault(_container);
 	
-	var _signIn = __webpack_require__(5);
+	var _signIn = __webpack_require__(9);
 	
 	var _signIn2 = _interopRequireDefault(_signIn);
 	
-	var _postArticle = __webpack_require__(6);
+	var _postArticle = __webpack_require__(12);
 	
 	var _postArticle2 = _interopRequireDefault(_postArticle);
 	
@@ -30,7 +30,7 @@ webpackJsonp([0,1],[
 		console.log(arguments);
 		if (true) {
 			replace({
-				pathname: '/control_back/sign_in',
+				pathname: '/backstage/sign',
 				state: { nextPathname: nextState.location.pathname }
 			});
 		}
@@ -39,10 +39,10 @@ webpackJsonp([0,1],[
 	(0, _reactDom.render)(_react2.default.createElement(
 		_reactRouter.Router,
 		{ history: _reactRouter.browserHistory },
-		_react2.default.createElement(_reactRouter.Route, { path: '/control_back/sign_in', component: _signIn2.default }),
+		_react2.default.createElement(_reactRouter.Route, { path: '/backstage/sign', component: _signIn2.default }),
 		_react2.default.createElement(
 			_reactRouter.Route,
-			{ path: '/control_back', component: _container2.default, onEnter: requireAuth },
+			{ path: '/backstage', component: _container2.default, onEnter: requireAuth },
 			_react2.default.createElement(_reactRouter.IndexRoute, { component: _postArticle2.default })
 		)
 	), document.querySelector('#container'));
@@ -83,7 +83,7 @@ webpackJsonp([0,1],[
 	
 	var _reactRouter = __webpack_require__(3);
 	
-	var _container = __webpack_require__(13);
+	var _container = __webpack_require__(5);
 	
 	var _container2 = _interopRequireDefault(_container);
 	
@@ -135,219 +135,20 @@ webpackJsonp([0,1],[
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _sign = __webpack_require__(9);
-	
-	var _sign2 = _interopRequireDefault(_sign);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	//import $ from 'jquery';
-	
-	var SignIn = function (_React$Component) {
-		_inherits(SignIn, _React$Component);
-	
-		function SignIn(props) {
-			_classCallCheck(this, SignIn);
-	
-			var _this = _possibleConstructorReturn(this, (SignIn.__proto__ || Object.getPrototypeOf(SignIn)).call(this, props));
-	
-			_this.state = {
-				name: '',
-				password: ''
-			};
-			return _this;
-		}
-	
-		_createClass(SignIn, [{
-			key: 'handleSubmit',
-			value: function handleSubmit(event) {
-				event.preventDefault();
-	
-				fetch('/api/control_back/sign_in', {
-					method: 'POST',
-					credentials: 'include',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						name: this.state.name,
-						password: this.state.password
-					})
-				}).then(function (res) {
-					return res.text();
-				}).then(function (data) {
-					if (data == 'success') {}
-				});
-			}
-			// handleChange(key, event) {
-			// 	console.log(event);
-			// 	this.setState({[key]: event.target.value})
-			// }
-	
-		}, {
-			key: 'hanleChange',
-			value: function hanleChange(event, key) {
-				this.setState(_defineProperty({}, key, event.target.value));
-			}
-		}, {
-			key: 'handleClick',
-			value: function handleClick(event) {
-				console.log(document.cookie);
-				console.log(document.session);
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				var _this2 = this;
-	
-				return _react2.default.createElement(
-					'div',
-					{ className: _sign2.default.signContainer },
-					_react2.default.createElement(
-						'form',
-						{ className: _sign2.default.signForm, onSubmit: function onSubmit(event) {
-								return _this2.handleSubmit(event);
-							} },
-						_react2.default.createElement(
-							'h1',
-							{ className: _sign2.default.signTitle, onClick: function onClick(event) {
-									return _this2.handleClick(event);
-								} },
-							'\u767B\u5F55'
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: _sign2.default.formGroup },
-							_react2.default.createElement('input', { type: 'text',
-								placeholder: '\u7528\u6237\u540D',
-								name: 'userName',
-								className: _sign2.default.inputControl,
-								autoComplete: 'off'
-								//onChange={this.handleChange.bind(this, 'name')}
-								, onChange: function onChange(event, name) {
-									return _this2.hanleChange(event, 'name');
-								},
-								value: this.state.name })
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: _sign2.default.formGroup },
-							_react2.default.createElement('input', { type: 'password',
-								placeholder: '\u5BC6\u7801',
-								name: 'password',
-								className: _sign2.default.inputControl,
-								onChange: function onChange(event, password) {
-									return _this2.hanleChange(event, 'password');
-								},
-								value: this.state.password })
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: _sign2.default.formGroup },
-							_react2.default.createElement('input', { type: 'submit',
-								className: _sign2.default.success + ' ' + _sign2.default.btn
-								//onClick={(event) => this.handleClick(event)}
-								, value: '\u767B\u5F55' })
-						)
-					)
-				);
-			}
-		}]);
-	
-		return SignIn;
-	}(_react2.default.Component);
-	
-	exports.default = SignIn;
-
-/***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var PostAriticle = function (_React$Component) {
-		_inherits(PostAriticle, _React$Component);
-	
-		function PostAriticle() {
-			_classCallCheck(this, PostAriticle);
-	
-			return _possibleConstructorReturn(this, (PostAriticle.__proto__ || Object.getPrototypeOf(PostAriticle)).apply(this, arguments));
-		}
-	
-		_createClass(PostAriticle, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					null,
-					'postAriticle'
-				);
-			}
-		}]);
-	
-		return PostAriticle;
-	}(_react2.default.Component);
-	
-	exports.default = PostAriticle;
-
-/***/ },
-/* 7 */,
-/* 8 */,
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(10);
+	var content = __webpack_require__(6);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(12)(content, {});
+	var update = __webpack_require__(8)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?modules!./sign.css", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js?modules!./sign.css");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?modules!./container.css", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?modules!./container.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -357,29 +158,21 @@ webpackJsonp([0,1],[
 	}
 
 /***/ },
-/* 10 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(11)();
+	exports = module.exports = __webpack_require__(7)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "._134qzVPdozOASB6AcHo7Ml {\n\tbackground: #5cb85c;\n}\n\n._2gHgDCmltJ_QbsJ71zTa80 {\n\tbox-sizing: border-box;\n\tdisplay: block;\n\twidth: 100%;\n\tpadding: 8px 12px;\n\tfont-size: 16px;\n\tcolor: white;\n\tborder: 1px solid #ccc;\n\tborder-radius: 4px;\n\tbox-shadow: inset 0 1px 1px rgba(0,0,0,.075);\n}\n\n.KnGRaR3iN7rII9WRVhBJV {\n\theight: 100%;\n\twidth: 100%;\n\tpadding-top: 80px;\n}\n\n._2vusW01LY4Iruni4VVyRwP {\n\twidth: 300px;\n\tpadding: 30px 50px;\n\tmargin: 0 auto;\n\tbackground: white;\n\ttext-align: center;\n}\n\n._2vusW01LY4Iruni4VVyRwP ._3oYwIjL5cvSyL2492YgT_5 {\n\tmargin-bottom: 30px;\n}\n\n._27xUDPsTDFsET0Erc6WmzI {\n\tmargin-bottom: 15px;\n}\n\n._3-mjcpBk-y-kK_bTDlnihK {\n\tbox-sizing: border-box;\n\tdisplay: block;\n\twidth: 100%;\n\tpadding: 8px 12px;\n\tfont-size:14px;\n\tcolor: #555;\n\tborder: 1px solid #ccc;\n\tborder-radius: 4px;\n\tbox-shadow: inset 0 1px 1px rgba(0,0,0,.075);\n}", ""]);
+	exports.push([module.id, "body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {\n\tmargin: 0;\n\tpadding: 0;\n}\n\nhtml {\n\theight: 100%;\n}\n\nbody {\n\theight: 100%;\n\twidth: 100%;\n\tposition: relative;\n\tbackground: #F1F1F1;\n}\n\na {\n\ttext-decoration: none;\n}", ""]);
 	
 	// exports
-	exports.locals = {
-		"success": "_134qzVPdozOASB6AcHo7Ml",
-		"btn": "_2gHgDCmltJ_QbsJ71zTa80",
-		"signContainer": "KnGRaR3iN7rII9WRVhBJV",
-		"signForm": "_2vusW01LY4Iruni4VVyRwP",
-		"signTitle": "_3oYwIjL5cvSyL2492YgT_5",
-		"formGroup": "_27xUDPsTDFsET0Erc6WmzI",
-		"inputControl": "_3-mjcpBk-y-kK_bTDlnihK"
-	};
+
 
 /***/ },
-/* 11 */
+/* 7 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -434,7 +227,7 @@ webpackJsonp([0,1],[
 	};
 
 /***/ },
-/* 12 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -686,23 +479,171 @@ webpackJsonp([0,1],[
 
 
 /***/ },
-/* 13 */
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _sign = __webpack_require__(10);
+	
+	var _sign2 = _interopRequireDefault(_sign);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	//import $ from 'jquery';
+	
+	var SignIn = function (_React$Component) {
+		_inherits(SignIn, _React$Component);
+	
+		function SignIn(props) {
+			_classCallCheck(this, SignIn);
+	
+			var _this = _possibleConstructorReturn(this, (SignIn.__proto__ || Object.getPrototypeOf(SignIn)).call(this, props));
+	
+			_this.state = {
+				name: '',
+				password: ''
+			};
+			return _this;
+		}
+	
+		_createClass(SignIn, [{
+			key: 'handleSubmit',
+			value: function handleSubmit(event) {
+				event.preventDefault();
+	
+				fetch('/api/backstage/sign', {
+					method: 'POST',
+					credentials: 'include',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						name: this.state.name,
+						password: this.state.password
+					})
+				}).then(function (res) {
+					return res.text();
+				}).then(function (data) {
+					if (data == 'success') {}
+				});
+			}
+			// handleChange(key, event) {
+			// 	console.log(event);
+			// 	this.setState({[key]: event.target.value})
+			// }
+	
+		}, {
+			key: 'hanleChange',
+			value: function hanleChange(event, key) {
+				this.setState(_defineProperty({}, key, event.target.value));
+			}
+		}, {
+			key: 'handleClick',
+			value: function handleClick(event) {
+				console.log(document.cookie);
+				console.log(document.session);
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				var _this2 = this;
+	
+				return _react2.default.createElement(
+					'div',
+					{ className: _sign2.default.signContainer },
+					_react2.default.createElement(
+						'form',
+						{ className: _sign2.default.signForm, onSubmit: function onSubmit(event) {
+								return _this2.handleSubmit(event);
+							} },
+						_react2.default.createElement(
+							'h1',
+							{ className: _sign2.default.signTitle, onClick: function onClick(event) {
+									return _this2.handleClick(event);
+								} },
+							'\u767B\u5F55'
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: _sign2.default.formGroup },
+							_react2.default.createElement('input', { type: 'text',
+								placeholder: '\u7528\u6237\u540D',
+								name: 'userName',
+								className: _sign2.default.inputControl,
+								autoComplete: 'off'
+								//onChange={this.handleChange.bind(this, 'name')}
+								, onChange: function onChange(event, name) {
+									return _this2.hanleChange(event, 'name');
+								},
+								value: this.state.name })
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: _sign2.default.formGroup },
+							_react2.default.createElement('input', { type: 'password',
+								placeholder: '\u5BC6\u7801',
+								name: 'password',
+								className: _sign2.default.inputControl,
+								onChange: function onChange(event, password) {
+									return _this2.hanleChange(event, 'password');
+								},
+								value: this.state.password })
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: _sign2.default.formGroup },
+							_react2.default.createElement('input', { type: 'submit',
+								className: _sign2.default.success + ' ' + _sign2.default.btn
+								//onClick={(event) => this.handleClick(event)}
+								, value: '\u767B\u5F55' })
+						)
+					)
+				);
+			}
+		}]);
+	
+		return SignIn;
+	}(_react2.default.Component);
+	
+	exports.default = SignIn;
+
+/***/ },
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(14);
+	var content = __webpack_require__(11);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(12)(content, {});
+	var update = __webpack_require__(8)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?modules!./container.css", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js?modules!./container.css");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?modules!./sign.css", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?modules!./sign.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -712,18 +653,75 @@ webpackJsonp([0,1],[
 	}
 
 /***/ },
-/* 14 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(11)();
+	exports = module.exports = __webpack_require__(7)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {\n\tmargin: 0;\n\tpadding: 0;\n}\n\nhtml {\n\theight: 100%;\n}\n\nbody {\n\theight: 100%;\n\twidth: 100%;\n\tposition: relative;\n\tbackground: #F1F1F1;\n}\n\na {\n\ttext-decoration: none;\n}", ""]);
+	exports.push([module.id, "._134qzVPdozOASB6AcHo7Ml {\n\tbackground: #5cb85c;\n}\n\n._2gHgDCmltJ_QbsJ71zTa80 {\n\tbox-sizing: border-box;\n\tdisplay: block;\n\twidth: 100%;\n\tpadding: 8px 12px;\n\tfont-size: 16px;\n\tcolor: white;\n\tborder: 1px solid #ccc;\n\tborder-radius: 4px;\n\tbox-shadow: inset 0 1px 1px rgba(0,0,0,.075);\n}\n\n.KnGRaR3iN7rII9WRVhBJV {\n\theight: 100%;\n\twidth: 100%;\n\tpadding-top: 80px;\n}\n\n._2vusW01LY4Iruni4VVyRwP {\n\twidth: 300px;\n\tpadding: 30px 50px;\n\tmargin: 0 auto;\n\tbackground: white;\n\ttext-align: center;\n}\n\n._2vusW01LY4Iruni4VVyRwP ._3oYwIjL5cvSyL2492YgT_5 {\n\tmargin-bottom: 30px;\n}\n\n._27xUDPsTDFsET0Erc6WmzI {\n\tmargin-bottom: 15px;\n}\n\n._3-mjcpBk-y-kK_bTDlnihK {\n\tbox-sizing: border-box;\n\tdisplay: block;\n\twidth: 100%;\n\tpadding: 8px 12px;\n\tfont-size:14px;\n\tcolor: #555;\n\tborder: 1px solid #ccc;\n\tborder-radius: 4px;\n\tbox-shadow: inset 0 1px 1px rgba(0,0,0,.075);\n}", ""]);
 	
 	// exports
+	exports.locals = {
+		"success": "_134qzVPdozOASB6AcHo7Ml",
+		"btn": "_2gHgDCmltJ_QbsJ71zTa80",
+		"signContainer": "KnGRaR3iN7rII9WRVhBJV",
+		"signForm": "_2vusW01LY4Iruni4VVyRwP",
+		"signTitle": "_3oYwIjL5cvSyL2492YgT_5",
+		"formGroup": "_27xUDPsTDFsET0Erc6WmzI",
+		"inputControl": "_3-mjcpBk-y-kK_bTDlnihK"
+	};
 
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var PostAriticle = function (_React$Component) {
+		_inherits(PostAriticle, _React$Component);
+	
+		function PostAriticle() {
+			_classCallCheck(this, PostAriticle);
+	
+			return _possibleConstructorReturn(this, (PostAriticle.__proto__ || Object.getPrototypeOf(PostAriticle)).apply(this, arguments));
+		}
+	
+		_createClass(PostAriticle, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					'postAriticle'
+				);
+			}
+		}]);
+	
+		return PostAriticle;
+	}(_react2.default.Component);
+	
+	exports.default = PostAriticle;
 
 /***/ }
 ]);

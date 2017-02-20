@@ -1,4 +1,4 @@
-var mongoose = require('../main/mongo.js');
+var mongoose = require('./mongo.js');
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({

@@ -803,6 +803,10 @@ webpackJsonp([0,1],[
 	
 	var _reactRouter = __webpack_require__(3);
 	
+	var _test = __webpack_require__(24);
+	
+	var _test2 = _interopRequireDefault(_test);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -827,13 +831,11 @@ webpackJsonp([0,1],[
 			key: 'handleClick',
 			value: function handleClick(event) {
 				//console.log(1212);
-				fetch('/bb', {
-					method: 'POST'
-				}).then(function (data) {
-					data.text().then(function (data) {
-						console.log(data);
-					});
-				});
+				// fetch('/bb', {
+				// 	method: 'POST'
+				// }).then( (data) => {
+				// 	data.text().then(function(data) {console.log(data)});
+				// })
 	
 				// fetch('/aaaa/login', {
 				// 	method: 'POST',
@@ -847,6 +849,16 @@ webpackJsonp([0,1],[
 				// }).then( (data) => {
 				// 	console.log(data.text().then(function(data) {console.log(data); browserHistory.push('/test')}));
 				// })
+	
+				console.log(sessionStorage.getItem('a'));
+				sessionStorage.setItem('a', 'b');
+	
+				console.log(_test2.default.authorized());
+			}
+		}, {
+			key: 'test',
+			value: function test(event) {
+				_test2.default.setAuth();
 			}
 		}, {
 			key: 'render',
@@ -856,6 +868,13 @@ webpackJsonp([0,1],[
 				return _react2.default.createElement(
 					'div',
 					{ className: _home2.default.homePage },
+					_react2.default.createElement(
+						'div',
+						{ onClick: function onClick(event) {
+								return _this2.test(event);
+							} },
+						'test'
+					),
 					_react2.default.createElement(
 						'div',
 						{ className: _home2.default.articleContainer, onClick: function onClick(event) {
@@ -1145,6 +1164,26 @@ webpackJsonp([0,1],[
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "images/ebaff49a.ico";
+
+/***/ },
+/* 24 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	var isLogin = false;
+	
+	var auth = {};
+	
+	auth.authorized = function () {
+		return isLogin;
+	};
+	
+	auth.setAuth = function () {
+		isLogin = true;
+	};
+	
+	module.exports = auth;
 
 /***/ }
 ]);

@@ -60,9 +60,9 @@ extract-text-webpack-plugin 看到想使用query写法，发现原来是webpack2
 
  2017年01月22日13:32:51
 
- 路由还是很有问题，现在路由为http://localhost:3001/control_back/sign_in时，
+ 路由还是很有问题，现在路由为http://localhost:3001/backstage/sign时，
  如果main.html的src为 "./end/public/libs/react/react.js" 时获得的地址 
- 是 localhost:3001/control_back/end/public/libs/react/react.js
+ 是 localhost:3001/backstage/end/public/libs/react/react.js
  正确应该是 localhost:3001/end/public/libs/react/react.js
 
  改成 ../end/public/libs/react/react.js 才行
@@ -70,13 +70,13 @@ extract-text-webpack-plugin 看到想使用query写法，发现原来是webpack2
 解决：应该是 /front
 
 
- 还有，待思考，怎么匹配 /control_back  及 /control_back下的所有路径
+ 还有，待思考，怎么匹配 /backstage  及 /control_back下的所有路径
 
 解决：
 
 写成正则
-app.get(/^\/control_back(\/.*)?/, function (req, res){
-	console.log('get controlback');
+app.get(/^\/backstage(\/.*)?/, function (req, res){
+	console.log('get backstage');
 	res.sendFile(path.resolve(__dirname, '../end/public', 'main.html'))
 });
 
@@ -85,7 +85,7 @@ var router = express.Router();
 router.route('/*').get(function (req, res) {
 	res.sendFile(path.resolve(__dirname, '../end/public', 'main.html'));
 });
-app.use("/control_back", router);
+app.use("/backstage", router);
 
 
 2017年02月12日22:01:06
@@ -96,10 +96,10 @@ app.use("/control_back", router);
 
 记下自己写的demo
 
-$.ajax({ type:"POST", url:"/api/control_back/sign_in", data: {aaaa: 2222} });
+$.ajax({ type:"POST", url:"/api/backstage/sign", data: {aaaa: 2222} });
 
 var xhr = new XMLHttpRequest(); 
-xhr.open('POST', '/api/control_back/sign_in', true);
+xhr.open('POST', '/api/backstage/sign', true);
 xhr.onreadystatechange = function () {
 	if (xhr.readyState == 4 && xhr.status == 200) {
 		console.log(xhr.responseText);
@@ -107,11 +107,11 @@ xhr.onreadystatechange = function () {
 }
 xhr.send('bbbb=1111');
 
-fetch('/api/control_back/sign_in', { method: 'POST', headers:{ 'Content-Type': 'application/json' }, body: JSON.stringify({ name: this.state.name, password: this.state.password }) });
+fetch('/api/backstage/sign', { method: 'POST', headers:{ 'Content-Type': 'application/json' }, body: JSON.stringify({ name: this.state.name, password: this.state.password }) });
 
-fetch('/api/control_back/sign_in', { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify({ password: 'aaaa' }) });
+fetch('/api/backstage/sign', { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify({ password: 'aaaa' }) });
 
-fetch("/api/control_back/sign_in", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded"}, body: "firstName=Nikhil&favColor=blue&password=easytoguess"})
+fetch("/api/backstage/sign", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded"}, body: "firstName=Nikhil&favColor=blue&password=easytoguess"})
 
 
 默认如果没有设置headers，contentType为text/plain
