@@ -1,13 +1,13 @@
 var auth = {};
 
-var isLogin = false;
-
-auth.authorized = function () {
-	return isLogin;
-};
+//目前改变量是没有用到，想着后面转练用redux用到
+auth.isLogin = false;
 
 auth.checkLogin = function () {
-	return 
+	return fetch('/api/backstage/checklogin', {
+			method: 'GET',
+			credentials: 'include'
+		}).then( response => response.text());
 }
 
 

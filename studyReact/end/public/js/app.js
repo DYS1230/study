@@ -24,22 +24,106 @@ webpackJsonp([0,1],[
 	
 	var _postArticle2 = _interopRequireDefault(_postArticle);
 	
+	var _auth = __webpack_require__(13);
+	
+	var _auth2 = _interopRequireDefault(_auth);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function requireAuth(nextState, replace) {
+	var loaded = false; //记录是否已经登陆页面
+	
+	//If callback is listed as a 3rd argument, this hook will run asynchronously, and the transition will block until callback is called.
+	/*import React from 'react';
+	import {render} from 'react-dom';
+	
+	import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+	
+	import Container from './container';
+	
+	import SignIn from './signIn';
+	
+	import PostArtical from './postArticle';
+	
+	import auth from '../controller/auth.js';
+	
+	
+	function requireAuth(nextState, replace, cb) {
 		console.log(arguments);
-		if (true) {
+	console.log(cb);
+	// replace('/backstage/sign');
+	// replace({
+	// 	pathname: '/backstage/sign',
+	// 	state: {nextPathname: nextState.location.pathname}
+	// })
+		// var promise = auth.checkLogin();
+		// promise.then(function (response) {
+		// 	console.log('login');
+		// 	cb();
+		// }).catch(function (err) {
+		// 	console.log('noLogin');
+		// 	replace('/backstage/sign');
+		// })
+	
+		if (1 == 1) {
 			replace({
 				pathname: '/backstage/sign',
-				state: { nextPathname: nextState.location.pathname }
+				state: {nextPathname: nextState.location.pathname}
+			})
+		}
+	}
+	
+	
+	render((
+		<Router history={browserHistory}>
+			<Route path="/backstage/sign" component={SignIn} />
+			<Route path="/backstage" component={Container} onEnter={requireAuth}>
+				<IndexRoute component={PostArtical} />
+				
+			</Route>
+		</Router>
+	), document.querySelector('#container'));*/
+	
+	function requireAuth(nextState, replace, cb) {
+		if (!loaded) {
+			var promise = _auth2.default.checkLogin();
+			promise.then(function (response) {
+				if (response == 'success') {
+					console.log(loaded);
+					loaded = true;
+					console.log(loaded);
+				} else if (response == 'error') {
+					replace({
+						pathname: '/backstage/sign',
+						state: { nextPathname: nextState.location.pathname }
+					});
+				}
+				cb();
+			}).catch(function (err) {
+				console.log(err);
+				replace('/backstage/sign');
+				cb();
 			});
 		}
+	}
+	
+	function isLogin(nextState, replace, cb) {
+		//若已经登陆，不可再进登陆页面
+		var promise = _auth2.default.checkLogin();
+		promise.then(function (response) {
+			if (response == 'success') {
+				replace({
+					pathname: '/backstage',
+					state: { nextPathname: nextState.location.pathname }
+				});
+			}
+			cb();
+		});
 	}
 	
 	(0, _reactDom.render)(_react2.default.createElement(
 		_reactRouter.Router,
 		{ history: _reactRouter.browserHistory },
-		_react2.default.createElement(_reactRouter.Route, { path: '/backstage/sign', component: _signIn2.default }),
+		_react2.default.createElement(_reactRouter.Route, { path: '/backstage/sign', component: _signIn2.default, onEnter: isLogin }),
 		_react2.default.createElement(
 			_reactRouter.Route,
 			{ path: '/backstage', component: _container2.default, onEnter: requireAuth },
@@ -722,6 +806,28 @@ webpackJsonp([0,1],[
 	}(_react2.default.Component);
 	
 	exports.default = PostAriticle;
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	var auth = {};
+	
+	//目前改变量是没有用到，想着后面转练用redux用到
+	auth.isLogin = false;
+	
+	auth.checkLogin = function () {
+			return fetch('/api/backstage/checklogin', {
+					method: 'GET',
+					credentials: 'include'
+			}).then(function (response) {
+					return response.text();
+			});
+	};
+	
+	module.exports = auth;
 
 /***/ }
 ]);

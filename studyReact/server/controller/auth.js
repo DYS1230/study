@@ -14,7 +14,8 @@ exports.signin = function (req, res) {
 		}
 		// when not find, return []
 		if (user.length) {
-			req.session.uid = user._id;
+			req.session.uid = user[0]._id;
+			console.log(req.session.uid);
 			res.send('success');
 		} else {
 			res.send('error');

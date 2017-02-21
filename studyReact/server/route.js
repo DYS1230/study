@@ -20,19 +20,24 @@ router.get('/api/test', function (req, res) {
 
 router.get('/aa', function (req, res) {
 	console.log(req.cookies);
-	res.cookie('aa', 'aa');
+	//res.cookie('aa', 'aa');
 	res.send('a');
 });
 
 router.post('/bb', function (req, res) {
 	console.log(req.cookies);
-	res.cookie('cc', 'cc');
+	//res.cookie('cc', 'cc');
 	res.send('bb');
 });
 
 router.get('/api/backstage/checklogin', function (req, res) {
+	if (req.session && req.session.uid) {
+		res.send('success');
+	} else {
+		res.send('error');
+	}
 
-	});
+});
 
 
 
