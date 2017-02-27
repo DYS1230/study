@@ -14,6 +14,27 @@ body {
 	background: #F1F1F1;
 }
 
+body > div {
+	height: 100%;
+}
+
 a {
 	text-decoration: none;
+}
+
+.contentContainer {
+	height: 100%;
+}
+
+.wrapContainer {
+	margin-left: 150px;
+	padding-top: 40px;
+	height: calc(100% - 40px);
+}
+
+.wrapContainer > div {
+	box-sizing: border-box;
+	height: 100%;
+	overflow-x: hidden;
+	padding: 20px;
 }
