@@ -4,6 +4,7 @@ var router = express.Router();
 var path = require('path');
 
 var auth = require('./controller/auth.js');
+var article = require('./controller/article.js');
 
 router.get('/test', function (req, res) {
 	res.send('hello dys test')
@@ -43,6 +44,11 @@ router.get('/api/backstage/checklogin', function (req, res) {
 
 
 router.post('/api/backstage/sign', auth.signin);
+
+
+router.get('/api/allarticle', article.getAllArticle);
+
+router.post('/api/backstage/postarticle', article.saveArticle);
 
 
 

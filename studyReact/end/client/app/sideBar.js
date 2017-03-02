@@ -22,7 +22,7 @@ export default class SideBar extends React.Component {
 		var node = sidebarData.map(function (item, index) {
 			return (
 				<li className={styles.sidebatItem} key={index}>
-					123
+					文章
 				</li>
 			)
 		});

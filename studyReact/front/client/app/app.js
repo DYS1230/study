@@ -7,6 +7,8 @@ import Container from './container';
 
 import Home from './home';
 
+import Article from './article';
+
 class Test extends React.Component {
 	constructor(props) {
 		super(props);
@@ -42,9 +44,9 @@ render((
 		<Route path="/" component={Container}>
 			<IndexRoute component={Home}/>
 			<Route path="about" component={About}>
-				<Route path="x" />
+				<Route path="x" /> {/*？？？忘了这是干什么的了*/}
 			</Route>
-			<Route path="test" component={Test}/>
+			<Route path="test" component={Article} />
 		</Route>
 		<Route path="/dys" component={DYS} />
 	</Router>
