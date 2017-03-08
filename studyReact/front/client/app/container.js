@@ -19,14 +19,14 @@ export default  class Container extends React.Component {
 	}
 	fetchData() {
 		var url = "/api/test";
-		fetch(url)
-			.then( response => response.text() )
-			.then((responseData) => {
-				console.log(responseData);
-				this.setState({
-					data: responseData
-				});
-			});
+		// fetch(url)
+		// 	.then( response => response.text() )
+		// 	.then((responseData) => {
+		// 		console.log(responseData);
+		// 		this.setState({
+		// 			data: responseData
+		// 		});
+		// 	});
 	}
 	render () {
 		return (

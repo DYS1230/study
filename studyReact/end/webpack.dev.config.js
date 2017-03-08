@@ -37,12 +37,20 @@ module.exports = {
 				test: /\.css$/,
 				loader: 'style-loader!css-loader?modules&sourceMap',
 			},
-			{ test: /\.(png|jpg|gif|ico)$/, loader: 'url-loader?limit=8192&name=[name][hash:8].[ext]'}
+			{
+				test: /\.(png|jpg|gif|ico)$/,
+				loader: 'url-loader?limit=8192&name=[name][hash:8].[ext]'
+			},
+			{
+				test: /\.json$/,
+				loader: 'json-loader'
+			}
 		]
 	},
 	plugins: [
 		commonsPlugin,
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
+		new webpack.IgnorePlugin(/\/iconv-loader$/)
 	],
 	devServer: {
 		historyApiFallback: true,
@@ -59,3 +67,6 @@ module.exports = {
 		}
 	},
 }
+
+// 由于使用了node-fetch，使用了 new webpack.IgnorePlugin(/\/iconv-loader$/)
+// https://github.com/bitinn/node-fetch/issues/41

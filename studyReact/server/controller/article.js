@@ -27,14 +27,17 @@ exports.saveArticle = function (req, res) {
 };
 
 exports.getAllArticle = function (req, res) {
-	console.log('all');
-	var x = {
-		title: 'javascript',
-		time: 'today',
-		tag: 'js',
-		content: '测试数据'
-	};
 
-	res.send(JSON.stringify(x));
+
+	console.log('all');
+
+	Article.getGroupData('', function (err, articles) {
+		if (err) {
+			console.log(err);
+			console.log('文章获取失败');
+			res.send([]);
+		}
+		res.send(articles);
+	});
 
 }

@@ -44,10 +44,18 @@ module.exports = {
 			{
 				test: /\.(png|jpg|gif|ico)$/,
 				loader: 'url-loader?limit=8192&name=img/[hash:8].[ext]'
+			},
+			{
+				test: /\.json$/,
+				loader: 'json-loader'
 			}
 		]
 	},
 	plugins: [
-		commonsPlugin
+		commonsPlugin,
+		new webpack.IgnorePlugin(/\/iconv-loader$/)
 	]
 }
+
+// 由于使用了node-fetch，使用了 new webpack.IgnorePlugin(/\/iconv-loader$/)
+// https://github.com/bitinn/node-fetch/issues/41

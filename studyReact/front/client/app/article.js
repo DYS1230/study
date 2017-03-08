@@ -9,19 +9,19 @@ export default class Article extends React.Component {
 	}
 	componentWillMount() {
 		console.log('componentWillMount');
-		fetch('/api/allarticle', {
-			method: 'GET',
-			'Content-Type': 'application/json',
-       			'Accept': 'application/json'
-		}).then(
-			res => res.json()
-		).then(
-			data => {
-				this.setState({
-					article: data
-				});
-			}
-		);
+		// fetch('/api/allarticle', {
+		// 	method: 'GET',
+		// 	'Content-Type': 'application/json',
+  //      			'Accept': 'application/json'
+		// }).then(
+		// 	res => res.json()
+		// ).then(
+		// 	data => {
+		// 		this.setState({
+		// 			article: data
+		// 		});
+		// 	}
+		// );
 
 	}
 	componentDidMount() {

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import x from 'node-fetch';
+
 import styles from './css/home.css';
 
 import SideBar from './sideBar';
@@ -8,67 +10,58 @@ import { browserHistory } from 'react-router';
 
 import auth from './test';
 
+
 export default class Home extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			article: []
+		};
 	}
 	componentDidMount() {
-		
+		fetch('/api/allarticle', {
+			method: 'GET',
+			Accept: 'application/json'
+		}).then(
+			res => res.json()
+		).then(
+			data => {
+				console.log(Object.prototype.toString.call(data));
+				this.setState({
+					article: data
+				});
+			}
+		);		
 	}
 	handleClick(event) {
-		//console.log(1212);
-		// fetch('/bb', {
-		// 	method: 'POST'
-		// }).then( (data) => {
-		// 	data.text().then(function(data) {console.log(data)});
-		// })
-
-		// fetch('/aaaa/login', {
-		// 	method: 'POST',
-		// 	headers:{
-		// 		'Content-Type': 'application/json'
-		// 	},
-		// 	body: JSON.stringify({
-		// 		login_username: 'a',
-		// 		login_password: 'a'
-		// 	})
-		// }).then( (data) => {
-		// 	console.log(data.text().then(function(data) {console.log(data); browserHistory.push('/test')}));
-		// })
-
-		console.log(sessionStorage.getItem('a'))
-		sessionStorage.setItem('a', 'b');
-
-		console.log(auth.authorized());
 
 	}
 	test(event) {
 		auth.setAuth();
 	}
 	render() {
+		var data = this.state.article; // 此处为引用，非直接赋值，当this.state.article变化时，data也会变，后期使用redux
+		var node = data.map( (item, index) => {
+			console.log(item);
+			return (
+				<div key={index}>
+					<h1>Article</h1>
+					<p> title: {item.title}</p>
+					<p> time: {item.time}</p>
+					<p> tag: {item.tag}</p>
+					<p> content: {item.content}</p>				
+				</div>
+			)
+		} )
+		console.log(node);
 		return (
 			<div className={styles.homePage}>
-				<div onClick={(event) => this.test(event)}>test</div>
 				<div className={styles.articleContainer} onClick={(event) => this.handleClick(event)}>
-					Article
-					{/*<form method="POST" action="/aaaa/login">
-						<label>name</label>
-						<input type="text" name="login_username" />
-						<input type="password" name="login_password" />
-						<input type="submit" value="login" />
-					</form>*/}
-
-					<form method="POST" action="/bb">
-						<label>name</label>
-						<input type="submit" value="login" />
-					</form>
-
+					{node}
 				</div>
 				<SideBar />
 			</div>
 		)
 	}
 }
-
-
 
