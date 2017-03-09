@@ -1,15 +1,10 @@
 import React from 'react';
 
-import x from 'node-fetch';
-
 import styles from './css/home.css';
 
 import SideBar from './sideBar';
 
 import { browserHistory } from 'react-router';
-
-import auth from './test';
-
 
 export default class Home extends React.Component {
 	constructor(props) {
@@ -27,6 +22,7 @@ export default class Home extends React.Component {
 		).then(
 			data => {
 				console.log(Object.prototype.toString.call(data));
+				console.log(data);
 				this.setState({
 					article: data
 				});
@@ -36,29 +32,33 @@ export default class Home extends React.Component {
 	handleClick(event) {
 
 	}
-	test(event) {
-		auth.setAuth();
-	}
 	render() {
 		var data = this.state.article; // 此处为引用，非直接赋值，当this.state.article变化时，data也会变，后期使用redux
 		var node = data.map( (item, index) => {
-			console.log(item);
 			return (
-				<div key={index}>
-					<h1>Article</h1>
-					<p> title: {item.title}</p>
-					<p> time: {item.time}</p>
-					<p> tag: {item.tag}</p>
-					<p> content: {item.content}</p>				
-				</div>
+				<li key={index} className={styles.articleItem}>
+					<div>
+						<span className={styles.tag}>
+							{item.tag}
+							<i className={styles.arrow}></i>
+						</span>
+						<span className={styles.title}>{item.title}</span>
+					</div>
+					<div className={styles.message}>
+						<span>时间：{item.time}</span>
+					</div>
+					<div className={styles.introduction}>
+						<span>{item.introduction}</span>
+					</div>
+					<a className={styles.read}>阅读全文 »</a>
+				</li>
 			)
 		} )
-		console.log(node);
 		return (
 			<div className={styles.homePage}>
-				<div className={styles.articleContainer} onClick={(event) => this.handleClick(event)}>
+				<ul className={styles.articleList} onClick={(event) => this.handleClick(event)}>
 					{node}
-				</div>
+				</ul>
 				<SideBar />
 			</div>
 		)

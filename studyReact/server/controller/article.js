@@ -3,11 +3,11 @@ var Article = require('../proxy/article.js');
 exports.saveArticle = function (req, res) {
 	var body = req.body;
 
-
 	var newArticle = new Article({
 		title: body.title,
 		time: body.time,
 		tag: body.tag,
+		introduction: body.introduction,
 		content: body.content
 	});
 
@@ -31,7 +31,7 @@ exports.getAllArticle = function (req, res) {
 
 	console.log('all');
 
-	Article.getGroupData('', function (err, articles) {
+	Article.getHomeGroupData('', function (err, articles) {
 		if (err) {
 			console.log(err);
 			console.log('文章获取失败');

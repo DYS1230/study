@@ -27,12 +27,15 @@ Article.getAllData = function (callback) {
 };
 
 /**
- * 获取分组信息
- * @param {Object} option  option.limit 文章显示数量 option.pageNumber 文章页数
+ * 获取首页显示的分组信息，显示title，time，tag，introduction
+ * @param {Object} option  option.limit 文章每页显示数量 option.pageNumber 文章页数
  * @param {Function} callback  回调函数
  */
-Article.getGroupData = function (option, callback) {
-	this.find({}, null, {limit: 1}, function (err, articles) {
+Article.getHomeGroupData = function (options, callback) {
+	var limt = options.limit || 10;
+	// 跳过数量为每页显示数量乘以页数，默认0
+	var skip = options.pageNumber ? options.pageNumber * limit : 0;
+	this.find({}, {title: 1, time: 1, tag: 1, introduction: 1}, {limit: 2}, function (err, articles) {
 		if (err) {
 			return callback(err);
 		}

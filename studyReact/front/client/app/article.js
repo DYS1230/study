@@ -31,10 +31,10 @@ export default class Article extends React.Component {
 		return (
 			<div>
 				<h1>Article</h1>
-				<p> title: {this.state.article.title}</p>
-				<p> time: {this.state.article.time}</p>
-				<p> tag: {this.state.article.tag}</p>
-				<p> content: {this.state.article.content}</p>
+				<p>title: {this.state.article.title}</p>
+				<p>time: {this.state.article.time}</p>
+				<p>tag: {this.state.article.tag}</p>
+				<p>content: {this.state.article.content}</p>
 			</div>
 		)
 	}

@@ -23,6 +23,10 @@ a {
 	outline: none;
 }
 
+li {
+	list-style: none;
+}
+
 section {
 	padding: 0;
 	margin: 0 auto;

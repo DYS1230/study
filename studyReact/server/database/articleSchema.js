@@ -5,6 +5,7 @@ var ArticleSchema = new Schema({
 	title: {type: String},
 	time: {type: String},
 	tag: {type: String},
+	introduction: {type: String},
 	content: {type: String}
 });
 

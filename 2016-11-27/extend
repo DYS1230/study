@@ -58,6 +58,7 @@ console.log(b.x); //  Object { m=10,  n=2}
 		var i = 1;
 		var target = arguments[0];
 		var length = arguments.length;
+		var deep = false;
 		if (typeof target == 'boolean') {
 			deep = target;
 			target = arguments[i];

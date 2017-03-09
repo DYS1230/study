@@ -52,11 +52,7 @@ module.exports = {
 		]
 	},
 	plugins: [
-		commonsPlugin,
-		new webpack.IgnorePlugin(/\/iconv-loader$/)
+		commonsPlugin
 	],
 
 }
-
-//由于使用了node-fetch，使用了 new webpack.IgnorePlugin(/\/iconv-loader$/)
-// https://github.com/bitinn/node-fetch/issues/41

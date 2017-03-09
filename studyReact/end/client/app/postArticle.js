@@ -9,6 +9,7 @@ export default class PostAriticle extends React.Component {
 			title: '',
 			time: '',
 			tag: '',
+			introduction: '',
 			content: ''
 		};
 	}
@@ -36,6 +37,7 @@ export default class PostAriticle extends React.Component {
 				title: this.state.title,
 				time: this.state.time,
 				tag: this.state.tag,
+				introduction: this.state.introduction,
 				content: this.state.content
 			})
 		}).then(
@@ -52,8 +54,6 @@ export default class PostAriticle extends React.Component {
 		return (
 			<div>
 				<h1 className={styles.title}>文章</h1>
-				
-					{/*<label>Title</label>*/}
 				<form onSubmit={(event) => this.handleSubmit(event)}>
 					<input type="text"
 						className={`${styles.inputContainer} ${styles.inputTitle}`}
@@ -74,7 +74,11 @@ export default class PostAriticle extends React.Component {
 							onChange={(event, name) => this.handleChange(event, 'tag')}
 							value={this.state.tag} />
 					</div>
-					
+					<textarea type="text"
+						className={`${styles.inputContainer} ${styles.inputIntroduction}`}
+						placeholder="引言"
+						onChange={(event, name) => this.handleChange(event, 'introduction')}
+						value={this.state.introduction} />
 					<textarea type="text"
 						className={`${styles.inputContainer} ${styles.inputContent}`}
 						placeholder="内容"

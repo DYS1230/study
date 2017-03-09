@@ -1030,6 +1030,7 @@ webpackJsonp([0,1],[
 				title: '',
 				time: '',
 				tag: '',
+				introduction: '',
 				content: ''
 			};
 			return _this;
@@ -1067,6 +1068,7 @@ webpackJsonp([0,1],[
 						title: this.state.title,
 						time: this.state.time,
 						tag: this.state.tag,
+						introduction: this.state.introduction,
 						content: this.state.content
 					})
 				}).then(function (res) {
@@ -1123,6 +1125,13 @@ webpackJsonp([0,1],[
 								},
 								value: this.state.tag })
 						),
+						_react2.default.createElement('textarea', { type: 'text',
+							className: _article2.default.inputContainer + ' ' + _article2.default.inputIntroduction,
+							placeholder: '\u5F15\u8A00',
+							onChange: function onChange(event, name) {
+								return _this2.handleChange(event, 'introduction');
+							},
+							value: this.state.introduction }),
 						_react2.default.createElement('textarea', { type: 'text',
 							className: _article2.default.inputContainer + ' ' + _article2.default.inputContent,
 							placeholder: '\u5185\u5BB9',
@@ -1251,7 +1260,7 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "._3cgsNm2lP2LrE0q12ibBhy {\n\ttext-align: center;\n\tfont-size: 30px;\n\tmargin-bottom: 30px;\n}\n\n.xLzTb4zDQU_MXNsXFe1zJ {\n\tbox-sizing: border-box;\n\tdisplay: inline-block;\n\tpadding: 10px 16px;\n\tfont-size: 18px;\n\tborder: 1px solid #ccc;\n\tbox-shadow: inset 0 1px 1px rgba(0,0,0,.075);\n\theight: 46px;\t\n}\n\n._3ZamO_oG95IDKu6ykW5fI1 {\n\tfloat: left;\n\twidth: 20%;\n}\n\n._2_OZl-3_kR1OwN1Deo7YbX {\n\tfloat: right;\n\twidth: 70%;\n}\n._16nHTtk-2v-IfgMuits5or {\n\tmargin: 16px 0;\n}\n._16nHTtk-2v-IfgMuits5or::after {\n\tdisplay: block;\n\tcontent: '';\n\tclear: both;\n}\n\n._16nHTtk-2v-IfgMuits5or label {\n\tfont-size: 20px;\n\tmargin: 10px 0;\n\tdisplay: block;\n}\n\n._3B5Z6K70XWyr0vSgmg9j3y {\n\twidth: 100%;\n}\n\n._2gsFeiOk77BjQAOWtZSD3_ {\n\twidth: 100%;\n\theight: 200px;\n}\n\n._1t8tapHNkttVHBcUiu4WUW {\n\tcolor: #fff;\n\tbackground: #009a61;\n\tborder: none;\n\tfont-size: 14px;\n\tpadding: 6px 12px;\n\tfloat: right;\n}", ""]);
+	exports.push([module.id, "._3cgsNm2lP2LrE0q12ibBhy {\n\ttext-align: center;\n\tfont-size: 30px;\n\tmargin-bottom: 10px;\n}\n\n.xLzTb4zDQU_MXNsXFe1zJ {\n\tbox-sizing: border-box;\n\tdisplay: inline-block;\n\tmargin: 8px 0;\n\tpadding: 10px 16px;\n\tfont-size: 18px;\n\tborder: 1px solid #ccc;\n\tbox-shadow: inset 0 1px 1px rgba(0,0,0,.075);\n\theight: 46px;\t\n}\n\n._3ZamO_oG95IDKu6ykW5fI1 {\n\tfloat: left;\n\twidth: 20%;\n}\n\n._2_OZl-3_kR1OwN1Deo7YbX {\n\tfloat: right;\n\twidth: 70%;\n}\n._16nHTtk-2v-IfgMuits5or {\n\t//margin: 16px 0;\n}\n._16nHTtk-2v-IfgMuits5or::after {\n\tdisplay: block;\n\tcontent: '';\n\tclear: both;\n}\n\n._16nHTtk-2v-IfgMuits5or label {\n\tfont-size: 20px;\n\tmargin: 10px 0;\n\tdisplay: block;\n}\n\n._3B5Z6K70XWyr0vSgmg9j3y {\n\twidth: 100%;\n}\n\n._2f0VyO5_SAuBgCN_Gs3sdI {\n\twidth: 100%;\n\theight: 100px;\n}\n\n._2gsFeiOk77BjQAOWtZSD3_ {\n\twidth: 100%;\n\theight: 200px;\n}\n\n._1t8tapHNkttVHBcUiu4WUW {\n\tcolor: #fff;\n\tbackground: #009a61;\n\tborder: none;\n\tfont-size: 14px;\n\tpadding: 6px 12px;\n\tfloat: right;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -1261,6 +1270,7 @@ webpackJsonp([0,1],[
 		"inputTag": "_2_OZl-3_kR1OwN1Deo7YbX",
 		"inputGroup": "_16nHTtk-2v-IfgMuits5or",
 		"inputTitle": "_3B5Z6K70XWyr0vSgmg9j3y",
+		"inputIntroduction": "_2f0VyO5_SAuBgCN_Gs3sdI",
 		"inputContent": "_2gsFeiOk77BjQAOWtZSD3_",
 		"postButton": "_1t8tapHNkttVHBcUiu4WUW"
 	};

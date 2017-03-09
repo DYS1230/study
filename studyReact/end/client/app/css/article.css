@@ -1,12 +1,13 @@
 .title {
 	text-align: center;
 	font-size: 30px;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
 
 .inputContainer {
 	box-sizing: border-box;
 	display: inline-block;
+	margin: 8px 0;
 	padding: 10px 16px;
 	font-size: 18px;
 	border: 1px solid #ccc;
@@ -24,7 +25,7 @@
 	width: 70%;
 }
 .inputGroup {
-	margin: 16px 0;
+	//margin: 16px 0;
 }
 .inputGroup::after {
 	display: block;
@@ -40,6 +41,11 @@
 
 .inputTitle {
 	width: 100%;
+}
+
+.inputIntroduction {
+	width: 100%;
+	height: 100px;
 }
 
 .inputContent {
