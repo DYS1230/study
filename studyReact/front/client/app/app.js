@@ -9,6 +9,8 @@ import Home from './home';
 
 import Article from './article';
 
+import Demo from './demo';
+
 class Test extends React.Component {
 	constructor(props) {
 		super(props);
@@ -42,11 +44,13 @@ class DYS extends React.Component {
 render((
 	<Router history={browserHistory}>
 		<Route path="/" component={Container}>
-			<IndexRoute component={Home}/>
+			<IndexRoute component={Home} />
+			<Route path="articlelist/:number" component={Home} />
 			<Route path="about" component={About}>
 				<Route path="x" /> {/*？？？忘了这是干什么的了*/}
 			</Route>
-			<Route path="test" component={Article} />
+			<Route path="article/:id" component={Article} />
+			<Route path="test" component={Demo} />
 		</Route>
 		<Route path="/dys" component={DYS} />
 	</Router>

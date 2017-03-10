@@ -4,7 +4,7 @@ import styles from './css/home.css';
 
 import SideBar from './sideBar';
 
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 
 export default class Home extends React.Component {
 	constructor(props) {
@@ -14,7 +14,9 @@ export default class Home extends React.Component {
 		};
 	}
 	componentDidMount() {
-		fetch('/api/allarticle', {
+		//默认页数为1
+		var pageNumber = this.props.params.number ? this.props.params.number : 1;
+		fetch('/api/articleList/' + pageNumber, {
 			method: 'GET',
 			Accept: 'application/json'
 		}).then(
@@ -50,7 +52,7 @@ export default class Home extends React.Component {
 					<div className={styles.introduction}>
 						<span>{item.introduction}</span>
 					</div>
-					<a className={styles.read}>阅读全文 »</a>
+					<Link className={styles.read} to={{pathname: '/article/' + item._id}}>阅读全文 »</Link>
 				</li>
 			)
 		} )

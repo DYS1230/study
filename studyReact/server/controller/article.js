@@ -26,12 +26,12 @@ exports.saveArticle = function (req, res) {
 
 };
 
-exports.getAllArticle = function (req, res) {
-
-
-	console.log('all');
-
-	Article.getHomeGroupData('', function (err, articles) {
+exports.getArticleList = function (req, res) {
+	var pageNumber = parseInt(req.params.number);
+	if (isNaN(pageNumber) || pageNumber < 1) {
+		res.send([]);
+	}
+	Article.getArticleListData(pageNumber, function (err, articles) {
 		if (err) {
 			console.log(err);
 			console.log('文章获取失败');
@@ -39,5 +39,25 @@ exports.getAllArticle = function (req, res) {
 		}
 		res.send(articles);
 	});
+}
 
+
+exports.getArticleById = function (req, res) {
+	var id = req.params.id;
+	Article.getArticleDataById(id, function (err, articles) {
+		if (err) {
+			console.log(err);
+			console.log('文章获取失败');
+			res.send([]);
+		}
+		res.send(articles);
+	})
+	// Article.getArticleDataById(, function (err, articles) {
+	// 	if (err) {
+	// 		console.log(err);
+	// 		console.log('文章获取失败');
+	// 		res.send([]);
+	// 	}
+	// 	res.send(articles);
+	// });
 }

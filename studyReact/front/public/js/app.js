@@ -26,6 +26,10 @@ webpackJsonp([0,1],[
 	
 	var _article2 = _interopRequireDefault(_article);
 	
+	var _demo = __webpack_require__(25);
+	
+	var _demo2 = _interopRequireDefault(_demo);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -110,13 +114,15 @@ webpackJsonp([0,1],[
 			_reactRouter.Route,
 			{ path: '/', component: _container2.default },
 			_react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: 'articlelist/:number', component: _home2.default }),
 			_react2.default.createElement(
 				_reactRouter.Route,
 				{ path: 'about', component: About },
 				_react2.default.createElement(_reactRouter.Route, { path: 'x' }),
 				' '
 			),
-			_react2.default.createElement(_reactRouter.Route, { path: 'test', component: _article2.default })
+			_react2.default.createElement(_reactRouter.Route, { path: 'article/:id', component: _article2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: 'test', component: _demo2.default })
 		),
 		_react2.default.createElement(_reactRouter.Route, { path: '/dys', component: DYS })
 	), document.querySelector('#container'));
@@ -833,7 +839,9 @@ webpackJsonp([0,1],[
 			value: function componentDidMount() {
 				var _this2 = this;
 	
-				fetch('/api/allarticle', {
+				//默认页数为1
+				var pageNumber = this.props.params.number ? this.props.params.number : 1;
+				fetch('/api/articleList/' + pageNumber, {
 					method: 'GET',
 					Accept: 'application/json'
 				}).then(function (res) {
@@ -894,8 +902,8 @@ webpackJsonp([0,1],[
 							)
 						),
 						_react2.default.createElement(
-							'a',
-							{ className: _home2.default.read },
+							_reactRouter.Link,
+							{ className: _home2.default.read, to: { pathname: '/article/' + item._id } },
 							'\u9605\u8BFB\u5168\u6587 \xBB'
 						)
 					);
@@ -1217,10 +1225,102 @@ webpackJsonp([0,1],[
 	var Article = function (_React$Component) {
 		_inherits(Article, _React$Component);
 	
-		function Article(props) {
+		function Article(props, context) {
 			_classCallCheck(this, Article);
 	
-			var _this = _possibleConstructorReturn(this, (Article.__proto__ || Object.getPrototypeOf(Article)).call(this, props));
+			var _this = _possibleConstructorReturn(this, (Article.__proto__ || Object.getPrototypeOf(Article)).call(this, props, context));
+	
+			_this.state = {
+				title: '',
+				tag: '',
+				time: '',
+				introduction: '',
+				content: ''
+			};
+			return _this;
+		}
+	
+		_createClass(Article, [{
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				var _this2 = this;
+	
+				console.log(this.props);
+				console.log(this.context);
+				//this.context.router.replace('/')
+				var id = this.props.params.id;
+				fetch('/api/article/' + id, {
+					method: 'GET',
+					Accept: 'application/json'
+				}).then(function (res) {
+					return res.json();
+				}).then(function (data) {
+					console.log(Object.prototype.toString.call(data));
+					console.log(data);
+					var article = data[0];
+					_this2.setState({
+						title: article.title,
+						tag: article.tag,
+						time: article.time,
+						introduction: article.introduction,
+						content: article.content
+					});
+				});
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+	
+				return _react2.default.createElement(
+					'div',
+					null,
+					this.state.content
+				);
+			}
+		}]);
+	
+		return Article;
+	}(_react2.default.Component);
+	
+	// this.context.router
+	
+	
+	exports.default = Article;
+	Article.contextTypes = {
+		router: _react2.default.PropTypes.object.isRequired
+	};
+
+/***/ },
+/* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Demo = function (_React$Component) {
+		_inherits(Demo, _React$Component);
+	
+		function Demo(props) {
+			_classCallCheck(this, Demo);
+	
+			var _this = _possibleConstructorReturn(this, (Demo.__proto__ || Object.getPrototypeOf(Demo)).call(this, props));
 	
 			_this.state = {
 				article: []
@@ -1228,7 +1328,7 @@ webpackJsonp([0,1],[
 			return _this;
 		}
 	
-		_createClass(Article, [{
+		_createClass(Demo, [{
 			key: 'componentWillMount',
 			value: function componentWillMount() {
 				console.log('componentWillMount');
@@ -1290,10 +1390,10 @@ webpackJsonp([0,1],[
 			}
 		}]);
 	
-		return Article;
+		return Demo;
 	}(_react2.default.Component);
 	
-	exports.default = Article;
+	exports.default = Demo;
 
 /***/ }
 ]);

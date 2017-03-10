@@ -46,7 +46,8 @@ router.get('/api/backstage/checklogin', function (req, res) {
 router.post('/api/backstage/sign', auth.signin);
 
 
-router.get('/api/allarticle', article.getAllArticle);
+router.get('/api/articleList/:number', article.getArticleList);
+router.get('/api/article/:id', article.getArticleById)
 
 router.post('/api/backstage/postarticle', article.saveArticle);
 
