@@ -27,13 +27,6 @@ li {
 	list-style: none;
 }
 
-section {
-	padding: 0;
-	margin: 0 auto;
-	width: 90%;
-	max-width: 960px;
-}
-
 footer {
 	position: absolute;
 	bottom: 0;
@@ -56,4 +49,17 @@ footer p {
 	position: relative;
 	padding-bottom: 130px;
 	min-height: calc(100% - 130px);
+}
+
+.homePage {
+	padding: 0;
+	margin: 0 auto;
+	width: 90%;
+	max-width: 960px;
+}
+
+.homePage::after {
+	clear: both;
+	content: '';
+	display: block;
 }

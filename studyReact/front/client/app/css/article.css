@@ -1,0 +1,20 @@
+.articleContainer {
+	background: #FFF;
+	padding: 20px;
+}
+
+.title {
+	font-size: 30px;
+	font-weight: bold;
+	color: #84572F;
+}
+
+.message {
+	margin: 20px 0;
+	font-size: 14px;
+	color: #756F71;
+}
+
+.content {
+
+}

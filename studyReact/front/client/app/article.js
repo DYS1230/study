@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './css/article.css';
+
 export default class Article extends React.Component {
 	constructor(props, context) {
 		super(props, context);
@@ -39,8 +41,10 @@ export default class Article extends React.Component {
 	render() {
 		
 		return (
-			<div>
-				{this.state.content}
+			<div className={styles.articleContainer}>
+				<h1 className={styles.title}>{this.state.title}</h1>
+				<div className={styles.message}>时间：{this.state.time}&nbsp;&nbsp;&nbsp;&nbsp;标签：{this.state.tag}</div>
+				<div className={styles.content}>{this.state.content}</div>
 			</div>
 		)
 	}

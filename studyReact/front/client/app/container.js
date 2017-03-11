@@ -4,6 +4,8 @@ import { Link } from 'react-router';
 
 import Nav from './nav';
 
+import SideBar from './sideBar';
+
 import styles from './css/container.css';
 
 export default  class Container extends React.Component {
@@ -32,8 +34,9 @@ export default  class Container extends React.Component {
 		return (
 			<div className={styles.content}>
 				<Nav />
-				<section>
+				<section className={styles.homePage}>
 					{this.props.children}
+					<SideBar />
 				</section>
 				<footer className={styles.footerContainer}>
 					<p>author: DYS</p>

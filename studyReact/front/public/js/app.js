@@ -167,6 +167,10 @@ webpackJsonp([0,1],[
 	
 	var _nav2 = _interopRequireDefault(_nav);
 	
+	var _sideBar = __webpack_require__(17);
+	
+	var _sideBar2 = _interopRequireDefault(_sideBar);
+	
 	var _container = __webpack_require__(11);
 	
 	var _container2 = _interopRequireDefault(_container);
@@ -221,8 +225,9 @@ webpackJsonp([0,1],[
 					_react2.default.createElement(_nav2.default, null),
 					_react2.default.createElement(
 						'section',
-						null,
-						this.props.children
+						{ className: _container2.default.homePage },
+						this.props.children,
+						_react2.default.createElement(_sideBar2.default, null)
 					),
 					_react2.default.createElement(
 						'footer',
@@ -773,11 +778,12 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {\n\tmargin: 0;\n\tpadding: 0;\n}\n\nhtml {\n\theight: 100%;\n}\n\nbody {\n\theight: 100%;\n\twidth: 100%;\n\tposition: relative;\n\tbackground: url(" + __webpack_require__(13) + ");\n}\n\nbody > div {\n\theight: 100%;\n}\n\na {\n\ttext-decoration: none;\n\toutline: none;\n}\n\nli {\n\tlist-style: none;\n}\n\nsection {\n\tpadding: 0;\n\tmargin: 0 auto;\n\twidth: 90%;\n\tmax-width: 960px;\n}\n\nfooter {\n\tposition: absolute;\n\tbottom: 0;\n\tbackground: #2E383F;\n\tbox-sizing: border-box;\n\twidth: 100%;\n\theight: 90px;\n\tpadding: 20px;\n\tcolor: white;\n}\nfooter p {\n\tmargin-bottom: 10px;\n}\n\n\n._3KCfIqs8QhqI4PGOG2vaEM {\n\t// padding: 0;\n\t// margin: 0 auto;\n\t// width: 960px;\t\n\tposition: relative;\n\tpadding-bottom: 130px;\n\tmin-height: calc(100% - 130px);\n}", ""]);
+	exports.push([module.id, "body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {\n\tmargin: 0;\n\tpadding: 0;\n}\n\nhtml {\n\theight: 100%;\n}\n\nbody {\n\theight: 100%;\n\twidth: 100%;\n\tposition: relative;\n\tbackground: url(" + __webpack_require__(13) + ");\n}\n\nbody > div {\n\theight: 100%;\n}\n\na {\n\ttext-decoration: none;\n\toutline: none;\n}\n\nli {\n\tlist-style: none;\n}\n\nfooter {\n\tposition: absolute;\n\tbottom: 0;\n\tbackground: #2E383F;\n\tbox-sizing: border-box;\n\twidth: 100%;\n\theight: 90px;\n\tpadding: 20px;\n\tcolor: white;\n}\nfooter p {\n\tmargin-bottom: 10px;\n}\n\n\n._3KCfIqs8QhqI4PGOG2vaEM {\n\t// padding: 0;\n\t// margin: 0 auto;\n\t// width: 960px;\t\n\tposition: relative;\n\tpadding-bottom: 130px;\n\tmin-height: calc(100% - 130px);\n}\n\n._2bFF8cpa8wIP9vuyg6yoN1 {\n\tpadding: 0;\n\tmargin: 0 auto;\n\twidth: 90%;\n\tmax-width: 960px;\n}\n\n._2bFF8cpa8wIP9vuyg6yoN1::after {\n\tclear: both;\n\tcontent: '';\n\tdisplay: block;\n}", ""]);
 	
 	// exports
 	exports.locals = {
-		"content": "_3KCfIqs8QhqI4PGOG2vaEM"
+		"content": "_3KCfIqs8QhqI4PGOG2vaEM",
+		"homePage": "_2bFF8cpa8wIP9vuyg6yoN1"
 	};
 
 /***/ },
@@ -810,6 +816,10 @@ webpackJsonp([0,1],[
 	
 	var _sideBar2 = _interopRequireDefault(_sideBar);
 	
+	var _pagination = __webpack_require__(28);
+	
+	var _pagination2 = _interopRequireDefault(_pagination);
+	
 	var _reactRouter = __webpack_require__(3);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -828,8 +838,10 @@ webpackJsonp([0,1],[
 	
 			var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
 	
+			var pageNumber = _this.props.params.number ? _this.props.params.number : 1;
 			_this.state = {
-				article: []
+				article: [],
+				activeNumber: pageNumber
 			};
 			return _this;
 		}
@@ -837,10 +849,15 @@ webpackJsonp([0,1],[
 		_createClass(Home, [{
 			key: 'componentDidMount',
 			value: function componentDidMount() {
+				//默认页数为1
+				var pageNumber = this.state.activeNumber;
+				this.fetchArticleData(pageNumber);
+			}
+		}, {
+			key: 'fetchArticleData',
+			value: function fetchArticleData(pageNumber) {
 				var _this2 = this;
 	
-				//默认页数为1
-				var pageNumber = this.props.params.number ? this.props.params.number : 1;
 				fetch('/api/articleList/' + pageNumber, {
 					method: 'GET',
 					Accept: 'application/json'
@@ -857,6 +874,14 @@ webpackJsonp([0,1],[
 		}, {
 			key: 'handleClick',
 			value: function handleClick(event) {}
+		}, {
+			key: 'handlePageChange',
+			value: function handlePageChange(pageNumber) {
+				this.setState({
+					activeNumber: pageNumber
+				});
+				this.fetchArticleData(pageNumber);
+			}
 		}, {
 			key: 'render',
 			value: function render() {
@@ -910,7 +935,7 @@ webpackJsonp([0,1],[
 				});
 				return _react2.default.createElement(
 					'div',
-					{ className: _home2.default.homePage },
+					{ className: _home2.default.articleContainer },
 					_react2.default.createElement(
 						'ul',
 						{ className: _home2.default.articleList, onClick: function onClick(event) {
@@ -918,7 +943,12 @@ webpackJsonp([0,1],[
 							} },
 						node
 					),
-					_react2.default.createElement(_sideBar2.default, null)
+					_react2.default.createElement(_pagination2.default, {
+						onChange: function onChange(pageNumber) {
+							return _this3.handlePageChange(pageNumber);
+						},
+						activeNumber: this.state.activeNumber,
+						totalNumber: '2' })
 				);
 			}
 		}]);
@@ -963,12 +993,12 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "._1AuG29KXPNKmv2VTwNSP4H::after {\n\tclear: both;\n\tcontent: '';\n\tdisplay: block;\n}\n\n._2X8tKiH9f3Q_jyRFHXc-3y {\n\tfloat: left;\n\twidth: 70%;\n\tbackground: white;\n\tbox-sizing: border-box;\n\tpadding: 10px 40px;\n}\n\n._1pAIMa2IvjOpf6Vg8kNpdv {\n\tmargin-top: 30px;\n\tborder-bottom: 1px solid black;\n}\n\n._1pAIMa2IvjOpf6Vg8kNpdv::after {\n\tdisplay: block;\n\tclear: both;\n\tcontent: '';\n}\n\n._3dmhkAPAzEHLv6SwFq_VEx {\n\tbackground: #D9534F;\n\tcolor: #FFF;\n\tfont-size: 14px;\n\tdisplay: inline-block;\n\tposition: relative;\n\tmargin-right: 10px;\n\tpadding: 6px;\n}\n\n._1orRVkT1NQDQ8PfghdvAca {\n\twidth: 0;\n\theight: 0;\n\tborder: 4px solid transparent;\n\tborder-left-color: #D9534F;\n\tposition: absolute;\n\ttop: 11px;\n\tright: -8px;\n}\n\n.pkN9b6zbveG-BAsDaVL86 {\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tline-height: 28px;\n\tfont-size: 18px;\n\tfont-weight: bold;\n\tcolor: #84572F;\n}\n\n._2ZvL8Lmdf-jE-osbJgD9ON {\n\tmargin: 20px 0;\n\tfont-size: 12px;\n\tpadding-left: 10px;\n\tcolor: #756F71;\n}\n\n._2_bIenjMvN5_9By_SaaV8l{\n\ttext-indent: 10px;\n}\n\n._20AQOyXTHCCJt3D2ydRQW {\n\n\tcolor: #84572F;\n\tfont-size: 14px;\n\tpadding: 6px;\n\toutline: none;\n\tfloat: right;\n\tmargin-bottom: 10px;\n\tcursor: pointer;\n}\n\n._20AQOyXTHCCJt3D2ydRQW:hover {\n\ttext-decoration: underline;\n}", ""]);
+	exports.push([module.id, "._1AuG29KXPNKmv2VTwNSP4H::after {\n\tclear: both;\n\tcontent: '';\n\tdisplay: block;\n}\n\n._3M0xrOpF0AyHU4v0MCgYcW {\n\tfloat: left;\n\twidth: 70%;\n\tbackground: white;\n\tbox-sizing: border-box;\n\tpadding: 0px 40px;\n}\n\n._1pAIMa2IvjOpf6Vg8kNpdv {\n\tmargin-top: 20px;\n\tborder-bottom: 1px solid black;\n}\n\n._1pAIMa2IvjOpf6Vg8kNpdv::after {\n\tdisplay: block;\n\tclear: both;\n\tcontent: '';\n}\n\n._3dmhkAPAzEHLv6SwFq_VEx {\n\tbackground: #D9534F;\n\tcolor: #FFF;\n\tfont-size: 14px;\n\tdisplay: inline-block;\n\tposition: relative;\n\tmargin-right: 10px;\n\tpadding: 6px;\n}\n\n._1orRVkT1NQDQ8PfghdvAca {\n\twidth: 0;\n\theight: 0;\n\tborder: 4px solid transparent;\n\tborder-left-color: #D9534F;\n\tposition: absolute;\n\ttop: 11px;\n\tright: -8px;\n}\n\n.pkN9b6zbveG-BAsDaVL86 {\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tline-height: 28px;\n\tfont-size: 18px;\n\tfont-weight: bold;\n\tcolor: #84572F;\n}\n\n._2ZvL8Lmdf-jE-osbJgD9ON {\n\tmargin: 20px 0;\n\tfont-size: 12px;\n\tpadding-left: 10px;\n\tcolor: #756F71;\n}\n\n._2_bIenjMvN5_9By_SaaV8l{\n\ttext-indent: 10px;\n}\n\n._20AQOyXTHCCJt3D2ydRQW {\n\n\tcolor: #84572F;\n\tfont-size: 14px;\n\tpadding: 6px;\n\toutline: none;\n\tfloat: right;\n\tmargin-bottom: 10px;\n\tcursor: pointer;\n}\n\n._20AQOyXTHCCJt3D2ydRQW:hover {\n\ttext-decoration: underline;\n}", ""]);
 	
 	// exports
 	exports.locals = {
 		"homePage": "_1AuG29KXPNKmv2VTwNSP4H",
-		"articleList": "_2X8tKiH9f3Q_jyRFHXc-3y",
+		"articleContainer": "_3M0xrOpF0AyHU4v0MCgYcW",
 		"articleItem": "_1pAIMa2IvjOpf6Vg8kNpdv",
 		"tag": "_3dmhkAPAzEHLv6SwFq_VEx",
 		"arrow": "_1orRVkT1NQDQ8PfghdvAca",
@@ -1214,6 +1244,10 @@ webpackJsonp([0,1],[
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _article = __webpack_require__(26);
+	
+	var _article2 = _interopRequireDefault(_article);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1273,8 +1307,25 @@ webpackJsonp([0,1],[
 	
 				return _react2.default.createElement(
 					'div',
-					null,
-					this.state.content
+					{ className: _article2.default.articleContainer },
+					_react2.default.createElement(
+						'h1',
+						{ className: _article2.default.title },
+						this.state.title
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: _article2.default.message },
+						'\u65F6\u95F4\uFF1A',
+						this.state.time,
+						'\xA0\xA0\xA0\xA0\u6807\u7B7E\uFF1A',
+						this.state.tag
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: _article2.default.content },
+						this.state.content
+					)
 				);
 			}
 		}]);
@@ -1394,6 +1445,152 @@ webpackJsonp([0,1],[
 	}(_react2.default.Component);
 	
 	exports.default = Demo;
+
+/***/ },
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(27);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(9)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?modules!./article.css", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?modules!./article.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(8)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "._3u7Fen-pa15qDH9naRpmT5 {\n\tbackground: #FFF;\n\tpadding: 20px;\n}\n\n._32bJBTTIrJrV_du_ZwHYwU {\n\tfont-size: 30px;\n\tfont-weight: bold;\n\tcolor: #84572F;\n}\n\n._1b0vxtmvJLXPkZXzqcUMF- {\n\tmargin: 20px 0;\n\tfont-size: 14px;\n\tcolor: #756F71;\n}\n\n._3U2-REMJoq0N4mWJJG169X {\n\n}", ""]);
+	
+	// exports
+	exports.locals = {
+		"articleContainer": "_3u7Fen-pa15qDH9naRpmT5",
+		"title": "_32bJBTTIrJrV_du_ZwHYwU",
+		"message": "_1b0vxtmvJLXPkZXzqcUMF-",
+		"content": "_3U2-REMJoq0N4mWJJG169X"
+	};
+
+/***/ },
+/* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Pagination = function (_React$Component) {
+		_inherits(Pagination, _React$Component);
+	
+		function Pagination(props) {
+			_classCallCheck(this, Pagination);
+	
+			return _possibleConstructorReturn(this, (Pagination.__proto__ || Object.getPrototypeOf(Pagination)).call(this, props));
+			//console.log(props);
+		}
+	
+		_createClass(Pagination, [{
+			key: 'buildPage',
+			value: function buildPage() {
+				var _props = this.props,
+				    onChange = _props.onChange,
+				    activeNumber = _props.activeNumber,
+				    totalNumber = _props.totalNumber;
+	
+	
+				var pages = [];
+	
+				activeNumber > 1 && pages.push(_react2.default.createElement(
+					'span',
+					{
+						key: activeNumber - 1,
+						onClick: function onClick(pageNumber) {
+							return onChange(activeNumber - 1);
+						}
+					},
+					'\u4E0A'
+				));
+	
+				pages.push(_react2.default.createElement(
+					'span',
+					{ key: activeNumber },
+					activeNumber
+				));
+	
+				activeNumber < totalNumber && pages.push(_react2.default.createElement(
+					'span',
+					{
+						key: activeNumber + 1,
+						onClick: function onClick(pageNumber) {
+							return onChange(activeNumber + 1);
+						}
+					},
+					'\u4E0B'
+				));
+	
+				return pages;
+				// return (
+				// 	<div>
+				// 		<span>上</span>
+				// 		<span>1</span>
+				// 		<span onClick={(pageNumber) => onChange(activeNumber + 1)}>下</span>
+				// 		<input type="text" />
+				// 		<button>GO</button>
+				// 	</div>
+				// )
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				var pages = this.buildPage();
+				return _react2.default.createElement(
+					'div',
+					null,
+					pages
+				);
+			}
+		}]);
+	
+		return Pagination;
+	}(_react2.default.Component);
+	
+	exports.default = Pagination;
 
 /***/ }
 ]);
