@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './pagination.css';
+
 export default class Pagination extends React.Component {
 	constructor(props) {
 		super(props);
@@ -16,25 +18,27 @@ export default class Pagination extends React.Component {
 		var pages = [];
 
 		(activeNumber > 1) && pages.push(
-			<span
+			<div
+				className={`${styles.arrowContainer} ${styles.flipPrev}`}
 				key={activeNumber - 1}
 				onClick={(pageNumber) => onChange(activeNumber -1)}
-			>
-				上
-			</span>
+			><i className={`${styles.arrow} ${styles.arrowLeft}`} /></div>
 		)
 
 		pages.push(
-			<span key={activeNumber}>{activeNumber}</span>
+			<div 
+				key={activeNumber}
+				className={styles.textContainer}>
+				{activeNumber}
+			</div>
 		);
 
 		(activeNumber < totalNumber) && pages.push(
-			<span
+			<div
+				className={`${styles.arrowContainer} ${styles.flipNext}`}
 				key={activeNumber + 1}
 				onClick={(pageNumber) => onChange(activeNumber + 1)}
-			>
-				下
-			</span>
+			><i className={`${styles.arrow} ${styles.arrowRight}`} /></div>
 		)
 
 		return pages;	
@@ -51,7 +55,7 @@ export default class Pagination extends React.Component {
 	render() {
 		var pages = this.buildPage();
 		return (
-			<div>
+			<div className={styles.paginationContainer}>
 				{pages}
 			</div>
 		)

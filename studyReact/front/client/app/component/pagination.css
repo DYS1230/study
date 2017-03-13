@@ -1,0 +1,50 @@
+.paginationContainer {
+	width: 60%;
+	margin: 20px auto;
+	position: relative;
+}
+
+
+.arrowContainer {
+	position: absolute;
+	top: 0px;
+	height: 28px;
+	width: 28px;
+	border-radius: 14px;
+	background: #84572f;
+}
+
+.arrowContainer:hover {
+	background: #ed465d;
+}
+
+.flipPrev {
+	left: 0;
+}
+
+.flipNext {
+	right: 0;
+}
+
+.textContainer {
+	font-size: 20px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.arrow {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border: 8px solid transparent;	
+}
+
+.arrowLeft {
+	border-right-color: #fff;
+	margin: 6px 1px;
+}
+
+.arrowRight {
+	border-left-color: #fff;
+	margin: 6px 11px;
+}

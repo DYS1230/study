@@ -1,15 +1,10 @@
-.sideBar {
-	float: right;
-	width: 25%;
-}
-
-.sideBar .sideUnit {
+.sideUnit {
 	background-color: white;
 	background: url('../../images/6.gif');	
 	margin-bottom: 10px;
 }
 
-.sideBar .sideUnit .sideUnitHeader {
+.sideUnit .sideUnitHeader {
 	line-height: 38px;
 	color: #333;
 }
@@ -46,7 +41,7 @@
 	font-size: 12px;
 }
 
-.sideBar .sideUnit .sideUnitContent {
+.sideUnit .sideUnitContent {
 	padding: 0 14px 14px;
 	color: #333;
 }

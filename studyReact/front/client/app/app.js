@@ -7,6 +7,8 @@ import Container from './container';
 
 import Home from './home';
 
+import ArticleList from './articleList';
+
 import Article from './article';
 
 import Demo from './demo';
@@ -45,7 +47,7 @@ render((
 	<Router history={browserHistory}>
 		<Route path="/" component={Container}>
 			<IndexRoute component={Home} />
-			<Route path="articlelist/:number" component={Home} />
+			<Route path="articlelist/:number" component={ArticleList} />
 			<Route path="about" component={About}>
 				<Route path="x" /> {/*？？？忘了这是干什么的了*/}
 			</Route>

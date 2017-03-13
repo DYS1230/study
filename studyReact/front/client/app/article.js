@@ -2,6 +2,8 @@ import React from 'react';
 
 import styles from './css/article.css';
 
+import {markdown} from 'markdown';
+
 export default class Article extends React.Component {
 	constructor(props, context) {
 		super(props, context);
@@ -33,7 +35,7 @@ export default class Article extends React.Component {
 					tag: article.tag,
 					time: article.time,
 					introduction: article.introduction,
-					content: article.content
+					content: markdown.toHTML(article.content)
 				});
 			}
 		);	
@@ -44,7 +46,7 @@ export default class Article extends React.Component {
 			<div className={styles.articleContainer}>
 				<h1 className={styles.title}>{this.state.title}</h1>
 				<div className={styles.message}>时间：{this.state.time}&nbsp;&nbsp;&nbsp;&nbsp;标签：{this.state.tag}</div>
-				<div className={styles.content}>{this.state.content}</div>
+				<div className={styles.content} dangerouslySetInnerHTML={{__html: this.state.content}}></div>
 			</div>
 		)
 	}

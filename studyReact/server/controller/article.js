@@ -10,7 +10,6 @@ exports.saveArticle = function (req, res) {
 		introduction: body.introduction,
 		content: body.content
 	});
-
 	newArticle.saveData(function (err, article) {
 
 		if (err) {

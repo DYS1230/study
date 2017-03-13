@@ -1,11 +1,11 @@
 import React from 'react';
 
-import styles from './css/sideBar.css';
+import styles from './sideBar.css';
 
 export default class SideBar extends React.Component {
 	render() {
 		return (
-			<div className={styles.sideBar}>
+			<div>
 				<div className={styles.sideUnit}>
 					<div className={styles.sideUnitHeader}>
 						<i className={`${styles.mushroomIco} ${styles.ico}`}></i>

@@ -33,7 +33,7 @@ Article.getAllData = function (callback) {
  */
 Article.getArticleListData = function (pageNumber, callback) {
 	//默认每页显示10篇文章
-	var limit = 1;
+	var limit = 3;
 	// 跳过数量为每页显示数量乘以页数减一，默认0
 	var skip = (pageNumber - 1) * limit;
 	this.find({}, {_id: 1, title: 1, time: 1, tag: 1, introduction: 1}, {limit: limit, skip: skip}, function (err, articles) {

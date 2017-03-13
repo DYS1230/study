@@ -2,6 +2,8 @@ import React from 'react';
 
 import styles from './css/article.css';
 
+import {markdown} from 'markdown';
+
 export default class PostAriticle extends React.Component {
 	constructor(props) {
 		super(props);
@@ -24,8 +26,6 @@ export default class PostAriticle extends React.Component {
 	}
 	handleSubmit(event) {
 		event.preventDefault();
-
-		console.log('submit');
 
 		fetch('/api/backstage/postarticle', {
 			method: 'POST',

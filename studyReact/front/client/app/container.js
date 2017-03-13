@@ -2,41 +2,32 @@ import React from 'react';
 
 import { Link } from 'react-router';
 
-import Nav from './nav';
+import Nav from './component/nav';
 
-import SideBar from './sideBar';
+import SideBar from './component/sideBar';
 
 import styles from './css/container.css';
+
+import img from '../images/7.png';
 
 export default  class Container extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-	componentWillMount() {
-		//console.log('componentWillMount');
-	}
-	componentDidMount() {
-		//console.log('componentDidMount');
-		// this.fetchData();
-	}
-	fetchData() {
-		var url = "/api/test";
-		// fetch(url)
-		// 	.then( response => response.text() )
-		// 	.then((responseData) => {
-		// 		console.log(responseData);
-		// 		this.setState({
-		// 			data: responseData
-		// 		});
-		// 	});
-	}
 	render () {
 		return (
-			<div className={styles.content}>
-				<Nav />
-				<section className={styles.homePage}>
-					{this.props.children}
-					<SideBar />
+			<div className={styles.allcontainer}>
+				<header className={styles.headerContainer}>
+					<Nav />
+					<img src={img} className={styles.navImg} />
+				</header>
+				<section className={styles.contentContainer}>
+					<div className={styles.content}>
+						{this.props.children}
+					</div>
+					<div className={styles.sideBar}>
+						<SideBar />
+					</div>
 				</section>
 				<footer className={styles.footerContainer}>
 					<p>author: DYS</p>

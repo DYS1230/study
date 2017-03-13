@@ -2,9 +2,7 @@ import React from 'react';
 
 import {Router, Link, IndexLink} from 'react-router';
 
-import styles from './css/nav.css';
-
-import img from '../images/7.png';
+import styles from './nav.css';
 
 export default class Nav extends React.Component {
 	constructor(props, context) {
@@ -13,17 +11,10 @@ export default class Nav extends React.Component {
 			index: 0
 		}
 	}
-	componentDidMount() {
-
-	}
-	//onClick={() => this.handleClick()} 时，传了三个参数
 	handleClick(event, index) {
-		console.log(this.context);
-		
-		console.log('click');
 		this.setState({
 			index: index
-		})
+		});
 	}
 	render() {
 
@@ -34,7 +25,7 @@ export default class Nav extends React.Component {
 			},
 			{
 				'text': 'Artical',
-				'link': '/test'
+				'link': '/articlelist/1'
 			},
 			{
 				'text': 'About',
@@ -56,20 +47,16 @@ export default class Nav extends React.Component {
 			)
 		})
 		return (
-			<header>
-				<nav className={styles.navbar}>
-					<h1 className={styles.navbarTitle}>BLOG</h1> 
-					<ul className={styles.navbarList}> 
-						{node}
-					</ul>
-				</nav>
-				{/*<img src={require('./../img/2.png')} style={{ height: 200, width: 200, objectFit: 'cover'}}/>*/}
-				<img src={img} className={styles.navImg} />
-			</header>
+			<nav className={styles.navbar}>
+				<h1 className={styles.navbarTitle}>BLOG</h1> 
+				<ul className={styles.navbarList}> 
+					{node}
+				</ul>
+			</nav>
 		)
 	}
 }
 
 Nav.contextTypes = {
 	router: React.PropTypes.object.isRequired
-}
+};
