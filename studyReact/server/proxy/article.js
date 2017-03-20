@@ -1,11 +1,14 @@
 var Article = require('../database/articleSchema.js');
 
 Article.prototype.saveData = function (callback) {
-
 	this.save(callback);
 };
 
-//搜索
+/**
+ * 根据标题搜索文章
+ * @param {String} title  文章标题
+ * @param {Function} callback  回调函数
+ */
 Article.searchData = function (title, callback) {
 	this.find({title: title}, function (err, article) {
 		if (err) {
@@ -15,7 +18,10 @@ Article.searchData = function (title, callback) {
 	})
 };
 
-//获取全部文章信息
+/**
+ * 获取全部文章信息
+ * @param {Function} callback  回调函数
+ */
 Article.getAllData = function (callback) {
 	this.find({}, function (err, articles) {
 		if (err) {
@@ -32,18 +38,19 @@ Article.getAllData = function (callback) {
  * @param {Function} callback  回调函数
  */
 Article.getArticleListData = function (pageNumber, callback) {
-	//默认每页显示10篇文章
-	var limit = 3;
+	//默认每页显示5篇文章
+	var limit = 5;
 	// 跳过数量为每页显示数量乘以页数减一，默认0
 	var skip = (pageNumber - 1) * limit;
 	this.find({}, {_id: 1, title: 1, time: 1, tag: 1, introduction: 1}, {limit: limit, skip: skip}, function (err, articles) {
 		if (err) {
 			return callback(err);
 		}
-		console.log(articles);
+		//console.log(articles);
 		callback(null, articles);
-	})
+	});
 }
+
 /**
  * 根据id获取文章信息
  * @param {Object} id  文章id
@@ -54,8 +61,23 @@ Article.getArticleDataById = function (id, callback) {
 		if (err) {
 			return callback(err);
 		}
+		console.log('getArticleDataById');
 		console.log(articles);
 		callback(null, articles);
+	})
+}
+
+/**
+ * 获取文章数量
+ * @param {Function} callback  回调函数
+ */
+ // 注：是否可以在getArticleListData时就获得了数量，而不是新增一个方法获得？
+Article.getArticleCount = function (callback) {
+	this.count({}, function (err,number) {
+		if (err) {
+			return callback(err);
+		}
+		callback(null, number);
 	})
 }
 

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import LoadingItem from './component/loading';
+
 import styles from './css/article.css';
 
 import {markdown} from 'markdown';
@@ -7,12 +9,14 @@ import {markdown} from 'markdown';
 export default class Article extends React.Component {
 	constructor(props, context) {
 		super(props, context);
+		var loading = true; //表示加载中
 		this.state = {
 			title: '',
 			tag: '',
 			time: '',
 			introduction: '',
-			content: ''
+			content: '',
+			loading: loading
 		}
 	}
 	componentDidMount() {
@@ -35,18 +39,24 @@ export default class Article extends React.Component {
 					tag: article.tag,
 					time: article.time,
 					introduction: article.introduction,
-					content: markdown.toHTML(article.content)
+					content: markdown.toHTML(article.content),
+					loading: false
 				});
 			}
 		);	
 	}
 	render() {
-		
+		var component = this.state.loading ? 
+			(<LoadingItem />) : 
+			(Array.prototype.push.call([], 
+					<h1 className={styles.title}>{this.state.title}</h1>,
+					<div className={styles.message}>时间：{this.state.time}&nbsp;&nbsp;&nbsp;&nbsp;标签：{this.state.tag}</div>,
+					<div className={styles.content} dangerouslySetInnerHTML={{__html: this.state.content}}></div>
+			));
+
 		return (
 			<div className={styles.articleContainer}>
-				<h1 className={styles.title}>{this.state.title}</h1>
-				<div className={styles.message}>时间：{this.state.time}&nbsp;&nbsp;&nbsp;&nbsp;标签：{this.state.tag}</div>
-				<div className={styles.content} dangerouslySetInnerHTML={{__html: this.state.content}}></div>
+				{component}
 			</div>
 		)
 	}

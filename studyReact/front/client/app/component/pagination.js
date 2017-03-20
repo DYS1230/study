@@ -29,7 +29,7 @@ export default class Pagination extends React.Component {
 			<div 
 				key={activeNumber}
 				className={styles.textContainer}>
-				{activeNumber}
+				{activeNumber} / {totalNumber}
 			</div>
 		);
 

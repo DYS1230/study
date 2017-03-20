@@ -24,7 +24,7 @@ webpackJsonp([0,1],[
 	
 	var _postArticle2 = _interopRequireDefault(_postArticle);
 	
-	var _auth = __webpack_require__(21);
+	var _auth = __webpack_require__(27);
 	
 	var _auth2 = _interopRequireDefault(_auth);
 	
@@ -1008,7 +1008,7 @@ webpackJsonp([0,1],[
 	
 	var _article2 = _interopRequireDefault(_article);
 	
-	var _markdown = __webpack_require__(22);
+	var _markdown = __webpack_require__(21);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -1277,38 +1277,16 @@ webpackJsonp([0,1],[
 
 /***/ },
 /* 21 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	var auth = {};
-	
-	//目前改变量是没有用到，想着后面转练用redux用到
-	auth.isLogin = false;
-	
-	auth.checkLogin = function () {
-			return fetch('/api/backstage/checklogin', {
-					method: 'GET',
-					credentials: 'include'
-			}).then(function (response) {
-					return response.text();
-			});
-	};
-	
-	module.exports = auth;
-
-/***/ },
-/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	// super simple module for the most common nodejs use case.
-	exports.markdown = __webpack_require__(23);
+	exports.markdown = __webpack_require__(22);
 	exports.parse = exports.markdown.toHTML;
 
 /***/ },
-/* 23 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1437,7 +1415,7 @@ webpackJsonp([0,1],[
 	
 	  // node
 	  function mk_block_inspect() {
-	    var util = __webpack_require__(24);
+	    var util = __webpack_require__(23);
 	    return "Markdown.mk_block( " + util.inspect(this.toString()) + ", " + util.inspect(this.trailing) + ", " + util.inspect(this.lineNumber) + " )";
 	  }
 	
@@ -2959,7 +2937,7 @@ webpackJsonp([0,1],[
 	}());
 
 /***/ },
-/* 24 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {'use strict';
@@ -3456,7 +3434,7 @@ webpackJsonp([0,1],[
 	}
 	exports.isPrimitive = isPrimitive;
 	
-	exports.isBuffer = __webpack_require__(26);
+	exports.isBuffer = __webpack_require__(25);
 	
 	function objectToString(o) {
 	  return Object.prototype.toString.call(o);
@@ -3493,7 +3471,7 @@ webpackJsonp([0,1],[
 	 *     prototype.
 	 * @param {function} superCtor Constructor function to inherit prototype from.
 	 */
-	exports.inherits = __webpack_require__(27);
+	exports.inherits = __webpack_require__(26);
 	
 	exports._extend = function (origin, add) {
 	  // Don't do anything if add isn't an object
@@ -3510,10 +3488,10 @@ webpackJsonp([0,1],[
 	function hasOwnProperty(obj, prop) {
 	  return Object.prototype.hasOwnProperty.call(obj, prop);
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(25)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(24)))
 
 /***/ },
-/* 25 */
+/* 24 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3699,7 +3677,7 @@ webpackJsonp([0,1],[
 	};
 
 /***/ },
-/* 26 */
+/* 25 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3711,7 +3689,7 @@ webpackJsonp([0,1],[
 	};
 
 /***/ },
-/* 27 */
+/* 26 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3739,6 +3717,28 @@ webpackJsonp([0,1],[
 	    ctor.prototype.constructor = ctor;
 	  };
 	}
+
+/***/ },
+/* 27 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	var auth = {};
+	
+	//目前改变量是没有用到，想着后面转练用redux用到
+	auth.isLogin = false;
+	
+	auth.checkLogin = function () {
+			return fetch('/api/backstage/checklogin', {
+					method: 'GET',
+					credentials: 'include'
+			}).then(function (response) {
+					return response.text();
+			});
+	};
+	
+	module.exports = auth;
 
 /***/ }
 ]);

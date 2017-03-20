@@ -2,13 +2,17 @@ import React from 'react';
 
 import styles from './css/home.css';
 
+import LoadingItem from './component/loading';
+
 import ArticleItem from './component/articleItem';
 
 export default class Home extends React.Component {
 	constructor(props) {
 		super(props);
+		var loading = true; //表示加载中
 		this.state = {
 			article: [],
+			loading: loading
 		};
 	}
 	
@@ -27,7 +31,8 @@ export default class Home extends React.Component {
 				console.log(Object.prototype.toString.call(data));
 				console.log(data);
 				this.setState({
-					article: data
+					article: data,
+					loading: false
 				});
 			}
 		);		
@@ -40,14 +45,19 @@ export default class Home extends React.Component {
 				<ArticleItem key={index} article={item} />
 			)
 		} );
-		return (
-			<div className={styles.articleListContainer}>
-				<ul className={styles.articleList} onClick={(event) => this.handleClick(event)}>
-					{node}
-				</ul>
+
+		var component = this.state.loading ? 
+			(<LoadingItem />) : 
+			(<ul className={styles.articleList} onClick={(event) => this.handleClick(event)}>
+				{node}
 				<div className={styles.textCenter}>
 					<a className={styles.readMore} href="/articlelist/1">查看更多...</a>
 				</div>
+			</ul>);
+
+		return (
+			<div className={styles.articleListContainer}>
+				{component}
 			</div>
 		)
 	}
