@@ -28,8 +28,6 @@ export default class Home extends React.Component {
 			res => res.json()
 		).then(
 			data => {
-				console.log(Object.prototype.toString.call(data));
-				console.log(data);
 				this.setState({
 					article: data,
 					loading: false

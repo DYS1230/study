@@ -22,15 +22,15 @@ webpackJsonp([0,1],[
 	
 	var _home2 = _interopRequireDefault(_home);
 	
-	var _articleList = __webpack_require__(27);
+	var _articleList = __webpack_require__(30);
 	
 	var _articleList2 = _interopRequireDefault(_articleList);
 	
-	var _article = __webpack_require__(33);
+	var _article = __webpack_require__(36);
 	
 	var _article2 = _interopRequireDefault(_article);
 	
-	var _demo = __webpack_require__(40);
+	var _demo = __webpack_require__(43);
 	
 	var _demo2 = _interopRequireDefault(_demo);
 	
@@ -278,6 +278,8 @@ webpackJsonp([0,1],[
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ReplaceLink = _reactRouter.Link;
 	
 	var Nav = function (_React$Component) {
 		_inherits(Nav, _React$Component);
@@ -1014,11 +1016,11 @@ webpackJsonp([0,1],[
 	
 	var _home2 = _interopRequireDefault(_home);
 	
-	var _loading = __webpack_require__(41);
+	var _loading = __webpack_require__(24);
 	
 	var _loading2 = _interopRequireDefault(_loading);
 	
-	var _articleItem = __webpack_require__(24);
+	var _articleItem = __webpack_require__(27);
 	
 	var _articleItem2 = _interopRequireDefault(_articleItem);
 	
@@ -1062,8 +1064,6 @@ webpackJsonp([0,1],[
 				}).then(function (res) {
 					return res.json();
 				}).then(function (data) {
-					console.log(Object.prototype.toString.call(data));
-					console.log(data);
 					_this2.setState({
 						article: data,
 						loading: false
@@ -1170,7 +1170,107 @@ webpackJsonp([0,1],[
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _articleItem = __webpack_require__(25);
+	var _loading = __webpack_require__(25);
+	
+	var _loading2 = _interopRequireDefault(_loading);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Loading = function (_React$Component) {
+		_inherits(Loading, _React$Component);
+	
+		function Loading() {
+			_classCallCheck(this, Loading);
+	
+			return _possibleConstructorReturn(this, (Loading.__proto__ || Object.getPrototypeOf(Loading)).apply(this, arguments));
+		}
+	
+		_createClass(Loading, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					{ className: _loading2.default.spinner },
+					_react2.default.createElement('div', { className: _loading2.default.dot1 }),
+					_react2.default.createElement('div', { className: _loading2.default.dot2 })
+				);
+			}
+		}]);
+	
+		return Loading;
+	}(_react2.default.Component);
+	
+	exports.default = Loading;
+
+/***/ },
+/* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(26);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(9)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?modules!./loading.css", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?modules!./loading.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(8)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".OAG216QJ7r-6wEulw91_j {\n\tmargin: 100px auto;\n\twidth: 90px;\n\theight: 90px;\n\tposition: relative;\n\ttext-align: center;\n\tanimation: ByrvbOBPfilJOAMs9El-M 2.0s infinite linear;\n}\n \n._3rzVc266w6whAqAPa3eSje, ._30baGgetQb_c-uWzq2tW_s {\n\twidth: 60%;\n\theight: 60%;\n\tdisplay: inline-block;\n\tposition: absolute;\n\ttop: 0;\n\tbackground-color: #eaa;\n\tborder-radius: 100%;\n\tanimation: Qq4ZcOxJ2QA10zrJY2qbO 2.0s infinite ease-in-out;\n}\n \n._30baGgetQb_c-uWzq2tW_s {\n\ttop: 40px;\n\tbottom: 0px;\n\tanimation-delay: -1.0s;\n}\n \n@keyframes ByrvbOBPfilJOAMs9El-M {\n\t100% {\n\t\ttransform: rotate(360deg);\n\t}\n}\n\n@keyframes Qq4ZcOxJ2QA10zrJY2qbO {\n\t0%, 100% {\n\t\ttransform: scale(0.0);\n\t}\n\t50% {\n\t\ttransform: scale(1.0);\n\t}\n}", ""]);
+	
+	// exports
+	exports.locals = {
+		"spinner": "OAG216QJ7r-6wEulw91_j",
+		"rotate": "ByrvbOBPfilJOAMs9El-M",
+		"dot1": "_3rzVc266w6whAqAPa3eSje",
+		"dot2": "_30baGgetQb_c-uWzq2tW_s",
+		"bounce": "Qq4ZcOxJ2QA10zrJY2qbO"
+	};
+
+/***/ },
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _articleItem = __webpack_require__(28);
 	
 	var _articleItem2 = _interopRequireDefault(_articleItem);
 	
@@ -1253,13 +1353,13 @@ webpackJsonp([0,1],[
 	exports.default = ArticleItem;
 
 /***/ },
-/* 25 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(26);
+	var content = __webpack_require__(29);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(9)(content, {});
@@ -1279,7 +1379,7 @@ webpackJsonp([0,1],[
 	}
 
 /***/ },
-/* 26 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(8)();
@@ -1301,7 +1401,7 @@ webpackJsonp([0,1],[
 	};
 
 /***/ },
-/* 27 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1316,19 +1416,19 @@ webpackJsonp([0,1],[
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _article = __webpack_require__(28);
+	var _article = __webpack_require__(31);
 	
 	var _article2 = _interopRequireDefault(_article);
 	
-	var _loading = __webpack_require__(41);
+	var _loading = __webpack_require__(24);
 	
 	var _loading2 = _interopRequireDefault(_loading);
 	
-	var _articleItem = __webpack_require__(24);
+	var _articleItem = __webpack_require__(27);
 	
 	var _articleItem2 = _interopRequireDefault(_articleItem);
 	
-	var _pagination = __webpack_require__(30);
+	var _pagination = __webpack_require__(33);
 	
 	var _pagination2 = _interopRequireDefault(_pagination);
 	
@@ -1349,13 +1449,12 @@ webpackJsonp([0,1],[
 	var ArticleList = function (_React$Component) {
 		_inherits(ArticleList, _React$Component);
 	
-		function ArticleList(props) {
+		function ArticleList(props, context) {
 			_classCallCheck(this, ArticleList);
 	
-			var _this = _possibleConstructorReturn(this, (ArticleList.__proto__ || Object.getPrototypeOf(ArticleList)).call(this, props));
+			var _this = _possibleConstructorReturn(this, (ArticleList.__proto__ || Object.getPrototypeOf(ArticleList)).call(this, props, context));
 	
 			var pageNumber = _this.props.params.number ? parseInt(_this.props.params.number) : 1; //页码
-			console.log(_this.props.params.number);
 			var totalNumber = 1; //页数
 			var loading = true; //表示加载中
 			_this.state = {
@@ -1401,8 +1500,8 @@ webpackJsonp([0,1],[
 				}).then(function (res) {
 					return res.json();
 				}).then(function (data) {
-					console.log(Object.prototype.toString.call(data));
-					console.log(data);
+					//console.log(Object.prototype.toString.call(data));
+					//console.log(data);
 					_this3.setState({
 						article: data,
 						loading: false
@@ -1412,14 +1511,43 @@ webpackJsonp([0,1],[
 		}, {
 			key: 'handlePageChange',
 			value: function handlePageChange(pageNumber) {
-				this.setState({
-					activeNumber: pageNumber
-				});
-				_reactRouter.browserHistory.push('/articlelist/' + pageNumber);
+				_reactRouter.browserHistory.push('/articlelist/' + pageNumber); // 此处改变了context.router
 				this.setState({
 					loading: true
 				});
-				this.fetchArticleData(pageNumber);
+				// this.fetchArticleData(pageNumber);
+				// 当在articleList页面点击article按钮时，会出现bug，页面不会调到第一页
+				// 原因为nav组件用的link是用history.pushstate，不会强制刷新页面，当然用replace同样不会
+				// 则将改变页面方法调到componentWillReceiveProps里面
+				// 因为context.router会改变，componentWillReceiveProps，shouldComponentUpdate
+				// componentWillUpdate，render，componentDidUpdate都会被依次调用，则在willReceive中改变数据
+			}
+		}, {
+			key: 'listenUrl',
+			value: function listenUrl() {
+				// 不可行的方法！！因为是单页面应用，会在所有页面都添加了改监视
+				// var _this = this;
+				// 监听url的变化，由于没有升到react-router4，nav有个bug，
+				// 点击article按钮非跳转，而是history.pushstate，
+				// 这样如果在articleList页面里点击，则不会发起内容请求，内容不变
+				// console.log(this.context.router);
+				// this.context.router.listen( (location) => {
+				// 	var locationArr = location.pathname.split('/');
+				// 	var param = locationArr[locationArr.length - 1];
+				// 	_this.fetchArticleData(param);
+				// });
+			}
+		}, {
+			key: 'componentWillReceiveProps',
+			value: function componentWillReceiveProps() {
+				var oldNumber = this.props.params.number;
+				var newNumber = this.context.router.params.number;
+				if (oldNumber != newNumber) {
+					this.setState({
+						activeNumber: parseInt(newNumber)
+					});
+					this.fetchArticleData(newNumber);
+				}
 			}
 		}, {
 			key: 'render',
@@ -1456,15 +1584,20 @@ webpackJsonp([0,1],[
 	}(_react2.default.Component);
 	
 	exports.default = ArticleList;
+	
+	
+	ArticleList.contextTypes = {
+		router: _react2.default.PropTypes.object.isRequired
+	};
 
 /***/ },
-/* 28 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(29);
+	var content = __webpack_require__(32);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(9)(content, {});
@@ -1484,7 +1617,7 @@ webpackJsonp([0,1],[
 	}
 
 /***/ },
-/* 29 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(8)();
@@ -1504,7 +1637,7 @@ webpackJsonp([0,1],[
 	};
 
 /***/ },
-/* 30 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1519,7 +1652,7 @@ webpackJsonp([0,1],[
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _pagination = __webpack_require__(31);
+	var _pagination = __webpack_require__(34);
 	
 	var _pagination2 = _interopRequireDefault(_pagination);
 	
@@ -1549,6 +1682,9 @@ webpackJsonp([0,1],[
 				    activeNumber = _props.activeNumber,
 				    totalNumber = _props.totalNumber;
 	
+	
+				activeNumber = parseInt(activeNumber);
+				totalNumber = parseInt(totalNumber);
 	
 				var pages = [];
 	
@@ -1615,13 +1751,13 @@ webpackJsonp([0,1],[
 	exports.default = Pagination;
 
 /***/ },
-/* 31 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(32);
+	var content = __webpack_require__(35);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(9)(content, {});
@@ -1641,7 +1777,7 @@ webpackJsonp([0,1],[
 	}
 
 /***/ },
-/* 32 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(8)();
@@ -1664,7 +1800,7 @@ webpackJsonp([0,1],[
 	};
 
 /***/ },
-/* 33 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1679,15 +1815,15 @@ webpackJsonp([0,1],[
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _loading = __webpack_require__(41);
+	var _loading = __webpack_require__(24);
 	
 	var _loading2 = _interopRequireDefault(_loading);
 	
-	var _article = __webpack_require__(28);
+	var _article = __webpack_require__(31);
 	
 	var _article2 = _interopRequireDefault(_article);
 	
-	var _markdown = __webpack_require__(34);
+	var _markdown = __webpack_require__(37);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -1781,17 +1917,17 @@ webpackJsonp([0,1],[
 	};
 
 /***/ },
-/* 34 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	// super simple module for the most common nodejs use case.
-	exports.markdown = __webpack_require__(35);
+	exports.markdown = __webpack_require__(38);
 	exports.parse = exports.markdown.toHTML;
 
 /***/ },
-/* 35 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1920,7 +2056,7 @@ webpackJsonp([0,1],[
 	
 	  // node
 	  function mk_block_inspect() {
-	    var util = __webpack_require__(36);
+	    var util = __webpack_require__(39);
 	    return "Markdown.mk_block( " + util.inspect(this.toString()) + ", " + util.inspect(this.trailing) + ", " + util.inspect(this.lineNumber) + " )";
 	  }
 	
@@ -3442,7 +3578,7 @@ webpackJsonp([0,1],[
 	}());
 
 /***/ },
-/* 36 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {'use strict';
@@ -3939,7 +4075,7 @@ webpackJsonp([0,1],[
 	}
 	exports.isPrimitive = isPrimitive;
 	
-	exports.isBuffer = __webpack_require__(38);
+	exports.isBuffer = __webpack_require__(41);
 	
 	function objectToString(o) {
 	  return Object.prototype.toString.call(o);
@@ -3976,7 +4112,7 @@ webpackJsonp([0,1],[
 	 *     prototype.
 	 * @param {function} superCtor Constructor function to inherit prototype from.
 	 */
-	exports.inherits = __webpack_require__(39);
+	exports.inherits = __webpack_require__(42);
 	
 	exports._extend = function (origin, add) {
 	  // Don't do anything if add isn't an object
@@ -3993,10 +4129,10 @@ webpackJsonp([0,1],[
 	function hasOwnProperty(obj, prop) {
 	  return Object.prototype.hasOwnProperty.call(obj, prop);
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(37)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(40)))
 
 /***/ },
-/* 37 */
+/* 40 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4182,7 +4318,7 @@ webpackJsonp([0,1],[
 	};
 
 /***/ },
-/* 38 */
+/* 41 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4194,7 +4330,7 @@ webpackJsonp([0,1],[
 	};
 
 /***/ },
-/* 39 */
+/* 42 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4224,7 +4360,7 @@ webpackJsonp([0,1],[
 	}
 
 /***/ },
-/* 40 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4327,106 +4463,6 @@ webpackJsonp([0,1],[
 	}(_react2.default.Component);
 	
 	exports.default = Demo;
-
-/***/ },
-/* 41 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _loading = __webpack_require__(42);
-	
-	var _loading2 = _interopRequireDefault(_loading);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Loading = function (_React$Component) {
-		_inherits(Loading, _React$Component);
-	
-		function Loading() {
-			_classCallCheck(this, Loading);
-	
-			return _possibleConstructorReturn(this, (Loading.__proto__ || Object.getPrototypeOf(Loading)).apply(this, arguments));
-		}
-	
-		_createClass(Loading, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					{ className: _loading2.default.spinner },
-					_react2.default.createElement('div', { className: _loading2.default.dot1 }),
-					_react2.default.createElement('div', { className: _loading2.default.dot2 })
-				);
-			}
-		}]);
-	
-		return Loading;
-	}(_react2.default.Component);
-	
-	exports.default = Loading;
-
-/***/ },
-/* 42 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(43);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(9)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?modules!./loading.css", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js?modules!./loading.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 43 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(8)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, ".OAG216QJ7r-6wEulw91_j {\n\tmargin: 100px auto;\n\twidth: 90px;\n\theight: 90px;\n\tposition: relative;\n\ttext-align: center;\n\tanimation: ByrvbOBPfilJOAMs9El-M 2.0s infinite linear;\n}\n \n._3rzVc266w6whAqAPa3eSje, ._30baGgetQb_c-uWzq2tW_s {\n\twidth: 60%;\n\theight: 60%;\n\tdisplay: inline-block;\n\tposition: absolute;\n\ttop: 0;\n\tbackground-color: #eaa;\n\tborder-radius: 100%;\n\tanimation: Qq4ZcOxJ2QA10zrJY2qbO 2.0s infinite ease-in-out;\n}\n \n._30baGgetQb_c-uWzq2tW_s {\n\ttop: 40px;\n\tbottom: 0px;\n\tanimation-delay: -1.0s;\n}\n \n@keyframes ByrvbOBPfilJOAMs9El-M {\n\t100% {\n\t\ttransform: rotate(360deg);\n\t}\n}\n\n@keyframes Qq4ZcOxJ2QA10zrJY2qbO {\n\t0%, 100% {\n\t\ttransform: scale(0.0);\n\t}\n\t50% {\n\t\ttransform: scale(1.0);\n\t}\n}", ""]);
-	
-	// exports
-	exports.locals = {
-		"spinner": "OAG216QJ7r-6wEulw91_j",
-		"rotate": "ByrvbOBPfilJOAMs9El-M",
-		"dot1": "_3rzVc266w6whAqAPa3eSje",
-		"dot2": "_30baGgetQb_c-uWzq2tW_s",
-		"bounce": "Qq4ZcOxJ2QA10zrJY2qbO"
-	};
 
 /***/ }
 ]);

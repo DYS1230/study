@@ -15,6 +15,9 @@ export default class Pagination extends React.Component {
 			totalNumber
 		} = this.props;
 
+		activeNumber = parseInt(activeNumber);
+		totalNumber = parseInt(totalNumber);
+
 		var pages = [];
 
 		(activeNumber > 1) && pages.push(
