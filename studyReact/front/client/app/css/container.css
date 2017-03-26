@@ -14,7 +14,7 @@ body {
 	background: url('../../images/5.png');
 }
 
-body > div {
+#container {
 	height: 100%;
 }
 
@@ -70,6 +70,14 @@ li {
 	width: 25%;
 }
 
+@media screen and (max-width: 768px) {
+	.sideBar {
+		display: none;
+	}
+	.content {
+		width: 100%;
+	}
+}
 .footerContainer {
 	position: absolute;
 	bottom: 0;

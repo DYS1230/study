@@ -63,6 +63,14 @@ import PostArtical from './postArticle';
 
 import auth from '../controller/auth.js';
 
+class NoPage extends React.Component {
+	render() {
+		return (
+			<div>nopage</div>
+		)
+	}
+}
+
 var loaded = false; //记录是否已经登陆页面
 
 //If callback is listed as a 3rd argument, this hook will run asynchronously, and the transition will block until callback is called.
@@ -112,5 +120,6 @@ render((
 			<IndexRoute component={PostArtical} />
 			{/*<Route path="sign_in" component={SignIn} />*/}
 		</Route>
+		<Route path="*" component={NoPage} />
 	</Router>
 ), document.querySelector('#container'));

@@ -14,6 +14,8 @@ export default class Home extends React.Component {
 			article: [],
 			loading: loading
 		};
+console.log( this.props);
+
 	}
 	
 	componentDidMount() {

@@ -4,6 +4,8 @@ webpackJsonp([0,1],[
 
 	'use strict';
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -30,59 +32,86 @@ webpackJsonp([0,1],[
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*import React from 'react';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               import {render} from 'react-dom';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               import Container from './container';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               import SignIn from './signIn';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               import PostArtical from './postArticle';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               import auth from '../controller/auth.js';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               function requireAuth(nextState, replace, cb) {
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               	console.log(arguments);
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               console.log(cb);
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               // replace('/backstage/sign');
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               // replace({
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               // 	pathname: '/backstage/sign',
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               // 	state: {nextPathname: nextState.location.pathname}
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               // })
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               	// var promise = auth.checkLogin();
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               	// promise.then(function (response) {
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               	// 	console.log('login');
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               	// 	cb();
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               	// }).catch(function (err) {
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               	// 	console.log('noLogin');
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               	// 	replace('/backstage/sign');
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               	// })
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               	if (1 == 1) {
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               		replace({
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               			pathname: '/backstage/sign',
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               			state: {nextPathname: nextState.location.pathname}
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               		})
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               	}
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               }
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               render((
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               	<Router history={browserHistory}>
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               		<Route path="/backstage/sign" component={SignIn} />
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               		<Route path="/backstage" component={Container} onEnter={requireAuth}>
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               			<IndexRoute component={PostArtical} />
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               			
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               		</Route>
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               	</Router>
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ), document.querySelector('#container'));*/
+	
+	var NoPage = function (_React$Component) {
+		_inherits(NoPage, _React$Component);
+	
+		function NoPage() {
+			_classCallCheck(this, NoPage);
+	
+			return _possibleConstructorReturn(this, (NoPage.__proto__ || Object.getPrototypeOf(NoPage)).apply(this, arguments));
+		}
+	
+		_createClass(NoPage, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					'nopage'
+				);
+			}
+		}]);
+	
+		return NoPage;
+	}(_react2.default.Component);
+	
 	var loaded = false; //记录是否已经登陆页面
 	
 	//If callback is listed as a 3rd argument, this hook will run asynchronously, and the transition will block until callback is called.
-	/*import React from 'react';
-	import {render} from 'react-dom';
-	
-	import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-	
-	import Container from './container';
-	
-	import SignIn from './signIn';
-	
-	import PostArtical from './postArticle';
-	
-	import auth from '../controller/auth.js';
-	
-	
-	function requireAuth(nextState, replace, cb) {
-		console.log(arguments);
-	console.log(cb);
-	// replace('/backstage/sign');
-	// replace({
-	// 	pathname: '/backstage/sign',
-	// 	state: {nextPathname: nextState.location.pathname}
-	// })
-		// var promise = auth.checkLogin();
-		// promise.then(function (response) {
-		// 	console.log('login');
-		// 	cb();
-		// }).catch(function (err) {
-		// 	console.log('noLogin');
-		// 	replace('/backstage/sign');
-		// })
-	
-		if (1 == 1) {
-			replace({
-				pathname: '/backstage/sign',
-				state: {nextPathname: nextState.location.pathname}
-			})
-		}
-	}
-	
-	
-	render((
-		<Router history={browserHistory}>
-			<Route path="/backstage/sign" component={SignIn} />
-			<Route path="/backstage" component={Container} onEnter={requireAuth}>
-				<IndexRoute component={PostArtical} />
-				
-			</Route>
-		</Router>
-	), document.querySelector('#container'));*/
-	
 	function requireAuth(nextState, replace, cb) {
 		if (!loaded) {
 			var promise = _auth2.default.checkLogin();
@@ -128,7 +157,8 @@ webpackJsonp([0,1],[
 			_reactRouter.Route,
 			{ path: '/backstage', component: _container2.default, onEnter: requireAuth },
 			_react2.default.createElement(_reactRouter.IndexRoute, { component: _postArticle2.default })
-		)
+		),
+		_react2.default.createElement(_reactRouter.Route, { path: '*', component: NoPage })
 	), document.querySelector('#container'));
 
 /***/ },

@@ -26,7 +26,17 @@ export default class ArticleList extends React.Component {
 			activeNumber: pageNumber,
 			loading: loading
 		};
+
+		console.log(this.props.route);
 	}
+
+	componentWillMount() {
+	}
+
+	routerLeaveInformation() {
+		return 'You have unsaved information, are you sure you want to leave this page?';
+	}
+
 
 	componentDidMount() {
 		//默认页码为1
@@ -97,7 +107,7 @@ export default class ArticleList extends React.Component {
 
 	componentWillReceiveProps() {
 		var oldNumber = this.props.params.number;
-		var newNumber = this.context.router.params.number;
+		var newNumber = this.props.router.params.number;
 		if (oldNumber != newNumber) {
 			this.setState({
 				activeNumber: parseInt(newNumber)

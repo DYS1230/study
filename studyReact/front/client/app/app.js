@@ -9,39 +9,11 @@ import Home from './home';
 
 import ArticleList from './articleList';
 
+import About from './about';
+
 import Article from './article';
 
-import Demo from './demo';
-
-class Test extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-	render() {
-		return (
-			<h1>The Test content</h1>
-		)
-	}
-}
-
-class About extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-	render() {
-		return (
-			<h1>The About content</h1>
-		)
-	}
-}
-
-class DYS extends React.Component {
-	render() {
-		return(
-			<div>DYS</div>
-		)
-	}
-}
+import NoPage from './noPage';
 
 render((
 	<Router history={browserHistory}>
@@ -52,8 +24,7 @@ render((
 				<Route path="x" /> {/*？？？忘了这是干什么的了*/}
 			</Route>
 			<Route path="article/:id" component={Article} />
-			<Route path="test" component={Demo} />
 		</Route>
-		<Route path="/dys" component={DYS} />
+		<Route path='*' component={NoPage} />
 	</Router>
 ), document.querySelector('#container'));

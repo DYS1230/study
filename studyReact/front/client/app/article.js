@@ -7,8 +7,8 @@ import styles from './css/article.css';
 import {markdown} from 'markdown';
 
 export default class Article extends React.Component {
-	constructor(props, context) {
-		super(props, context);
+	constructor(props) {
+		super(props);
 		var loading = true; //表示加载中
 		this.state = {
 			title: '',
@@ -20,9 +20,7 @@ export default class Article extends React.Component {
 		}
 	}
 	componentDidMount() {
-		console.log(this.props);
-		console.log(this.context);
-		//this.context.router.replace('/')
+		this.props.router.replace('/')
 		var id = this.props.params.id;
 		fetch('/api/article/' + id, {
 			method: 'GET',
@@ -60,9 +58,4 @@ export default class Article extends React.Component {
 			</div>
 		)
 	}
-}
-
-// this.context.router
-Article.contextTypes = {
-	router: React.PropTypes.object.isRequired
 }
