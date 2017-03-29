@@ -40,20 +40,14 @@ router.get('/api/backstage/checklogin', function (req, res) {
 
 });
 
-
-
-
 router.post('/api/backstage/sign', auth.signin);
-
 
 router.get('/api/totalpagenumber', article.getArticlePageNubmers);
 router.get('/api/articlelist/:number', article.getArticleList);
 router.get('/api/article/:id', article.getArticleById)
 
-router.post('/api/backstage/postarticle', article.saveArticle);
-
-
-
+router.post('/api/backstage/addarticle', article.addArticle);
+router.post('/api/backstage/updatearticle', article.updateArticle);
 
 // 管理后台页面
 router.get(/^\/backstage(\/.*)?/, function (req, res) {

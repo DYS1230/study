@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {Link} from 'react-router';
+
 import styles from './articleItem.css';
 
 export default class ArticleItem extends React.Component {
@@ -29,7 +31,7 @@ export default class ArticleItem extends React.Component {
 				<div className={styles.introduction}>
 					<span>{introduction}</span>
 				</div>
-				<a className={styles.read} href={'/article/' + _id}>阅读全文 »</a>
+				<Link className={styles.read} to={'/article/' + _id}>阅读全文 »</Link>
 			</li>
 		)
 	}

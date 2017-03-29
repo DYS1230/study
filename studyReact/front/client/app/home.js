@@ -14,8 +14,6 @@ export default class Home extends React.Component {
 			article: [],
 			loading: loading
 		};
-console.log( this.props);
-
 	}
 	
 	componentDidMount() {
@@ -48,7 +46,7 @@ console.log( this.props);
 
 		var component = this.state.loading ? 
 			(<LoadingItem />) : 
-			(<ul className={styles.articleList} onClick={(event) => this.handleClick(event)}>
+			(<ul className={styles.articleList}>
 				{node}
 				<div className={styles.textCenter}>
 					<a className={styles.readMore} href="/articlelist/1">查看更多...</a>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Router, Link, IndexLink} from 'react-router';
+import {Link} from 'react-router';
 
 import styles from './nav.css';
 

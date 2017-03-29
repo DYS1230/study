@@ -1,17 +1,15 @@
 .navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	height: 50px;
 	margin-bottom: 10px;
 }
 
 .navbarTitle {
-	float: left;
-	line-height: 50px;
-	margin-left: 20px;
 }
 
 .navbarList {
-	float: right;
-	margin-right: 20px;
 }
 
 .navbarItem {

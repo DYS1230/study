@@ -1,8 +1,7 @@
 var Article = require('../proxy/article.js');
 
-exports.saveArticle = function (req, res) {
+exports.addArticle = function (req, res) {
 	var body = req.body;
-
 	var newArticle = new Article({
 		title: body.title,
 		time: body.time,
@@ -22,13 +21,32 @@ exports.saveArticle = function (req, res) {
 		console.log('文章发表成功');
 		res.send('success');
 	})
+};
 
+exports.updateArticle = function (req, res) {
+	var body = req.body;
+	var article = body.article;
+	var id = body.id;
+	Article.updateData(id, article, function (err, article) {
+		if (err) {
+			console.log(err);
+			console.log('文章保存失败');
+			res.send('fail');
+			return;
+		}
+		console.log(article);
+		console.log('文章更新成功');
+		res.send('success');	
+	});
 };
 
 exports.getArticleList = function (req, res) {
 	var pageNumber = parseInt(req.params.number);
+	console.log(pageNumber);
+	console.log(isNaN(pageNumber));
 	if (isNaN(pageNumber) || pageNumber < 1) {
 		res.send([]);
+		return;
 	}
 	Article.getArticleListData(pageNumber, function (err, articles) {
 		if (err) {

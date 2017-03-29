@@ -46,27 +46,22 @@ li {
 }
 
 .contentContainer {
-	padding: 0;
+	display: flex;
+	justify-content: space-between;
 	margin: 0 auto;
 	width: 90%;
 	max-width: 960px;
+
 }
 
-.contentContainer::after {
-	clear: both;
-	content: '';
-	display: block;
-}
 
 .content {
-	float: left;
 	width: 70%;
 	background: #fff;
 	box-sizing: border-box;
 }
 
 .sideBar {
-	float: right;
 	width: 25%;
 }
 

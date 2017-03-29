@@ -7,7 +7,7 @@ auth.checkLogin = function () {
 	return fetch('/api/backstage/checklogin', {
 			method: 'GET',
 			credentials: 'include'
-		}).then( response => response.text());
+		}).then( response => response.text() );
 }
 
 

@@ -1,29 +1,26 @@
 .paginationContainer {
-	width: 60%;
-	margin: 20px auto;
+	display: flex;
+	justify-content:space-between;
 	position: relative;
+	margin: 15px 20px;
 }
 
+.limitContainer {
+	flex: 2;
+	display: flex;
+	justify-content: space-around;
+}
 
 .arrowContainer {
-	position: absolute;
-	top: 0px;
 	height: 28px;
 	width: 28px;
 	border-radius: 14px;
 	background: #84572f;
+	cursor: pointer;
 }
 
 .arrowContainer:hover {
 	background: #ed465d;
-}
-
-.flipPrev {
-	left: 0;
-}
-
-.flipNext {
-	right: 0;
 }
 
 .textContainer {
@@ -36,7 +33,7 @@
 	display: inline-block;
 	width: 0;
 	height: 0;
-	border: 8px solid transparent;	
+	border: 8px solid transparent;
 }
 
 .arrowLeft {
@@ -47,4 +44,23 @@
 .arrowRight {
 	border-left-color: #fff;
 	margin: 6px 11px;
+}
+
+.input {
+	box-sizing: border-box;
+	display: inline-block;
+	width: 30px;
+	border: 1px solid #ccc;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	font-size: 16px;
+	padding: 6px;
+}
+
+.button {
+	color: #fff;
+	background: #009a61;
+	border: 1px solid #009a61;
+	font-size: 16px;
+	padding: 6px;
+	cursor: pointer;
 }

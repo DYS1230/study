@@ -20,7 +20,6 @@ export default class Article extends React.Component {
 		}
 	}
 	componentDidMount() {
-		this.props.router.replace('/')
 		var id = this.props.params.id;
 		fetch('/api/article/' + id, {
 			method: 'GET',
@@ -41,17 +40,17 @@ export default class Article extends React.Component {
 					loading: false
 				});
 			}
-		);	
+		);
 	}
 	render() {
+		var componentArr = []
 		var component = this.state.loading ? 
 			(<LoadingItem />) : 
-			(Array.prototype.push.call([], 
-					<h1 className={styles.title}>{this.state.title}</h1>,
-					<div className={styles.message}>时间：{this.state.time}&nbsp;&nbsp;&nbsp;&nbsp;标签：{this.state.tag}</div>,
-					<div className={styles.content} dangerouslySetInnerHTML={{__html: this.state.content}}></div>
+			(Array.prototype.concat.call([],
+					<h1 className={styles.title} key="title">{this.state.title}</h1>,
+					<div className={styles.message} key="message">时间：{this.state.time}&nbsp;&nbsp;&nbsp;&nbsp;标签：{this.state.tag}</div>,
+					<div className={styles.content} key="content" dangerouslySetInnerHTML={{__html: this.state.content}}></div>,
 			));
-
 		return (
 			<div className={styles.articleContainer}>
 				{component}

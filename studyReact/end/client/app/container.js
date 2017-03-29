@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Link } from 'react-router';
 
-import Header from './header.js';
+import Nav from './component/nav';
 
-import SideBar from './sideBar.js';
+import SideBar from './component/sideBar';
 
 import styles from './css/container.css';
 
@@ -12,20 +12,19 @@ export default  class Container extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-	componentWillMount() {
-		//console.log('componentWillMount');
-	}
-	componentDidMount() {
-		//console.log('componentDidMount');
-		// this.fetchData();
-	}
 	render () {
 		return (
-			<div className={styles.contentContainer}>
-				<Header />
-				<SideBar />
-				<section className={styles.wrapContainer}>
-					{this.props.children}
+			<div className={styles.allContainer}>
+				<header className={styles.headerContainer}>
+					<Nav />
+				</header>
+				<section className={styles.contentContainer}>
+					<div className={styles.sideBar}>
+						<SideBar />
+					</div>
+					<div className={styles.content}>
+						{this.props.children}
+					</div>
 				</section>
 			</div>
 		);

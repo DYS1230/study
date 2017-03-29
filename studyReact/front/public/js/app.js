@@ -322,7 +322,7 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "._1AEgNz4Ztnu5QTqHrecXmd {\n\theight: 50px;\n\tmargin-bottom: 10px;\n}\n\n._3CGaRHDjuvpZXUbzaB2fy8 {\n\tfloat: left;\n\tline-height: 50px;\n\tmargin-left: 20px;\n}\n\n._35XGTFTsU54Bcr0HIthMjx {\n\tfloat: right;\n\tmargin-right: 20px;\n}\n\n.ZKgcW5AmtAlZxteo2Hw6a {\n\tdisplay: inline-block;\n\tmargin: 0 20px\n}\n\n.ZKgcW5AmtAlZxteo2Hw6a a {\n\tdisplay: block;\n\tline-height: 50px;\n\tpadding: 0 10px;\n\tfont-size: 18px;\n\tcolor: #84572f;\n}\n\n.ZKgcW5AmtAlZxteo2Hw6a a:hover {\n\tcolor: red;\n}\n\n.ZKgcW5AmtAlZxteo2Hw6a ._2D3YDagy4h3aVhPqYnJAW0 {\n\tcolor: red;\n}\n\n.ZKgcW5AmtAlZxteo2Hw6a ._15Y3n8ueFt1mhqnX7TlKhl {\n\twidth: 100%;\n\tbackground: red;\n\theight: 1px;\n\topacity: 0;\n\ttransition: opacity .3s;\n}\n\n.ZKgcW5AmtAlZxteo2Hw6a:hover ._15Y3n8ueFt1mhqnX7TlKhl {\n\topacity: 1;\n}", ""]);
+	exports.push([module.id, "._1AEgNz4Ztnu5QTqHrecXmd {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\talign-items: center;\n\theight: 50px;\n\tmargin-bottom: 10px;\n}\n\n._3CGaRHDjuvpZXUbzaB2fy8 {\n}\n\n._35XGTFTsU54Bcr0HIthMjx {\n}\n\n.ZKgcW5AmtAlZxteo2Hw6a {\n\tdisplay: inline-block;\n\tmargin: 0 20px\n}\n\n.ZKgcW5AmtAlZxteo2Hw6a a {\n\tdisplay: block;\n\tline-height: 50px;\n\tpadding: 0 10px;\n\tfont-size: 18px;\n\tcolor: #84572f;\n}\n\n.ZKgcW5AmtAlZxteo2Hw6a a:hover {\n\tcolor: red;\n}\n\n.ZKgcW5AmtAlZxteo2Hw6a ._2D3YDagy4h3aVhPqYnJAW0 {\n\tcolor: red;\n}\n\n.ZKgcW5AmtAlZxteo2Hw6a ._15Y3n8ueFt1mhqnX7TlKhl {\n\twidth: 100%;\n\tbackground: red;\n\theight: 1px;\n\topacity: 0;\n\ttransition: opacity .3s;\n}\n\n.ZKgcW5AmtAlZxteo2Hw6a:hover ._15Y3n8ueFt1mhqnX7TlKhl {\n\topacity: 1;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -895,7 +895,7 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {\n\tmargin: 0;\n\tpadding: 0;\n}\n\nhtml {\n\theight: 100%;\n}\n\nbody {\n\theight: 100%;\n\twidth: 100%;\n\tposition: relative;\n\tbackground: url(" + __webpack_require__(19) + ");\n}\n\n#_37sOJLZHhd9e1NWg-5GYPz {\n\theight: 100%;\n}\n\na {\n\ttext-decoration: none;\n\toutline: none;\n}\n\nli {\n\tlist-style: none;\n}\n\n._1wKl1I6KCPPV23rNIwBr9J {\n\tposition: relative;\n\tpadding-bottom: 130px;\n\tmin-height: calc(100% - 130px);\n}\n\n._4Cx7nAEvbaqGAPIiT8Xe4 {\n\tpadding: 0;\n\tmargin: 0 auto;\n\twidth: 90%;\n\tmax-width: 960px;\n\tmargin-bottom: 30px;\n}\n\n._3NNjJEgeY-dkCmnrxNs3Kn {\n\twidth: 100%;\n}\n\n.CX6L-ClTHrarM2lHLnhbY {\n\tpadding: 0;\n\tmargin: 0 auto;\n\twidth: 90%;\n\tmax-width: 960px;\n}\n\n.CX6L-ClTHrarM2lHLnhbY::after {\n\tclear: both;\n\tcontent: '';\n\tdisplay: block;\n}\n\n._3KCfIqs8QhqI4PGOG2vaEM {\n\tfloat: left;\n\twidth: 70%;\n\tbackground: #fff;\n\tbox-sizing: border-box;\n}\n\n._25kcDZet5rj5RC8NdNJrrk {\n\tfloat: right;\n\twidth: 25%;\n}\n\n@media screen and (max-width: 768px) {\n\t._25kcDZet5rj5RC8NdNJrrk {\n\t\tdisplay: none;\n\t}\n\t._3KCfIqs8QhqI4PGOG2vaEM {\n\t\twidth: 100%;\n\t}\n}\n.anWhdDwvcmK2VWI68m9e4 {\n\tposition: absolute;\n\tbottom: 0;\n\tbackground: #2e383f;\n\tbox-sizing: border-box;\n\twidth: 100%;\n\theight: 90px;\n\tpadding: 20px;\n\tcolor: #fff;\n}\n\n.anWhdDwvcmK2VWI68m9e4 p {\n\tmargin-bottom: 10px;\n}", ""]);
+	exports.push([module.id, "body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {\n\tmargin: 0;\n\tpadding: 0;\n}\n\nhtml {\n\theight: 100%;\n}\n\nbody {\n\theight: 100%;\n\twidth: 100%;\n\tposition: relative;\n\tbackground: url(" + __webpack_require__(19) + ");\n}\n\n#_37sOJLZHhd9e1NWg-5GYPz {\n\theight: 100%;\n}\n\na {\n\ttext-decoration: none;\n\toutline: none;\n}\n\nli {\n\tlist-style: none;\n}\n\n._1wKl1I6KCPPV23rNIwBr9J {\n\tposition: relative;\n\tpadding-bottom: 130px;\n\tmin-height: calc(100% - 130px);\n}\n\n._4Cx7nAEvbaqGAPIiT8Xe4 {\n\tpadding: 0;\n\tmargin: 0 auto;\n\twidth: 90%;\n\tmax-width: 960px;\n\tmargin-bottom: 30px;\n}\n\n._3NNjJEgeY-dkCmnrxNs3Kn {\n\twidth: 100%;\n}\n\n.CX6L-ClTHrarM2lHLnhbY {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tmargin: 0 auto;\n\twidth: 90%;\n\tmax-width: 960px;\n\n}\n\n\n._3KCfIqs8QhqI4PGOG2vaEM {\n\twidth: 70%;\n\tbackground: #fff;\n\tbox-sizing: border-box;\n}\n\n._25kcDZet5rj5RC8NdNJrrk {\n\twidth: 25%;\n}\n\n@media screen and (max-width: 768px) {\n\t._25kcDZet5rj5RC8NdNJrrk {\n\t\tdisplay: none;\n\t}\n\t._3KCfIqs8QhqI4PGOG2vaEM {\n\t\twidth: 100%;\n\t}\n}\n.anWhdDwvcmK2VWI68m9e4 {\n\tposition: absolute;\n\tbottom: 0;\n\tbackground: #2e383f;\n\tbox-sizing: border-box;\n\twidth: 100%;\n\theight: 90px;\n\tpadding: 20px;\n\tcolor: #fff;\n}\n\n.anWhdDwvcmK2VWI68m9e4 p {\n\tmargin-bottom: 10px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -970,8 +970,6 @@ webpackJsonp([0,1],[
 				article: [],
 				loading: loading
 			};
-			console.log(_this.props);
-	
 			return _this;
 		}
 	
@@ -1000,8 +998,6 @@ webpackJsonp([0,1],[
 		}, {
 			key: 'render',
 			value: function render() {
-				var _this3 = this;
-	
 				var data = this.state.article; // 此处为引用，非直接赋值，当this.state.article变化时，data也会变，后期使用redux
 				var node = data.map(function (item, index) {
 					return _react2.default.createElement(_articleItem2.default, { key: index, article: item });
@@ -1009,9 +1005,7 @@ webpackJsonp([0,1],[
 	
 				var component = this.state.loading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(
 					'ul',
-					{ className: _home2.default.articleList, onClick: function onClick(event) {
-							return _this3.handleClick(event);
-						} },
+					{ className: _home2.default.articleList },
 					node,
 					_react2.default.createElement(
 						'div',
@@ -1197,6 +1191,8 @@ webpackJsonp([0,1],[
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRouter = __webpack_require__(3);
+	
 	var _articleItem = __webpack_require__(28);
 	
 	var _articleItem2 = _interopRequireDefault(_articleItem);
@@ -1266,8 +1262,8 @@ webpackJsonp([0,1],[
 						)
 					),
 					_react2.default.createElement(
-						'a',
-						{ className: _articleItem2.default.read, href: '/article/' + _id },
+						_reactRouter.Link,
+						{ className: _articleItem2.default.read, to: '/article/' + _id },
 						'\u9605\u8BFB\u5168\u6587 \xBB'
 					)
 				);
@@ -1385,31 +1381,21 @@ webpackJsonp([0,1],[
 			var totalNumber = 1; //页数
 			var loading = true; //表示加载中
 			_this.state = {
-				article: [],
+				articles: [],
 				totalNumber: totalNumber,
 				activeNumber: pageNumber,
 				loading: loading
 			};
-	
-			console.log(_this.props.route);
 			return _this;
 		}
 	
 		_createClass(ArticleList, [{
-			key: 'componentWillMount',
-			value: function componentWillMount() {}
-		}, {
-			key: 'routerLeaveInformation',
-			value: function routerLeaveInformation() {
-				return 'You have unsaved information, are you sure you want to leave this page?';
-			}
-		}, {
 			key: 'componentDidMount',
 			value: function componentDidMount() {
 				//默认页码为1
 				var pageNumber = this.state.activeNumber;
-				this.fetchArticleData(pageNumber);
 				this.fetchTotalNumber();
+				this.fetchArticleData(pageNumber);
 			}
 		}, {
 			key: 'fetchTotalNumber',
@@ -1437,10 +1423,8 @@ webpackJsonp([0,1],[
 				}).then(function (res) {
 					return res.json();
 				}).then(function (data) {
-					//console.log(Object.prototype.toString.call(data));
-					//console.log(data);
 					_this3.setState({
-						article: data,
+						articles: data,
 						loading: false
 					});
 				});
@@ -1491,12 +1475,11 @@ webpackJsonp([0,1],[
 			value: function render() {
 				var _this4 = this;
 	
-				var data = this.state.article; // 此处为引用，非直接赋值，当this.state.article变化时，data也会变，后期使用redux
+				var data = this.state.articles; // 此处为引用，非直接赋值，当this.state.articles变化时，data也会变，后期使用redux
 	
 				var node = data.map(function (item, index) {
 					return _react2.default.createElement(_articleItem2.default, { key: index, article: item });
 				});
-	
 				var component = this.state.loading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(
 					'ul',
 					{ className: _article2.default.articleList },
@@ -1607,17 +1590,48 @@ webpackJsonp([0,1],[
 		function Pagination(props) {
 			_classCallCheck(this, Pagination);
 	
-			return _possibleConstructorReturn(this, (Pagination.__proto__ || Object.getPrototypeOf(Pagination)).call(this, props));
-			//console.log(props);
+			var _this = _possibleConstructorReturn(this, (Pagination.__proto__ || Object.getPrototypeOf(Pagination)).call(this, props));
+	
+			_this.state = {
+				targetNumber: ''
+			};
+			return _this;
 		}
 	
 		_createClass(Pagination, [{
-			key: 'buildPage',
-			value: function buildPage() {
+			key: 'handleChange',
+			value: function handleChange(event) {
+				this.setState({
+					targetNumber: event.target.value
+				});
+			}
+		}, {
+			key: 'skipPage',
+			value: function skipPage(pageNumber) {
 				var _props = this.props,
 				    onChange = _props.onChange,
 				    activeNumber = _props.activeNumber,
 				    totalNumber = _props.totalNumber;
+	
+	
+				pageNumber = parseInt(pageNumber);
+				activeNumber = parseInt(activeNumber);
+				totalNumber = parseInt(totalNumber);
+	
+				if (pageNumber > 0 && pageNumber <= totalNumber) {
+					onChange(pageNumber);
+					this.setState({
+						targetNumber: ''
+					});
+				}
+			}
+		}, {
+			key: 'buildPage',
+			value: function buildPage() {
+				var _props2 = this.props,
+				    onChange = _props2.onChange,
+				    activeNumber = _props2.activeNumber,
+				    totalNumber = _props2.totalNumber;
 	
 	
 				activeNumber = parseInt(activeNumber);
@@ -1625,11 +1639,13 @@ webpackJsonp([0,1],[
 	
 				var pages = [];
 	
-				activeNumber > 1 && pages.push(_react2.default.createElement(
+				var prevOpacity = activeNumber > 1 ? '1' : '0';
+				pages.push(_react2.default.createElement(
 					'div',
 					{
-						className: _pagination2.default.arrowContainer + ' ' + _pagination2.default.flipPrev,
-						key: activeNumber - 1,
+						style: { opacity: prevOpacity },
+						className: _pagination2.default.arrowContainer,
+						key: 'prev',
 						onClick: function onClick(pageNumber) {
 							return onChange(activeNumber - 1);
 						}
@@ -1640,18 +1656,20 @@ webpackJsonp([0,1],[
 				pages.push(_react2.default.createElement(
 					'div',
 					{
-						key: activeNumber,
+						key: 'number',
 						className: _pagination2.default.textContainer },
 					activeNumber,
 					' / ',
 					totalNumber
 				));
 	
-				activeNumber < totalNumber && pages.push(_react2.default.createElement(
+				var nextOpacity = activeNumber < totalNumber ? '1' : '0';
+				pages.push(_react2.default.createElement(
 					'div',
 					{
-						className: _pagination2.default.arrowContainer + ' ' + _pagination2.default.flipNext,
-						key: activeNumber + 1,
+						style: { opacity: nextOpacity },
+						className: _pagination2.default.arrowContainer,
+						key: 'next',
 						onClick: function onClick(pageNumber) {
 							return onChange(activeNumber + 1);
 						}
@@ -1660,24 +1678,39 @@ webpackJsonp([0,1],[
 				));
 	
 				return pages;
-				// return (
-				// 	<div>
-				// 		<span>上</span>
-				// 		<span>1</span>
-				// 		<span onClick={(pageNumber) => onChange(activeNumber + 1)}>下</span>
-				// 		<input type="text" />
-				// 		<button>GO</button>
-				// 	</div>
-				// )
 			}
 		}, {
 			key: 'render',
 			value: function render() {
+				var _this2 = this;
+	
 				var pages = this.buildPage();
 				return _react2.default.createElement(
 					'div',
 					{ className: _pagination2.default.paginationContainer },
-					pages
+					_react2.default.createElement(
+						'div',
+						{ className: _pagination2.default.limitContainer },
+						pages
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement('input', {
+							type: 'text',
+							className: _pagination2.default.input,
+							onChange: function onChange(event) {
+								return _this2.handleChange(event);
+							},
+							value: this.state.targetNumber }),
+						_react2.default.createElement(
+							'button',
+							{ className: _pagination2.default.button, onClick: function onClick(pageNumber) {
+									return _this2.skipPage(_this2.state.targetNumber);
+								} },
+							'Go'
+						)
+					)
 				);
 			}
 		}]);
@@ -1722,18 +1755,19 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "._2zMTqjXARlvBWqHnE-Gppj {\n\twidth: 60%;\n\tmargin: 20px auto;\n\tposition: relative;\n}\n\n\n._35z_P-wr8TLqtpRpFg9igS {\n\tposition: absolute;\n\ttop: 0px;\n\theight: 28px;\n\twidth: 28px;\n\tborder-radius: 14px;\n\tbackground: #84572f;\n}\n\n._35z_P-wr8TLqtpRpFg9igS:hover {\n\tbackground: #ed465d;\n}\n\n._2hFw4ubL5yHH8DCa5xFYCq {\n\tleft: 0;\n}\n\n.-yp5fSuSitQ_Vgwp38btO {\n\tright: 0;\n}\n\n._3tmkArgIepbfndhshUdCPO {\n\tfont-size: 20px;\n\tline-height: 30px;\n\ttext-align: center;\n}\n\n._3dtHhWC2lgeLtJ4ozoFefW {\n\tdisplay: inline-block;\n\twidth: 0;\n\theight: 0;\n\tborder: 8px solid transparent;\t\n}\n\n._14y8GQa_hkN0_RyH-gUXKu {\n\tborder-right-color: #fff;\n\tmargin: 6px 1px;\n}\n\n._3FrIxm7r_8X6g6-kPHbIMn {\n\tborder-left-color: #fff;\n\tmargin: 6px 11px;\n}", ""]);
+	exports.push([module.id, "._2zMTqjXARlvBWqHnE-Gppj {\n\tdisplay: flex;\n\tjustify-content:space-between;\n\tposition: relative;\n\tmargin: 15px 20px;\n}\n\n.W7xGDJ_Rr-zU5RLwBABI_ {\n\tflex: 2;\n\tdisplay: flex;\n\tjustify-content: space-around;\n}\n\n._35z_P-wr8TLqtpRpFg9igS {\n\theight: 28px;\n\twidth: 28px;\n\tborder-radius: 14px;\n\tbackground: #84572f;\n\tcursor: pointer;\n}\n\n._35z_P-wr8TLqtpRpFg9igS:hover {\n\tbackground: #ed465d;\n}\n\n._3tmkArgIepbfndhshUdCPO {\n\tfont-size: 20px;\n\tline-height: 30px;\n\ttext-align: center;\n}\n\n._3dtHhWC2lgeLtJ4ozoFefW {\n\tdisplay: inline-block;\n\twidth: 0;\n\theight: 0;\n\tborder: 8px solid transparent;\n}\n\n._14y8GQa_hkN0_RyH-gUXKu {\n\tborder-right-color: #fff;\n\tmargin: 6px 1px;\n}\n\n._3FrIxm7r_8X6g6-kPHbIMn {\n\tborder-left-color: #fff;\n\tmargin: 6px 11px;\n}\n\n.niC0JRNT_Qx_g_edV1WmV {\n\tbox-sizing: border-box;\n\tdisplay: inline-block;\n\twidth: 30px;\n\tborder: 1px solid #ccc;\n\tbox-shadow: inset 0 1px 1px rgba(0,0,0,.075);\n\tfont-size: 16px;\n\tpadding: 6px;\n}\n\n.dbULBNDpMeoHP-Vqrk9Gz {\n\tcolor: #fff;\n\tbackground: #009a61;\n\tborder: 1px solid #009a61;\n\tfont-size: 16px;\n\tpadding: 6px;\n\tcursor: pointer;\n}", ""]);
 	
 	// exports
 	exports.locals = {
 		"paginationContainer": "_2zMTqjXARlvBWqHnE-Gppj",
+		"limitContainer": "W7xGDJ_Rr-zU5RLwBABI_",
 		"arrowContainer": "_35z_P-wr8TLqtpRpFg9igS",
-		"flipPrev": "_2hFw4ubL5yHH8DCa5xFYCq",
-		"flipNext": "-yp5fSuSitQ_Vgwp38btO",
 		"textContainer": "_3tmkArgIepbfndhshUdCPO",
 		"arrow": "_3dtHhWC2lgeLtJ4ozoFefW",
 		"arrowLeft": "_14y8GQa_hkN0_RyH-gUXKu",
-		"arrowRight": "_3FrIxm7r_8X6g6-kPHbIMn"
+		"arrowRight": "_3FrIxm7r_8X6g6-kPHbIMn",
+		"input": "niC0JRNT_Qx_g_edV1WmV",
+		"button": "dbULBNDpMeoHP-Vqrk9Gz"
 	};
 
 /***/ },
@@ -1898,7 +1932,7 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "._1VQNNO86Us5bAuWHAxAhgt {\n\tpadding: 0 25px;\n}\n\n._1VQNNO86Us5bAuWHAxAhgt h1 {\n\tmargin: 40px 0 20px;\n}\n\n._1VQNNO86Us5bAuWHAxAhgt ._2uM_19hfuqobn7bMuxITX8 {\n\tmargin: 20px 0 20px;\n}\n\n._1VQNNO86Us5bAuWHAxAhgt p {\n\tmargin-bottom: 20px;\n}", ""]);
+	exports.push([module.id, "._1VQNNO86Us5bAuWHAxAhgt {\n\tpadding: 0 25px;\n}\n\n._1VQNNO86Us5bAuWHAxAhgt h1 {\n\tmargin: 40px 0 20px;\n}\n\n._1VQNNO86Us5bAuWHAxAhgt ._2uM_19hfuqobn7bMuxITX8 {\n\tmargin: 20px 0 20px;\n}\n\n._1VQNNO86Us5bAuWHAxAhgt p {\n\tmargin-bottom: 20px;\n\tword-break: break-all;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -1965,7 +1999,6 @@ webpackJsonp([0,1],[
 			value: function componentDidMount() {
 				var _this2 = this;
 	
-				this.props.router.replace('/');
 				var id = this.props.params.id;
 				fetch('/api/article/' + id, {
 					method: 'GET',
@@ -1989,19 +2022,19 @@ webpackJsonp([0,1],[
 		}, {
 			key: 'render',
 			value: function render() {
-				var component = this.state.loading ? _react2.default.createElement(_loading2.default, null) : Array.prototype.push.call([], _react2.default.createElement(
+				var componentArr = [];
+				var component = this.state.loading ? _react2.default.createElement(_loading2.default, null) : Array.prototype.concat.call([], _react2.default.createElement(
 					'h1',
-					{ className: _article2.default.title },
+					{ className: _article2.default.title, key: 'title' },
 					this.state.title
 				), _react2.default.createElement(
 					'div',
-					{ className: _article2.default.message },
+					{ className: _article2.default.message, key: 'message' },
 					'\u65F6\u95F4\uFF1A',
 					this.state.time,
 					'\xA0\xA0\xA0\xA0\u6807\u7B7E\uFF1A',
 					this.state.tag
-				), _react2.default.createElement('div', { className: _article2.default.content, dangerouslySetInnerHTML: { __html: this.state.content } }));
-	
+				), _react2.default.createElement('div', { className: _article2.default.content, key: 'content', dangerouslySetInnerHTML: { __html: this.state.content } }));
 				return _react2.default.createElement(
 					'div',
 					{ className: _article2.default.articleContainer },

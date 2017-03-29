@@ -1,67 +1,21 @@
-/*import React from 'react';
-import {render} from 'react-dom';
-
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-
-import Container from './container';
-
-import SignIn from './signIn';
-
-import PostArtical from './postArticle';
-
-import auth from '../controller/auth.js';
-
-
-function requireAuth(nextState, replace, cb) {
-	console.log(arguments);
-console.log(cb);
-// replace('/backstage/sign');
-// replace({
-// 	pathname: '/backstage/sign',
-// 	state: {nextPathname: nextState.location.pathname}
-// })
-	// var promise = auth.checkLogin();
-	// promise.then(function (response) {
-	// 	console.log('login');
-	// 	cb();
-	// }).catch(function (err) {
-	// 	console.log('noLogin');
-	// 	replace('/backstage/sign');
-	// })
-
-	if (1 == 1) {
-		replace({
-			pathname: '/backstage/sign',
-			state: {nextPathname: nextState.location.pathname}
-		})
-	}
-}
-
-
-render((
-	<Router history={browserHistory}>
-		<Route path="/backstage/sign" component={SignIn} />
-		<Route path="/backstage" component={Container} onEnter={requireAuth}>
-			<IndexRoute component={PostArtical} />
-			
-		</Route>
-	</Router>
-), document.querySelector('#container'));*/
-
-
-
 import React from 'react';
 import {render} from 'react-dom';
 
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import Container from './container';
-
 import SignIn from './signIn';
 
-import PostArtical from './postArticle';
+import Container from './container';
 
-import auth from '../controller/auth.js';
+import Home from './home';
+
+import ArticleControl from './articleControl';
+
+import ArticleAdd from './articleAdd';
+
+import ArticleUpdate from './articleUpdate';
+
+import auth from '../controller/auth';
 
 class NoPage extends React.Component {
 	render() {
@@ -79,10 +33,8 @@ function requireAuth(nextState, replace, cb) {
 		var promise = auth.checkLogin();
 		promise.then(function (response) {
 			if (response == 'success') {
-				console.log(loaded);
 				loaded = true;
-				console.log(loaded);
-			} else if (response == 'error'){
+			} else if (response == 'error') {
 				replace({
 					pathname: '/backstage/sign',
 					state: {nextPathname: nextState.location.pathname}
@@ -109,16 +61,16 @@ function isLogin(nextState, replace, cb) {
 		}
 	 	cb();
 	});
-
 }
-
 
 render((
 	<Router history={browserHistory}>
-		<Route path="/backstage/sign" component={SignIn} onEnter={isLogin}/>
+		<Route path="/backstage/sign" component={SignIn} onEnter={isLogin} />
 		<Route path="/backstage" component={Container} onEnter={requireAuth}>
-			<IndexRoute component={PostArtical} />
-			{/*<Route path="sign_in" component={SignIn} />*/}
+			<IndexRoute component={Home} />
+			<Route path="articlecontrol" component={ArticleControl} />
+			<Route path="article/add" component={ArticleAdd} />
+			<Route path="article/update/:id" component={ArticleUpdate} />
 		</Route>
 		<Route path="*" component={NoPage} />
 	</Router>

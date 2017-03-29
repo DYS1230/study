@@ -14,11 +14,15 @@ exports.signin = function (req, res) {
 		}
 		// when not find, return []
 		if (user.length) {
-			req.session.uid = user[0]._id;
-			console.log(req.session.uid);
-			res.send('success');
+			var auth = user[0];
+			if (auth.password === password) {
+				req.session.uid = auth._id;
+				res.send('success');
+			} else {
+				res.send('账号或密码错误，请重新输入');
+			}
 		} else {
-			res.send('error');
+			res.send('账号或密码错误，请重新输入');
 		}
 	});
 }

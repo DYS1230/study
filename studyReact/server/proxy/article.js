@@ -4,6 +4,15 @@ Article.prototype.saveData = function (callback) {
 	this.save(callback);
 };
 
+Article.updateData = function (id, article, callback) {
+	this.update({_id: id}, article, function (err, article) {
+		if (err) {
+			return callback(err);
+		}
+		callback(null, article);
+	})
+};
+
 /**
  * 根据标题搜索文章
  * @param {String} title  文章标题

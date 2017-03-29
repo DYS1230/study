@@ -5,10 +5,37 @@ import styles from './pagination.css';
 export default class Pagination extends React.Component {
 	constructor(props) {
 		super(props);
-		//console.log(props);
+		this.state = {
+			targetNumber: ''
+		};
 	}
-	buildPage() {
 
+	handleChange(event) {
+		this.setState({
+			targetNumber: event.target.value
+		});
+	}
+
+	skipPage(pageNumber) {
+		var {
+			onChange,
+			activeNumber,
+			totalNumber
+		} = this.props;
+
+		pageNumber = parseInt(pageNumber);
+		activeNumber = parseInt(activeNumber);
+		totalNumber = parseInt(totalNumber);
+
+		if (pageNumber > 0 && pageNumber <= totalNumber) {
+			onChange(pageNumber);
+			this.setState({
+				targetNumber: ''
+			})
+		}
+	}
+
+	buildPage() {
 		var {
 			onChange,
 			activeNumber,
@@ -20,46 +47,52 @@ export default class Pagination extends React.Component {
 
 		var pages = [];
 
-		(activeNumber > 1) && pages.push(
+		var prevOpacity = (activeNumber > 1) ? '1' : '0';
+		pages.push(
 			<div
-				className={`${styles.arrowContainer} ${styles.flipPrev}`}
-				key={activeNumber - 1}
+				style={{opacity: prevOpacity}}
+				className={styles.arrowContainer}
+				key="prev"
 				onClick={(pageNumber) => onChange(activeNumber -1)}
 			><i className={`${styles.arrow} ${styles.arrowLeft}`} /></div>
 		)
 
 		pages.push(
 			<div 
-				key={activeNumber}
+				key="number"
 				className={styles.textContainer}>
 				{activeNumber} / {totalNumber}
 			</div>
 		);
 
-		(activeNumber < totalNumber) && pages.push(
+		var nextOpacity = (activeNumber < totalNumber) ? '1' : '0';
+		pages.push(
 			<div
-				className={`${styles.arrowContainer} ${styles.flipNext}`}
-				key={activeNumber + 1}
+				style={{opacity: nextOpacity}}
+				className={styles.arrowContainer}
+				key="next"
 				onClick={(pageNumber) => onChange(activeNumber + 1)}
 			><i className={`${styles.arrow} ${styles.arrowRight}`} /></div>
 		)
 
-		return pages;	
-		// return (
-		// 	<div>
-		// 		<span>上</span>
-		// 		<span>1</span>
-		// 		<span onClick={(pageNumber) => onChange(activeNumber + 1)}>下</span>
-		// 		<input type="text" />
-		// 		<button>GO</button>
-		// 	</div>
-		// )
+		return pages;
 	}
+
 	render() {
 		var pages = this.buildPage();
 		return (
 			<div className={styles.paginationContainer}>
-				{pages}
+				<div className={styles.limitContainer}>
+					{pages}
+				</div>
+				<div>
+					<input
+						type="text"
+						className={styles.input}
+						onChange={(event) => this.handleChange(event)}
+						value={this.state.targetNumber} />
+					<button className={styles.button} onClick={(pageNumber) => this.skipPage(this.state.targetNumber)}>Go</button>
+				</div>
 			</div>
 		)
 	}

@@ -21,28 +21,18 @@ export default class ArticleList extends React.Component {
 		var totalNumber = 1; //页数
 		var loading = true; //表示加载中
 		this.state = {
-			article: [],
+			articles: [],
 			totalNumber: totalNumber,
 			activeNumber: pageNumber,
 			loading: loading
 		};
-
-		console.log(this.props.route);
 	}
-
-	componentWillMount() {
-	}
-
-	routerLeaveInformation() {
-		return 'You have unsaved information, are you sure you want to leave this page?';
-	}
-
 
 	componentDidMount() {
 		//默认页码为1
 		var pageNumber = this.state.activeNumber;
-		this.fetchArticleData(pageNumber);
 		this.fetchTotalNumber();
+		this.fetchArticleData(pageNumber);
 	}
 
 	fetchTotalNumber() {
@@ -67,10 +57,8 @@ export default class ArticleList extends React.Component {
 			res => res.json()
 		).then(
 			data => {
-				//console.log(Object.prototype.toString.call(data));
-				//console.log(data);
 				this.setState({
-					article: data,
+					articles: data,
 					loading: false
 				});
 			}
@@ -118,16 +106,14 @@ export default class ArticleList extends React.Component {
 
 
 	render() {
-		var data = this.state.article; // 此处为引用，非直接赋值，当this.state.article变化时，data也会变，后期使用redux
+		var data = this.state.articles; // 此处为引用，非直接赋值，当this.state.articles变化时，data也会变，后期使用redux
 		
 		var node = data.map( (item, index) => {
 			return (
 				<ArticleItem key={index} article={item} />
 			)
 		} );
-
-		var component = this.state.loading ? 
-			(<LoadingItem />) : 
+		var component = this.state.loading ? (<LoadingItem />) :
 			(<ul className={styles.articleList}>
 				{node}
 				<Pagination 

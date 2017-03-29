@@ -1,54 +1,32 @@
 import React from 'react';
 
-import styles from './css/article.css';
+import styles from './articleForm.css';
 
-import {markdown} from 'markdown';
-
-export default class PostAriticle extends React.Component {
+export default class AriticleForm extends React.Component {
 	constructor(props) {
 		super(props);
+		var article = this.props.article;
 		this.state = {
-			title: '',
-			time: '',
-			tag: '',
-			introduction: '',
-			content: ''
+			title: article.title || '',
+			time: article.time || '',
+			tag: article.tag || '',
+			introduction: article.introduction || '',
+			content: article.content || ''
 		};
-	}
-	handleClick() {
-		console.log('click');
-	}
-	handleClic(event) {
-		console.log('yes');
 	}
 	handleChange(event, key) {
 		this.setState({[key]: event.target.value});
 	}
 	handleSubmit(event) {
 		event.preventDefault();
-
-		fetch('/api/backstage/postarticle', {
-			method: 'POST',
-			credentials: 'include',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				title: this.state.title,
-				time: this.state.time,
-				tag: this.state.tag,
-				introduction: this.state.introduction,
-				content: this.state.content
-			})
-		}).then(
-			res => res.text()
-		).then(
-			data => {
-				console.log(data);
-			}
-		);
-
-
+		var article = {
+			title: this.state.title,
+			time: this.state.time,
+			tag: this.state.tag,
+			introduction: this.state.introduction,
+			content: this.state.content		
+		};
+		this.props.postArticle(article);
 	}
 	render() {
 		return (
@@ -61,14 +39,13 @@ export default class PostAriticle extends React.Component {
 						onChange={(event, name) => this.handleChange(event, 'title')}
 						value={this.state.title} />
 					
-					<div className={styles.inputGroup} onClick={(event) => {this.handleClic(event)}}>
+					<div className={styles.inputGroup}>
 						<input type="text"
 							className={`${styles.inputContainer} ${styles.inputTime}`}
 							placeholder="时间"
 							onChange={(event, name) => this.handleChange(event, 'time')}
 							value={this.state.time} />
 						<input type="text"
-							onFocus={(event) => this.handleClick(event)}
 							className={`${styles.inputContainer} ${styles.inputTag}`}
 							placeholder="标签"
 							onChange={(event, name) => this.handleChange(event, 'tag')}
@@ -87,9 +64,7 @@ export default class PostAriticle extends React.Component {
 					
 					<button className={styles.postButton}>发表</button>
 				</form>
-
-				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 			</div>
 		)
-	}
+	}	
 }
