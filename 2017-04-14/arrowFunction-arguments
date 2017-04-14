@@ -113,7 +113,8 @@ this.handleClick3 = function(a,b,c,d,e,f) {
 	console.log(arguments);
 }
 
-this.handleClick4 = function(a,b,c,d,e,f) {
+//此处有困惑
+this.handleClick4 = (a,b,c,d,e,f) => {
 	console.log(a);
 	console.log(b);
 	console.log(c);
@@ -129,17 +130,73 @@ this.handleClick4 = function(a,b,c,d,e,f) {
 3和4的arguments和a,b,c参数是一样的。
 第一个为proxy，第二个为undefined，第三个为Event
 
-再看1
+看1
 其的arguments和a是一样的
 都是proxy
 
-最后看2（困惑再此）
+看2
 a定是proxy
 但是arguments中
 第一个是props
 第二个是一个空对象
 第三个我看不懂，但可以猜到是react里面设置的一个对象
 
+看3
+arguments和a,b,c参数是一样的。
+第一个为proxy，第二个为undefined，第三个为Event
+
+看4
+a为proxy，b为undefined，c为Event
+而arguments第一个是props
+第二个是一个空对象
+第三个我看不懂，但可以猜到是react里面设置的一个对象
+也就是和2一样
+
+
+
 
 目前搞不懂为什么此处arguments不会提升arguments is not defined
 为什么第二个表现为这样
+
+
+
+理解了
+
+function foo () {
+  const bar = function bar (arg1) {
+    console.log(`arguments:`);
+    console.log(arguments);
+    console.log(`bar arg1:${arg1}`)
+  }
+  
+  bar('barArg');
+  
+  const fooArguments = arguments;
+  
+  const baz = (arg2) => {
+    console.log()
+    console.log(`arguments:`);
+    console.log(arguments);
+    if(fooArguments === arguments) {
+      console.log('Arrow Functions not have arguments');
+    }
+    console.log(`baz arg2:${arg2}`)
+  }
+  
+  baz('bazArg');
+}
+
+foo('aaaaa')
+
+
+看上面函数
+baz的arguments就是foo的arguments
+
+在react中
+constructor(props) {
+	super(props);
+	console.log(arguments);
+}
+可以知道arguments和handleClick2的arguments是一模一样的。
+那也就知道为什么没有提示arguments  is not defined
+也知道了为什么第二个表现的样子是一样的。
