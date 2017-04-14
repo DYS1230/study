@@ -1,0 +1,145 @@
+在看draft-js给的例子，出现了困惑。
+
+官方给出的快速开始例子
+
+class MyEditor extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {editorState: EditorState.createEmpty()};
+			this.onChange = (editorState) => this.setState({editorState});
+	}
+	render() {
+		return (
+			<Editor editorState={this.state.editorState} onChange={this.onChange} />
+		);
+	}
+}
+
+试了
+
+this.onChange = (editorState) => {
+	var length = arguments.length;
+	console.log('change');
+	for (var i = 0; i < length; i++) {
+		if (arguments[i] == editorState) {
+			console.log(i);
+		}
+	}
+	this.setState({editorState})
+};
+
+
+arguments中并没有editorState参数。而如果直接输出是有的
+
+this.onChange = (editorState) => {
+    console.log(editorState);
+    this.setState({editorState})
+};
+
+
+
+
+
+箭头函数有几个使用注意点。
+
+（1）函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。
+
+（2）不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。
+
+（3）不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用Rest参数代替。
+
+（4）不可以使用yield命令，因此箭头函数不能用作Generator函数。
+
+
+其中的第三点。
+
+例子
+
+var foo = (x) => {
+	console.log(x);
+	console.log(arguments);
+}
+
+foo('a');
+
+会提示arguments is not defined
+
+
+而此处的editorState是draft.js里面传递的参数，Editor组件有个函数
+_update(editorState: EditorState): void {
+	this._latestEditorState = editorState;
+	this.props.onChange(editorState);
+}
+此处传递了editorState
+
+
+
+
+之后还有个困惑
+<div onClick={(event) => this.handleClick1(event)}>111</div>
+<div onClick={(event) => this.handleClick2(event)}>222</div>
+<div onClick={this.handleClick3}>333</div>
+<div onClick={this.handleClick4}>444</div>
+
+
+this.handleClick1 = function(a,b,c,d,e,f) {
+	console.log(a);
+	console.log(b);
+	console.log(c);
+	console.log(d);
+	console.log(e);
+	console.log('.........');
+	console.log(arguments);
+}
+//此处有困惑
+this.handleClick2 = (a,b,c,d,e,f) => {
+	console.log(a);
+	console.log(b);
+	console.log(c);
+	console.log(d);
+	console.log(e);
+	console.log('..............');
+
+	console.log(arguments);
+}
+
+this.handleClick3 = function(a,b,c,d,e,f) {
+	console.log(a);
+	console.log(b);
+	console.log(c);
+	console.log(d);
+	console.log(e);
+	console.log('.........');
+	console.log(arguments);
+}
+
+this.handleClick4 = function(a,b,c,d,e,f) {
+	console.log(a);
+	console.log(b);
+	console.log(c);
+	console.log(d);
+	console.log(e);
+	console.log('.........');
+	console.log(arguments);
+}
+
+
+
+先看3和4
+3和4的arguments和a,b,c参数是一样的。
+第一个为proxy，第二个为undefined，第三个为Event
+
+再看1
+其的arguments和a是一样的
+都是proxy
+
+最后看2（困惑再此）
+a定是proxy
+但是arguments中
+第一个是props
+第二个是一个空对象
+第三个我看不懂，但可以猜到是react里面设置的一个对象
+
+
+目前搞不懂为什么此处arguments不会提升arguments is not defined
+为什么第二个表现为这样
