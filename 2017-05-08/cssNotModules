@@ -1,0 +1,11 @@
+使用css模块化遇到问题
+
+有些插件需要引入css文件，而css模块化会自动将css文件的className哈希，
+但js文件需要的是一模一样的className。
+
+以Rodal为例子
+
+需要手动 import 'rodal/lib/rodal.css';
+
+这时候，import '!style-loader!css-loader!rodal/lib/rodal.css';
+便可解决问题
