@@ -9,3 +9,23 @@
 
 这时候，import '!style-loader!css-loader!rodal/lib/rodal.css';
 便可解决问题
+
+
+或者定义两个loader
+{
+	test: /\.css$/,
+	include:  /node_modules/,
+	loader: 'style-loader!css-loader?sourceMap'
+},
+{
+	test: /\.css$/,
+	exclude:  /node_modules/,
+	loader: 'style-loader!css-loader?modules&sourceMap'
+}
+
+
+注意，此方法未经验证，目前在webpack 1 是无法工作，似乎2可以，这是推荐方法。
+或者在css文件中
+:global {
+    @import 'node_modules/rodal/lib/rodal.css';  //rodal.css的地址
+}
