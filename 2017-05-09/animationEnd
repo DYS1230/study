@@ -1,0 +1,42 @@
+所有文件在animation文件夹
+
+之前在做lovefish的modal就遇到问题。又遇到了，写下，加深印象。
+
+一开始的妥协方法。
+modal_1.html 为不使用display，lovefish当时的写法，使用z-index控制。
+
+modal_2.html 为不使用display，lovefish当时的写法，使用height控制。
+
+两个对比。
+modal_3.html 为使用display，明显，没有任何动画效果。
+modal_4.html 为使用visibility，有动画效果。
+
+modal_5.html 使用display，用transition的hack。
+modal_6.html 使用display，但不用transition，使用animation。
+
+
+
+首先介绍display与visibility与opacity的区别，看test.html
+
+display 不占据空间，且不可点击。
+
+visibility 占据空间，不可点击。
+
+opacity占据空间，不可点击。
+
+
+
+一开始动画我想的就是用display展示和隐藏。
+
+//以下为猜测
+但是，你瞬间改变display时，浏览器在此属性与渲染动画这两个选择，display优先级比动画高，直接显示与隐藏了。
+
+//补充，以下为stackoverflow的问题。
+// http://stackoverflow.com/questions/3331353/transitions-on-the-display-property
+//display is not one of the properties that transition works upon.
+//W3C有说明https://www.w3.org/TR/css3-transitions/#animatable-properties-
+
+
+而visibility不存在此问题。
+
+目前知道dom上是没有animationend事件，只能通过addEventListener添加。

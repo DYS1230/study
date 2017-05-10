@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.modal {
+	position: absolute;
+	margin: 0 auto;
+	width: 500px;
+	border-radius: 5px;
+	border: 1px solid rgba(0,0,0,.2);
+	top: 160px;
+	left: calc( 50% - 250px);
+	background: white;
+	
+	display: none;
+	transition: opacity 1s;
+	opacity: 0;
+}
+.modal-enter {
+	opacity: 1;
+}
+#content {
+	font-size: 20px;
+	border-bottom: 1px solid rgba(0,0,0,.2);
+	padding:20px;
+}
+#footer{
+	text-align: right;
+	padding: 10px;
+}
+#footer button {
+	padding: 6px 12px;
+	font-size: 14px;
+	text-align: center;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	background: white;
+	cursor: pointer;
+	outline:none;
+}
+#footer button:hover {
+	background-color: #ebebeb;
+}
+</style>
+</head>
+<body>
+<button id="btn">CLICK ME</button>
+<div class="modal">
+	<div id="content">Test</div>
+	<div id="footer">
+		<button id="close">CLOSE</button>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	var btn = document.getElementById('btn');
+	var modal = document.getElementsByClassName('modal')[0];
+	var close = document.getElementById('close');
+	btn.onclick = function () {
+		modal.style.display = 'block';
+		setTimeout(function(){modal.className = 'modal modal-enter';}, 1) 
+		//modal.className = 'modal modal-enter';
+	}
+
+	close.onclick = function () {
+		modal.className = 'modal';
+	}
+
+
+</script>
+</html>

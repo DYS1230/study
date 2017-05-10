@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+	#parent {
+		background: black;
+		height: 300px;
+		width: 300px;
+	}
+	#child {
+		background: white;
+		height: 150px;
+		width: 150px;
+	}
+</style>
+</head>
+<body>
+<div id="parent">
+	<div id="child"></div>
+</div>
+</body>
+<script>
+	// 看出 currentTarget为监听器的节点
+	// target为触发该事件的节点。
+	var parent = document.querySelector('#parent');
+	var child = document.querySelector('#child');
+	parent.onclick = function (e) {
+		console.log('target');
+		console.log(e.target);
+		console.log('\n')
+		console.log('currentTarget');
+		console.log(e.currentTarget);
+	}
+</script>
+</html>

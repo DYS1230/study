@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+div {
+	height: 50px;
+	width: 50px;
+	background: black;
+}
+#a {
+	display: none;
+}
+#b {
+	visibility: hidden;
+}
+#c {
+	opacity: 0;
+}
+</style>
+</head>
+<body>
+<div id="a"></div>
+<span>a</span>
+<hr />
+<div id="b"></div>
+<span>b</span>
+<hr />
+<span>c</span>
+<div id="c"></div>
+<hr />
+<div></div>
+</body>
+<script>
+	var a = document.getElementById('a');
+	var b = document.getElementById('b');
+	var c = document.getElementById('c');
+	a.onclick = function () { console.log('a') };
+	b.onclick = function () { console.log('b') };
+	c.onclick = function () { console.log('c') };
+</script>
+</html>
