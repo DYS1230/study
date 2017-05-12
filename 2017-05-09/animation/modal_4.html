@@ -13,11 +13,13 @@
 
 	z-index: -1;
 	opacity: 0;
-	transition: opacity 1s, transform 1s;
+	transition: opacity 3s;
+	visibility: hidden;
 }
 .modal-enter {
 	opacity: 1;
 	z-index: 9999;
+	visibility: visible;
 }
 #content {
 	font-size: 20px;
@@ -57,18 +59,18 @@
 	var modal = document.getElementsByClassName('modal')[0];
 	var close = document.getElementById('close');
 
-	modal.style.visibility = 'hidden';
+//	modal.style.visibility = 'hidden';
 
 	btn.onclick = function () {
 		modal.className = 'modal modal-enter';
-		modal.style.visibility = 'visible';
+	//	modal.style.visibility = 'visible';
 	}
 
 	close.onclick = function () {
 		modal.className = 'modal';
 	}
 
-	modal.addEventListener('transitionend', myEndFunction);
+	//modal.addEventListener('transitionend', myEndFunction);
 
 	function myEndFunction(e) {
 		var elem = e.target;
