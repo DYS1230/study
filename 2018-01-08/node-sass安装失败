@@ -1,0 +1,24 @@
+在下载被人项目后 npm install下，node-sass下载失败，
+
+
+
+提示
+Downloading binary from https://github.com/sass/node-sass/releases/download/v4.7.2/linux-x64-51_binding.node
+Cannot download "https://github.com/sass/node-sass/releases/download/v4.7.2/linux-x64-51_binding.node": 
+
+ESOCKETTIMEDOUT
+
+Hint: If github.com is not accessible in your location
+      try setting a proxy via HTTP_PROXY, e.g. 
+
+      export HTTP_PROXY=http://example.com:1234
+
+or configure npm proxy via
+
+      npm config set proxy http://example.com:8080
+
+
+转用淘宝镜像
+
+
+npm install node-sass --registry=http://registry.npm.taobao.org

@@ -22,7 +22,7 @@ display 不占据空间，且不可点击。
 
 visibility 占据空间，不可点击。
 
-opacity占据空间，不可点击。
+opacity占据空间，可点击。
 
 
 
