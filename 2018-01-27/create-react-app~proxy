@@ -1,0 +1,16 @@
+坑，耗时很久。
+
+做代理时总是报
+
+Proxy error: Could not proxy request /api/ from localhost:3000 to https://mock.yonyoucloud.com/mock/60 (UNABLE_TO_VERIFY_LEAF_SIGNATURE).
+
+最后发现 加 "changeOrigin": true 就好了
+
+在 package.json 
+
+  "proxy": {
+    "/api": {
+      "target": "https://mock.yonyoucloud.com/mock/60",
+      "changeOrigin": true
+    }
+   }
