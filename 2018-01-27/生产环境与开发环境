@@ -1,0 +1,7 @@
+1、nodejs中区分开发和生产环境
+
+var isDev = process.env.NODE_ENV !== 'production';
+
+2、设置node_env的环境变量
+
+"set NODE_ENV=development&& node  xxx.js",
