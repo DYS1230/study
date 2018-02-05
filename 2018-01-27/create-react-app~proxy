@@ -14,3 +14,7 @@ Proxy error: Could not proxy request /api/ from localhost:3000 to https://mock.y
       "changeOrigin": true
     }
    }
+
+  关于 changeOrigin 的解释
+  
+  加了这个，代理服务器会在请求头中加入相应Host首部，然后目标服务器就可以根据这个首部来区别要访问的站点了。假如你在本地80端口起了apache服务器，服务器配了两个虚拟站点a.com b.com,设置代理之后并且changeOrigin为true 。此时就可以正确方法问道虚拟主机下的文档内容。否则访问a b站点等同于访问localhost。webpack dev sever用的是node-http-proxy, 你可以找这个相关的资料。
