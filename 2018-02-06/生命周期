@@ -1,0 +1,75 @@
+发现对 react 的生命周期总是需要去搜索，因此写下记录生命周期。
+
+实例化
+
+getDefaultProps
+
+getInitialState
+
+componentWillMount
+
+render
+
+componentDidMount
+
+存在期
+
+componentWillReceiveProps
+
+shouldComponentUpdate
+
+componentWillUpdate
+
+render
+
+componentDidUpdate
+
+销毁期间
+
+componentWillUnmount
+
+
+componentWillMount
+
+class Person extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { mode: undefined } ;
+  }
+
+  componentWillMount() {
+    let mode;
+    if (this.props.age > 70) {
+      mode = 'old';
+    } else if (this.props.age < 18) {
+      mode = 'young';
+    } else {
+      mode = 'middle';
+    }
+    this.setState({ mode });
+  }
+
+  render() {
+    return (
+      <div className={ classNames('person', this.state.mode) }>
+        { this.props.name } (age: { this.props.age })
+      </div>
+    );
+  }
+}
+
+componentWillUnmount
+
+在 React 状态改变 reconciliation (直接翻译调和， 就是和上一次比较)
+如果对比上一次，DOM node destory了，那就 触发 componentWillUnmount
+
+
+
+单独调用setState的重新渲染的生命周期
+
+componentWillUpdate
+
+render
+
+componentDidUpdate
+
