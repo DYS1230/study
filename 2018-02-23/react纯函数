@@ -1,0 +1,18 @@
+一般，纯函数都是这样
+
+const Title = ({title}) => (
+	<div>{title}</div>
+);
+
+class Main extends Component {
+	render() {
+		return <Title title="DYS" />
+	}
+}
+
+
+其实Title 就是
+
+function Title(props) {
+  return <div>{props.title}</div>;
+}

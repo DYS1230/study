@@ -1,0 +1,21 @@
+一般我事件处理
+
+class Main extends Component {
+	handlieClick = () => {
+		...
+	}
+
+	render() {
+		return (
+			<button onClick={this.handleClick} >CLICK</div>
+		)
+	}
+}
+
+没有做绑定this，但是handleClick输出this是Main的。
+
+其实与 2017-04-14 异曲同工
+
+也就是箭头函数的 this
+
+箭头函数没有自己的this, 它的this是继承而来; 默认指向在定义它时所处的对象(宿主对象),而不是执行时的对象, 定义它的时候,可能环境是window; 箭头函数可以方便地让我们在 setTimeout ,setInterval中方便的使用this

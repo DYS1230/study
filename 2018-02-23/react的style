@@ -1,0 +1,13 @@
+直接在element里写style
+
+render() {
+	return (
+		<div style={{background: 'red'}}>
+	);
+}
+
+注意 第一个括号是表示这是表达式
+
+如 {'foo'} {true} {this.handleClick}
+
+第二个括号是对象的括号
