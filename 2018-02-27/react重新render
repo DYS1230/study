@@ -1,0 +1,43 @@
+class Parent extends Component {
+    state = {
+        number: 0,
+        name: 'DYS'
+    }
+
+    handleClick = () => {
+        this.setState({number: this.state.number + 1});
+    }
+
+    render() {
+        console.log('render parent');
+        return (
+            <div>
+                <span onClick={this.handleClick}>CLICK</span>
+                <Son />
+            </div>
+        )
+    }
+}
+
+class Son extends Component {
+    render() {
+        console.log('render son');
+        return (
+            <div>11111<SonSon /></div>
+        )
+    }
+}
+
+
+class SonSon extends Component {
+    render() {
+        console.log('render sonson');
+        return (
+            <div>1212121</div>
+        )
+    }
+}
+
+
+在 parent 的 state 变化后，son和sonson都会执行render，以前都理解错了，以为若props与state无变化，是不会重新调用render。
+理解错了好久。
