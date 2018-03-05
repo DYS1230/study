@@ -1,0 +1,56 @@
+new 做了四件事
+
+创建一个新对象
+绑定 this
+执行构造函数的代码（为新对象添加属性）
+返回新对象
+
+在segmentfault 有更加全面的
+
+创建一个新的对象，这个对象的类型是 object；
+
+设置这个新的对象的内部、可访问性和[[prototype]]属性为构造函数（指prototype.construtor所指向的构造函数）中设置的；
+
+执行构造函数，当this关键字被提及的时候，使用新创建的对象的属性； 返回新创建的对象（除非构造方法中返回的是‘无原型’）。
+
+在创建新对象成功之后，如果调用一个新对象没有的属性的时候，JavaScript 会延原型链向止逐层查找对应的内容。这类似于传统的‘类继承’。
+
+其中 [[prototype]] 即是 __proto__   
+如 
+function Person() {}
+var a = new Person();
+a.__proto__ === Person.prototype;
+
+官方文档
+
+1. A new object is created, inheriting from Foo.prototype.
+2. The constructor function Foo is called with the specified arguments, and with this bound to the newly created object. new Foo is equivalent to new Foo(), i.e. if no argument list is specified, Foo is called without arguments.
+3. The object returned by the constructor function becomes the result of the whole new expression. If the constructor function doesn't explicitly return an object, the object created in step 1 is used instead. (Normally constructors don't return a value, but they can choose to do so if they want to override the normal object creation process.)
+
+function New(func) {
+	return function () {
+		var obj = {};
+		Object.setPrototypeOf(obj, func.prototype);
+		func.apply(obj, arguments);
+		return obj; 
+	}
+}
+
+但是如果 构造函数有返回
+
+如
+function Cat() {
+	this.color = 'orange';
+	return {
+		weight: 100
+	};
+}
+
+function New(func) {
+	return function () {
+		var obj = {};
+		Object.setPrototypeOf(obj, func.prototype);
+		var res = func.apply(obj, arguments);
+		return typeof res === 'Object ? res : obj; 
+	}
+}
