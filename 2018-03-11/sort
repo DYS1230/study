@@ -1,0 +1,151 @@
+排序稳定性
+
+假定在待排序的记录序列中，存在多个具有相同的关键字的记录，若经过排序，
+这些记录的相对次序保持不变，即在原序列中，ri = rj，且ri在rj之前，而在排序后的序列中，
+ri仍在rj之前，则称这种排序算法是稳定的；否则称为不稳定的。
+
+
+
+冒泡排序
+
+稳定
+
+比较相邻的元素
+
+平均时间复杂度为 O(n^2)
+
+function bubbleSort(arr) {
+	var len = arr.length;
+	for (var x = 0; x < len; x++) {
+		for (var y = 0; y < len - 1 - x; y++) {
+			if (arr[y] > arr[y+1]) {
+				var temp = arr[y + 1];
+				arr[y + 1] = arr[y];
+				arr[y] = temp;
+			}
+		}
+	}
+	return arr;
+}
+
+网络一堆说最佳的时间复杂度是 O(n) 是需要改进算法的
+
+function bubbleSort(arr) {
+	var len = arr.length;
+	var swap = false;
+	for (var x = 0; x < len; x++) {
+		for (var y = 0; y < len - 1 - x; y++) {
+			if (arr[y] > arr[y+1]) {
+				swap = true;
+				var temp = arr[y + 1];
+				arr[y + 1] = arr[y];
+				arr[y] = temp;
+			}
+		}
+		if (!swap) {
+			break;
+		}
+	}
+	return arr;
+}
+
+选择排序
+
+选出最小的，交换
+
+不稳定
+
+时间复杂度怎么都是O(n^2)
+
+function selectionSort(arr) {
+	var len = arr.length;
+	for (var x = 0; x < len; x++) {
+		var minIndex = x;
+		for (var y = x + 1; y < len; y++) {
+			if (arr[minIndex] > arr[y]) {
+				minIndex = y;
+			}
+		}
+		var temp = arr[minIndex];
+		arr[minIndex] = arr[i];
+		arr[i] = temp;
+	}
+	return arr;
+}
+
+
+插入排序
+
+就像打扑克那样插入
+
+稳定
+
+时间复杂度平均 O(n^2) 最佳为 O(n)
+
+function insertionSort(arr) {
+	var len = arr.length;
+	for (var x = 1; x < len; x++) {
+		var value = arr[x];
+		for (var y = x; y > 0 && arr[y - 1] > value; y--) {
+			arr[y] = arr[y - 1];
+		}
+		arr[y] = value;
+	}
+	return arr;
+}
+
+希尔排序
+
+希尔排序是一种基于插入排序的快速的排序算法。
+思想是使数组中任意间隔为 h 的元素都是有序的
+
+不稳定
+
+关于时间复杂度
+shell 排序的时间复杂度是根据选中的 h 有关的，所以分析 shell 排序的时间复杂度是个比较麻烦的事
+时间复杂度 平均 O(n log n)  最好 O(n log^2 n)  最坏 O(n log^2 n)
+
+
+希尔排序的核心在于间隔序列的设定。
+既可以提前设定好间隔序列，也可以动态的定义间隔序列。
+动态定义间隔序列的算法是《算法（第4版》的合著者Robert Sedgewick提出的。
+用这样步长序列的希尔排序比插入排序要快，
+甚至在小数组中比快速排序和堆排序还快，但是在涉及大量数据时希尔排序还是比快速排序慢。
+
+function shellSort(arr) {
+	var len = arr.length;
+	var gap = Math.floor(len / 2);
+	while (gap !== 0) {
+		for (var x = gap; x < len; x++) {
+			var value = arr[x];
+			for (var y = x; y > 0 && arr[y - gap] > value; y -= gap) {
+				arr[y] = arr[y - gap];
+			}
+			arr[y] = value;
+		}
+		gap = Math.floor(gap / 2)
+	}
+	return arr;
+}
+
+动态定义间隔序列
+
+function shellSort(arr) {
+	var len = arr.length;
+	var gap = 1;
+	// 动态定义间隔序列
+	while (gap < len / 5) {
+		gap = gap * 5 + 1;
+	}
+	while (gap != 0) {
+		for (var x = gap; x < len; x++) {
+			var value = arr[x];
+			for (var y = x; y > 0 && arr[y - gap] > value; y -= gap) {
+				arr[y] = arr[y - gap];
+			}
+			arr[y] = value;
+		}
+		gap = Math.floor(gap / 5)		
+	}
+	return arr;
+}

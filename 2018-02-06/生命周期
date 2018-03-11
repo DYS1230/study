@@ -67,6 +67,8 @@ componentWillUnmount
 
 单独调用setState的重新渲染的生命周期
 
+shouldComponentUpdate
+
 componentWillUpdate
 
 render
