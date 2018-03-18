@@ -8,9 +8,11 @@ ri仍在rj之前，则称这种排序算法是稳定的；否则称为不稳定�
 
 冒泡排序
 
-稳定
+稳定排序
 
 比较相邻的元素
+
+会把最大的数扔到最后，不断的扔
 
 平均时间复杂度为 O(n^2)
 
@@ -51,7 +53,7 @@ function bubbleSort(arr) {
 
 选择排序
 
-选出最小的，交换
+选出最小的，与最前面交换
 
 不稳定
 
@@ -148,4 +150,40 @@ function shellSort(arr) {
 		gap = Math.floor(gap / 5)		
 	}
 	return arr;
+}
+
+
+归并排序
+
+归并排序算法采用经典的分冶策略。
+分，把数组不断分成两半
+冶，把数组合起来，具体看图
+具体可看 https://www.cnblogs.com/chengxiao/p/6194356.html
+
+归并排序是稳定算法，利用的是完全二叉树的特性。
+其每次合并的平均时间复杂度为O(n) 而完全二叉树的深度为 log2 n
+则总的时间复杂度是 O(nlogn)
+而且 归并排序的最好，最坏，平均时间复杂度均为O(nlogn)
+
+注意 算法时间复杂度中 logn 就包含了任意底数的log 具体要看高数的极限，不过我现在已经忘光了高数了
+
+function mergeSort(arr) {
+	var len = arr.length;
+	if (len < 2) return arr;
+	var middle = Math.floor(len / 2);
+	var left = arr.slice(0, middle);
+	var right = arr.slice(middle);
+	return merge(mergeSort(left), mergeSort(right));
+}
+
+function merge(left, right) {
+	var result = [];
+	while(left.length && right.length) {
+		if (left[0] < right[0]) {
+			result.push(left.shift())
+		} else {
+			result.push(right.shift())
+		}
+	}
+	return result.concat(left, right);
 }
