@@ -191,6 +191,12 @@ function merge(left, right) {
 
 快速排序
 
+不稳定
+
+最好与平均时间复杂度为 O(nlogn)
+
+最坏是O(n^2) 当为排好序时或反序时
+
 也是分冶的思想
 
 从数列中挑出一个元素，称为 "基准"（pivot）
@@ -235,4 +241,57 @@ function quickSort(arr) {
 		}
 	}
 	return quickSort(left).concat(pivot, quickSort(right));
+}
+
+
+堆排序
+
+时间复杂度为 O(nlogn)
+
+// https://www.cnblogs.com/chengxiao/p/6129630.html
+// 该文很详细
+
+分成两个步骤
+
+1. 将给定无序序列构造成一个大顶堆
+2. 将堆顶元素与末尾元素进行交换，使末尾元素最大，然后继续构造大顶堆
+
+function heapSort(arr) {
+	var len = arr.length;
+	for (var x =  Math.floor(len / 2) - 1; x >= 0; x--) {
+		// 从最后一个非叶子结点开始建造堆
+		heapify(arr, x, len);
+	}
+
+	var size = len;
+	for (var y = len - 1; y >= 1; y--) {
+		// 末尾交换
+		var temp = arr[y]
+		arr[y] = arr[0];
+		arr[0] = temp;
+		// 继续建堆
+		heapify(arr, 0, --size);
+	}
+	return arr;
+}
+
+function heapify(arr, x, len) {
+	var largest = arr[x];
+	var largestIndex = x;
+	var k = 2 * x;
+
+	if (k + 1 < len && largest < arr[k + 1]) {
+		largest = arr[k + 1];
+		largestIndex = k + 1;
+	}
+	if (k + 2 < len && largest < arr[k + 2]) {
+		largest = arr[k + 2];
+		largestIndex = k + 2;
+	}
+	if (x !== largestIndex) {
+		var temp = arr[x];
+		arr[x] = arr[largestIndex];
+		arr[largestIndex] = temp;
+		heapify(arr, largestIndex, len);  
+	}
 }
