@@ -1,0 +1,8 @@
+setState 不一定是异步的，在React库控制之内时，它就会以异步的方式来执行，否则以同步的方式执行
+
+
+https://www.bennadel.com/blog/2893-setstate-state-mutation-operation-may-be-synchronous-in-reactjs.htm
+
+
+
+http://bennadel.github.io/JavaScript-Demos/demos/set-state-timing-reactjs/

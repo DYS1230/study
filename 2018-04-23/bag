@@ -1,0 +1,116 @@
+https://segmentfault.com/a/1190000012829866#articleHeader1
+
+01背包
+
+n 种物品，每种只有 1 件
+1个容量 w 的背包
+第 i 种物品的重量为 weight[i]   价值 value[i]
+
+f(i, j) 为最大价值  i 表示第几种物品 j 表示背包容量
+
+function knapsack(weight, value, w) {
+	var n = weight.length;
+	var f = [];
+	for (var i = 1; i <= n; i++) {
+		f[i] = [];
+		for (var j = 1; j <= w; j++) {
+			var originValue = f[i - 1] ? (f[i - 1][j] ? f[i - 1][j] : 0) : 0;
+			if (j < weight[i - 1]) {
+				f[i][j] = originValue;
+			} else {
+				var changeValue = f[i - 1] ? (f[i - 1][j - weight[i - 1]] ? f[i - 1][j - weight[i - 1]] : 0) : 0;
+				f[i][j] = Math.max(originValue, changeValue + value[i - 1]);
+			}
+		}
+	}
+
+	return f[n][w];
+}
+
+knapsack([2,2,6,5,4],[6,3,5,4,6],10);
+
+实际不用二维数组也行，因为只需要前一行数据，那就一行足以。一维数组就够了。
+
+function knapsack(weight, value, w) {
+	var n = weight.length;
+	var f = new Array(w + 1).fill(0);
+	for (var i = 1; i <= n; i++) {
+		for (var j = w; j > 0; j--) {
+			if (j >= weight[i - 1]) {
+				f[j] = Math.max(f[j], f[j - weight[i - 1]] + value[i - 1]);
+			}
+		}
+	}
+
+	return f[w];
+}
+
+
+
+完全背包
+
+n 种物品，每种只有 无数 件
+1个容量 w 的背包
+第 i 种物品的重量为 weight[i]   价值 value[i]
+
+f(i, j) 为最大价值  i 表示第几种物品 j 表示背包容量
+
+function completeKnapsack(weight, value, w) {
+	var n = weight.length;
+	var f = [];
+	for (var i = 1; i <= n; i++) {
+		f[i] = [];
+		for (var j = 1; j <= w; j++) {
+			var originValue = f[i] ? (f[i][j] ? f[i][j] : 0) : 0;
+			var boundary = j / weight[i - 1];
+			for (var k = 0; k <= boundary; k++) {
+				var changeValue = f[i] ? (f[i][j - k * weight[i - 1]] ? f[i][j - k * weight[i - 1]] : 0) : 0
+				f[i][j] = Math.max(originValue, changeValue + k * value[i - 1]);
+			}
+		}
+	}
+
+	return f[n][w];
+}
+
+同样一维数组即可
+
+function completeKnapsack(weight, value, w) {
+	var n = weight.length;
+	var f =  new Array(w + 1).fill(0);
+	for (var i = 1; i <= n; i++) {
+		for (var j = 1; j <= w; j++) {
+			if (j >= weight[i - 1]) {
+				f[j] = Math.max(f[j], f[j - weight[i - 1]] + value[i - 1]);
+			}
+		}
+	}
+
+	return f[w];
+}
+
+
+多重背包
+
+n 种物品，每种只有 x 件
+1个容量 w 的背包
+第 i 种物品的重量为 weight[i]   价值 value[i]
+
+f(i, j) 为最大价值  i 表示第几种物品 j 表示背包容量
+
+// 直接用 01 背包的解法
+function knapsack(weight, value, number, w) {
+	var n = weight.length;
+	var f = new Array(w + 1).fill(0);
+	for (var i = 1; i <= n; i++) {
+		for (var j = w; j >= 0; j--) {
+			for (var k = 0; k <= number[i - 1]; k++) {
+				if (j >= weight[i - 1]) {
+					f[j] = Math.max(f[j], f[j - weight[i - 1]] + value[i - 1])
+				}
+			}
+		}
+	}
+
+	return f[w]
+}
