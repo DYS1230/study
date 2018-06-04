@@ -1,0 +1,89 @@
+display  不占位  visible, opacity 占位
+display visible 无法响应 click, opacity 响应
+
+其后 opacity 会影响整个
+rgba() 影响自己而已
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#display, #visible, #opacity {
+			height: 100px;
+			width: 100px;
+			background: #ccc;
+		}
+
+		#display {
+			display: none;
+		}
+
+		#visible {
+			visibility: hidden;
+		}
+
+		#opacity {
+			opacity: 0;
+		}
+
+		.container {
+			width: 200px;
+			height: 200px;
+			background: #ccc;
+			position: relative;
+		}
+
+		.container > div {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100px;
+			height: 100px;
+		}
+
+		#opacity1 {
+			background: rgba(128,0,128, 0.1);
+		}
+
+		#opacity2 {
+			background: rgb(128,0,128);
+			opacity: 0.1;
+		}
+
+
+	</style>
+</head>
+<body>
+<div id="display"></div>
+<div id="visible"></div>
+<div id="opacity"></div>
+<div id="contrasts"></div>
+<div class="container">
+	<p>123</p>
+	<div id="opacity1">
+		<p>456</p>
+	</div>
+</div>
+<div class="container">
+	<p>123</p>
+	<div id="opacity2">
+		<p>456</p>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	var display = document.querySelector('#display');
+	var visible = document.querySelector('#visible');
+	var opacity = document.querySelector('#opacity');
+	var contrasts = document.querySelector('#contrasts');
+
+	var clickFun = () => console.log('click');
+
+	display.onclick = clickFun;
+	visible.onclick = clickFun;
+	opacity.onclick = clickFun;
+	contrasts.onclick = clickFun;
+
+</script>
+</html>
