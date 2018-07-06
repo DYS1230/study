@@ -1,0 +1,61 @@
+在W3C模型中，任何事件发生时，先从顶层开始进行事件捕获，直到事件触发到达了事件源元素。然后，再从事件源往上进行事件冒泡，直到到达document。
+
+addEventListener 用法
+
+target.addEventListener(type, listener, options);
+
+options 为 Object 
+
+{
+    capture: Boolean,  // 默认 false  是否为捕获
+    passive: Boolean,  // 表示 listener 是否会调用 preventDefault
+    once: Boolean // 是否只调用一次
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	div {
+		background: #ccc;
+		width: 100px;
+		height: 100px;
+	}
+	</style>
+</head>
+<body>
+<div id='one'>
+      <div id='two'>
+        <div id='three'>
+          <div id='four'>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+ <script>
+        var one = document.getElementById('one');
+        var two = document.getElementById('two');
+        var three = document.getElementById('three');
+        var four = document.getElementById('four');
+    
+        
+        one.addEventListener('click', function() {
+            console.log('one');
+        }, true);
+        two.addEventListener('click', function() {
+            console.log('two');
+        });
+        three.addEventListener('click', function() {
+            console.log('three');
+        }, true);
+        four.addEventListener('click', function() {
+            console.log('four');
+        });        
+     
+</script>
+</body>
+</html>
