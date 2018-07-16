@@ -1,0 +1,14 @@
+挺久没自己写webpack配置文件，如今已是v4，因而从新尝试自己写一份配置文件。
+
+之前如果想使用webpack，需要全局安装webpack后才能直接命令行输入webpack进行打包。
+
+而现在需要多装 webpack-cli 才可使用。
+
+然而全局安装有一个问题，若两个项目依赖的 webpack 版本不同，输入 webpack 打包的非是 node_modules 里面的 webpack，
+而是全局的。
+
+一可以是在 package.json 里面配置 script，其后 npm run xxx 即可。
+
+二可以使用 npx。
+
+观察 node_modules 文件夹，可以发现其实有一个隐藏文件夹 .bin，里面存放了安装的script，其实 package.json 与 npx 都是使用它。
